@@ -1,0 +1,50 @@
+.boardNav {
+  width: 220px;
+  flex-shrink: 0; /* 컨테이너 크기가 줄어도 너비 유지 */
+  background-color: #f5f5f5;
+  padding: 24px;
+  border-radius: 12px;
+}
+
+.boardNav h2 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #a7c7e7;
+  margin-top: 0;
+  margin-bottom: 24px;
+  padding-bottom: 24px;
+  border-bottom: 2px solid #a7c7e7;
+}
+
+.boardNav ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.boardNav a {
+  width: 100%;
+  text-align: left;
+  padding: 16px 24px;
+  font-size: 1rem;
+  font-weight: 500;
+  color: #333333;
+  background-color: transparent; /* 기본 배경색 제거 */
+  border: none; /* 기본 테두리 제거 */
+  cursor: pointer; /* 커서 모양 변경 */
+  display: block; /* li 영역 전체를 링크로 만들기 */
+  text-decoration: none; /* 밑줄 제거 */
+  border-radius: 8px;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.boardNav a:hover {
+  background-color: #8daacb;
+  color: #ffffff;
+}
+
+.boardNav a.active {
+  background-color: #a7c7e7;
+  color: #ffffff;
+  font-weight: 700;
+}

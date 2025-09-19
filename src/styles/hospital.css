@@ -1,0 +1,463 @@
+/* 병원 관련 스타일 */
+
+/* 병원 페이지 컨테이너 */
+.hospital-container {
+  background: linear-gradient(135deg, #ffffff 0%, #ffffff 100%);
+  min-height: 100vh;
+  padding: 75px 0 48px 0; /* 140px (헤더 마진) + 48px (기존 패딩) */
+}
+
+.hospital-header {
+  text-align: center;
+  margin-bottom: 72px;
+}
+
+.hospital-title {
+  color: #0078d4;
+  font-size: 3rem;
+  font-weight: 800;
+  margin-bottom: 16px;
+  text-shadow: 0 2px 4px rgba(0, 168, 255, 0.1);
+}
+
+.hospital-subtitle {
+  color: #2f3542;
+  font-size: 1.5rem;
+  font-weight: 400;
+  opacity: 0.8;
+}
+
+/* 병원 카드 스타일 */
+.hospital-card {
+  background: #8b0606;
+  border-radius: 12px;
+  box-shadow: 0 8px 24px rgba(0, 168, 255, 0.12);
+  overflow: hidden;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.hospital-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 16px 40px rgba(0, 168, 255, 0.2);
+}
+
+.hospital-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, #00a8ff, #0078d4);
+}
+
+.hospital-image {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-bottom: 1px solid #00406e;
+}
+
+.hospital-content {
+  padding: 24px;
+}
+
+.hospital-name {
+  color: #0078d4;
+  font-size: 1.125rem;
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+
+.hospital-location {
+  color: #2f3542;
+  font-size: 0.875rem;
+  margin-bottom: 16px;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.hospital-location::before {
+  content: '📍';
+  font-size: 1em;
+}
+
+.hospital-description {
+  color: #2f3542;
+  font-size: 0.875rem;
+  line-height: 1.6;
+  margin-bottom: 16px;
+}
+
+/* 병원 운영시간 */
+.hospital-hours {
+  background: #e3f2fd;
+  padding: 16px;
+  border-radius: 4px;
+  margin-bottom: 16px;
+  border-left: 3px solid #00a8ff;
+}
+
+.hospital-hours-title {
+  color: #0078d4;
+  font-size: 0.875rem;
+  font-weight: 600;
+  margin-bottom: 4px;
+}
+
+.hospital-hours-text {
+  color: #2f3542;
+  font-size: 0.8rem;
+  font-weight: 500;
+}
+
+/* 응급실 운영 상태 */
+.hospital-emergency-status {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 16px;
+  padding: 8px;
+  border-radius: 4px;
+}
+
+.hospital-emergency-status.open {
+  background: rgba(46, 213, 115, 0.1);
+  color: #2ed573;
+}
+
+.hospital-emergency-status.closed {
+  background: rgba(255, 71, 87, 0.1);
+  color: #ff4757;
+}
+
+.hospital-emergency-icon {
+  font-size: 1.1em;
+}
+
+.hospital-emergency-text {
+  font-size: 0.875rem;
+  font-weight: 600;
+}
+
+/* 병원 전문 분야 태그 */
+.hospital-specialties {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+
+.hospital-specialty-tag {
+  background: #e3f2fd;
+  color: #0078d4;
+  padding: 4px 8px;
+  border-radius: 9999px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.hospital-specialty-tag.general::before {
+  content: '🏥';
+}
+
+.hospital-specialty-tag.emergency::before {
+  content: '🚑';
+}
+
+.hospital-specialty-tag.surgery::before {
+  content: '⚕️';
+}
+
+.hospital-specialty-tag.dental::before {
+  content: '🦷';
+}
+
+.hospital-specialty-tag.dermatology::before {
+  content: '🔬';
+}
+
+/* 병원 평점 및 리뷰 */
+.hospital-rating {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+
+.hospital-stars {
+  color: #ffd700;
+  font-size: 0.875rem;
+}
+
+.hospital-rating-text {
+  color: #2f3542;
+  font-size: 0.875rem;
+  font-weight: 500;
+}
+
+.hospital-reviews {
+  color: #2f3542;
+  font-size: 0.8rem;
+  opacity: 0.7;
+  margin-left: 8px;
+}
+
+/* 병원 연락처 정보 */
+.hospital-contact {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 16px;
+  color: #2f3542;
+  font-size: 0.875rem;
+}
+
+.hospital-contact::before {
+  content: '📞';
+  font-size: 1em;
+}
+
+/* 병원 서비스 아이콘 */
+.hospital-services {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 16px;
+  flex-wrap: wrap;
+}
+
+.hospital-service-icon {
+  background: #e3f2fd;
+  color: #0078d4;
+  padding: 6px 10px;
+  border-radius: 4px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.hospital-service-icon.parking::before {
+  content: '🅿️';
+}
+
+.hospital-service-icon.pharmacy::before {
+  content: '💊';
+}
+
+.hospital-service-icon.xray::before {
+  content: '🩻';
+}
+
+.hospital-service-icon.lab::before {
+  content: '🔬';
+}
+
+/* 병원 버튼 스타일 */
+.hospital-btn {
+  background: linear-gradient(135deg, #00a8ff, #0078d4);
+  color: #ffffff;
+  padding: 16px 24px;
+  border-radius: 9999px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  transition: all 0.3s ease;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+}
+
+.hospital-btn:hover {
+  transform: scale(1.02);
+  box-shadow: 0 8px 16px rgba(0, 168, 255, 0.3);
+}
+
+.hospital-btn-emergency {
+  background: linear-gradient(135deg, #ff4757, #ff3838);
+  margin-top: 8px;
+}
+
+/* 병원 필터 섹션 */
+.hospital-filters {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  margin-bottom: 72px;
+  flex-wrap: wrap;
+}
+
+.hospital-filter-btn {
+  background: #ffffff;
+  color: #0078d4;
+  border: 2px solid #e3f2fd;
+  padding: 16px 24px;
+  border-radius: 9999px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.hospital-filter-btn:hover,
+.hospital-filter-btn.active {
+  background: #0078d4;
+  color: #ffffff;
+  border-color: #0078d4;
+}
+
+/* 병원 그리드 레이아웃 */
+.hospital-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 48px;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 16px;
+}
+
+/* 반응형 디자인 */
+@media (max-width: 768px) {
+  .hospital-container {
+    padding: 158px 0 48px 0; /* 110px (모바일 헤더 마진) + 48px (기존 패딩) */
+  }
+
+  .hospital-title {
+    font-size: 2rem;
+  }
+  
+  .hospital-grid {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+  
+  .hospital-filters {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .hospital-specialties,
+  .hospital-services {
+    justify-content: center;
+  }
+  .mapWrapper {
+    width: 100vw;
+    height: 40vh;
+    border-radius: 0;
+    margin-bottom: var(--spacing-lg);
+  }
+}
+
+/* --- 공통 페이지 스타일 (From Page.module.css) --- */
+
+.pageHeader {
+  text-align: center;
+  margin-bottom: var(--spacing-xl);
+}
+.pageTitle {
+  font-weight: 800;
+  margin-bottom: var(--spacing-xs);
+  color: var(--text-dark);
+  line-height: 1.2;
+}
+.pageSubtitle {
+  font-size: var(--text-lg);
+  color: var(--text-gray);
+  margin: 0;
+}
+.mapWrapper {
+  position: relative;
+  height: calc((100vh - 220px) * 0.8);
+  width: 95vw;
+  border-radius: var(--radius-xl);
+  overflow: hidden;
+  box-shadow: var(--shadow-lg);
+  z-index: 1; /* 맵뷰의 z-index 설정 */
+  margin: 0 auto var(--spacing-xl); /* 지도를 중앙 정렬하고 하단에 여백 추가 */
+}
+.filtersOnMap {
+  position: absolute;
+  top: var(--container-padding);
+  left: 50%;
+  transform: translateX(-50%);
+  width: calc(100% - 40px);
+  z-index: var(--z-dropdown);
+  background-color: rgba(255, 255, 255, 0.6);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-lg);
+  padding: var(--spacing-md);
+  max-width: 900px;
+  box-sizing: border-box;
+}
+.filterGroup {
+  margin-bottom: var(--spacing-md);
+  padding: 0 var(--spacing-xs);
+}
+.filterGroup:last-child {
+  margin-bottom: 0;
+}
+.filterLabel {
+  display: block;
+  margin-bottom: var(--spacing-xs);
+  font-weight: var(--font-semibold);
+  font-size: var(--text-sm);
+  color: var(--text-medium);
+}
+.filterInputWrapper {
+  display: flex;
+  align-items: center;
+  background: white;
+  border-radius: 8px;
+  padding: 8px 12px;
+  border: 1px solid #ddd;
+  margin-bottom: 8px;
+}
+.filterInput {
+  border: none;
+  outline: none;
+  flex: 1;
+  font-size: 14px;
+  background: transparent;
+}
+.pillButtonContainer {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.pillButton {
+  padding: var(--btn-padding-sm);
+  border-radius: var(--radius-2xl);
+  border: 1px solid var(--border-medium);
+  background: var(--bg-white);
+  color: var(--text-medium);
+  cursor: pointer;
+  font-size: var(--text-sm);
+  transition: var(--transition-base);
+}
+.pillButton.active,
+.pillButton:hover {
+  background: var(--theme-hospital-primary);
+  color: var(--bg-white);
+  border-color: var(--theme-hospital-primary);
+}
+
+@media (max-width: 768px) {
+  .mapWrapper {
+    width: 100vw;
+    height: 40vh;
+    border-radius: 0;
+  }
+  .filtersOnMap {
+    left: 10px;
+    right: 10px;
+    width: calc(100% - 20px);
+    transform: none;
+  }
+}

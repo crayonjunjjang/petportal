@@ -1,0 +1,211 @@
+/* src/pages/CafeDetailPage.module.css */
+
+.detailPageContainer {
+  background: linear-gradient(135deg, #fdfbfb 0%, #ebedee 100%);
+  padding-bottom: 80px;
+}
+
+/* --- Carousel & Hero Section --- */
+.carouselSection {
+  position: relative;
+  height: 450px; /* 고정 높이 */
+  background-color: #3c2415; /* 이미지 로딩 전 배경색 */
+}
+
+.carouselSection :global(.carousel .slide img) {
+  height: 450px;
+  object-fit: cover;
+  filter: brightness(0.6);
+}
+
+.heroContent {
+  position: absolute;
+  bottom: 40px;
+  left: 50%;
+  transform: translateX(-50%);
+  color: #fff;
+  text-align: center;
+  width: 90%;
+  z-index: 10;
+  text-shadow: 0 2px 12px rgba(0, 0, 0, 0.7);
+}
+
+.heroContent h1 {
+  font-size: 3.5rem;
+  font-weight: 800;
+  margin: 8px 0;
+  line-height: 1.1;
+}
+
+.cafeType {
+  background: #d4a574;
+  color: #fff;
+  padding: 4px 12px;
+  border-radius: 99px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  display: inline-block;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.cafeLocation {
+  font-size: 1.1rem;
+  opacity: 0.9;
+}
+
+/* --- Main Content Layout --- */
+.mainContent {
+  display: flex;
+  gap: 32px;
+  max-width: 1200px;
+  margin: -60px auto 0; /* Hero 섹션 위로 살짝 올라오게 */
+  padding: 0 24px;
+  position: relative;
+  z-index: 20;
+}
+
+.infoColumn {
+  flex: 1;
+  background: #fff;
+  padding: 40px;
+  border-radius: 16px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+  min-width: 0;
+}
+
+.bookingColumn {
+  flex: 0 0 320px;
+  position: sticky;
+  top: 100px; /* 헤더 높이 고려 */
+  height: fit-content;
+}
+
+/* --- Info Blocks --- */
+.infoBlock {
+  margin-bottom: 40px;
+}
+
+.infoBlock:last-child {
+  margin-bottom: 0;
+}
+
+.infoBlock h3 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #8b4513;
+  margin-bottom: 16px;
+  padding-bottom: 8px;
+  border-bottom: 2px solid #f4e4c1;
+}
+
+.description {
+  font-size: 1rem;
+  line-height: 1.8;
+  color: #3c2415;
+}
+
+.infoBlock p {
+  font-size: 0.95rem;
+  color: #5c4b42;
+  line-height: 1.7;
+  margin-bottom: 8px;
+}
+
+.infoBlock p strong {
+  color: #3c2415;
+  margin-right: 8px;
+}
+
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.tag {
+  background: #f4e4c1;
+  color: #8b4513;
+  padding: 6px 14px;
+  border-radius: 99px;
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+/* --- Booking Box --- */
+.bookingBox {
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+  overflow: hidden;
+  border: 1px solid #f0e6d2;
+}
+
+.bookingSummary {
+  padding: 24px;
+  border-bottom: 1px solid #f0e6d2;
+}
+
+.price {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #d4a574;
+  margin: 0 0 16px;
+}
+
+.summaryList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.summaryList li {
+  font-size: 0.9rem;
+  color: #5c4b42;
+  margin-bottom: 8px;
+}
+
+.bookingActions {
+  padding: 24px;
+}
+
+.bookingButton {
+  width: 100%;
+}
+
+/* --- Not Found / Error --- */
+.notFound {
+  text-align: center;
+  padding: 80px 24px;
+  min-height: 60vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.notFound h2 {
+  font-size: 2rem;
+  color: #8b4513;
+  margin-bottom: 16px;
+}
+
+.notFound p {
+  color: #5c4b42;
+  margin-bottom: 32px;
+}
+
+/* --- Responsive --- */
+@media (max-width: 900px) {
+  .mainContent {
+    flex-direction: column;
+    margin-top: 24px;
+  }
+  .bookingColumn {
+    position: static;
+    width: 100%;
+  }
+  .heroContent h1 {
+    font-size: 2.5rem;
+  }
+}

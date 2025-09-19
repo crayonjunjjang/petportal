@@ -1,0 +1,49 @@
+/* src/components/layout/Bar.module.css */
+.nav a {
+    font-family: 'Jalnan2', sans-serif;
+    font-size: 30px;
+    font-weight: 500;
+    color: var(--color-white); /* 기본 메뉴 색상을 흰색으로 */
+    padding: var(--spacing-xs) 0;
+    position: relative;
+    transition: color 0.4s ease-in-out;
+  }
+
+  .nav.scrolled a {
+    color: var(--color-text-dark); /* 스크롤 시 어두운 색으로 변경 */
+  }
+
+  .nav.scrolled a:hover {
+      color: var(--color-primary); /* 스크롤 시 호버 색상 */
+  }
+
+  .nav ul {
+    display: flex;
+    align-items: center;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    gap: var(--spacing-md);
+  }
+  .nav a::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 0;
+    height: 2px;
+    background-color: var(--color-primary);
+    transition: width 0.3s ease-in-out;
+  }
+  
+  .nav a:hover::after {
+    width: 100%;
+  }
+
+  .nav a.active {
+    color: var(--color-primary);
+  }
+
+  .nav a.active::after {
+    width: 100%;
+  }

@@ -1,0 +1,298 @@
+/* 동반숙소 관련 스타일 */
+
+/* 동반숙소 페이지 컨테이너 */
+.pension-container {
+  background: linear-gradient(135deg, #f0f7ff 0%, #ffffff 100%);
+  min-height: 100vh;
+  padding: 48px 0;
+}
+
+.pension-header {
+  text-align: center;
+  margin-bottom: 72px;
+}
+
+.pension-title {
+  color: #2c5aa0;
+  font-size: 3rem;
+  font-weight: 800;
+  margin-bottom: 16px;
+  text-shadow: 0 2px 4px rgba(74, 144, 226, 0.1);
+}
+
+.pension-subtitle {
+  color: #2c3e50;
+  font-size: 1.5rem;
+  font-weight: 400;
+  opacity: 0.8;
+}
+
+/* 동반숙소 카드 스타일 */
+.pension-card {
+  background: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 8px 24px rgba(74, 144, 226, 0.12);
+  overflow: hidden;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.pension-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 16px 40px rgba(74, 144, 226, 0.2);
+}
+
+.pension-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, #4a90e2, #2c5aa0);
+}
+
+.pension-image {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  border-bottom: 1px solid #e6f3ff;
+}
+
+.pension-content {
+  padding: 24px;
+}
+
+.pension-name {
+  color: #2c5aa0;
+  font-size: 1.125rem;
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+
+.pension-location {
+  color: #2c3e50;
+  font-size: 0.875rem;
+  margin-bottom: 16px;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.pension-location::before {
+  content: '📍';
+  font-size: 1em;
+}
+
+.pension-description {
+  color: #2c3e50;
+  font-size: 0.875rem;
+  line-height: 1.6;
+  margin-bottom: 16px;
+}
+
+.pension-price {
+  color: #4a90e2;
+  font-size: 1.5rem;
+  font-weight: 800;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.pension-price::before {
+  content: '🏠';
+  font-size: 1.2em;
+}
+
+.pension-price-unit {
+  font-size: 0.875rem;
+  font-weight: 400;
+  color: #2c3e50;
+  opacity: 0.7;
+}
+
+/* 동반숙소 편의시설 태그 */
+.pension-amenities {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 16px;
+}
+
+.pension-amenity-tag {
+  background: #e6f3ff;
+  color: #2c5aa0;
+  padding: 4px 8px;
+  border-radius: 9999px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.pension-amenity-tag.pool::before {
+  content: '🏊';
+}
+
+.pension-amenity-tag.parking::before {
+  content: '🅿️';
+}
+
+.pension-amenity-tag.kitchen::before {
+  content: '🍳';
+}
+
+.pension-amenity-tag.bbq::before {
+  content: '🔥';
+}
+
+.pension-amenity-tag.wifi::before {
+  content: '📶';
+}
+
+/* 동반숙소 평점 및 리뷰 */
+.pension-rating {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 16px;
+}
+
+.pension-stars {
+  color: #ffd700;
+  font-size: 0.875rem;
+}
+
+.pension-rating-text {
+  color: #2c3e50;
+  font-size: 0.875rem;
+  font-weight: 500;
+}
+
+.pension-reviews {
+  color: #2c3e50;
+  font-size: 0.8rem;
+  opacity: 0.7;
+  margin-left: 8px;
+}
+
+/* 펜션 체크인/아웃 정보 */
+.pension-booking-info {
+  background: #f0f7ff;
+  padding: 16px;
+  border-radius: 4px;
+  margin-top: 16px;
+  border-left: 3px solid #4a90e2;
+}
+
+.pension-checkin {
+  color: #2c3e50;
+  font-size: 0.8rem;
+  font-weight: 500;
+  margin-bottom: 4px;
+}
+
+.pension-checkout {
+  color: #2c3e50;
+  font-size: 0.8rem;
+  font-weight: 500;
+}
+
+/* 동반숙소 버튼 스타일 */
+.pension-btn {
+  background: linear-gradient(135deg, #4a90e2, #2c5aa0);
+  color: #ffffff;
+  padding: 16px 24px;
+  border-radius: 9999px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  transition: all 0.3s ease;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  margin-top: 16px;
+}
+
+.pension-btn:hover {
+  transform: scale(1.02);
+  box-shadow: 0 8px 16px rgba(74, 144, 226, 0.3);
+}
+
+/* 동반숙소 필터 섹션 */
+.pension-filters {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  margin-bottom: 72px;
+  flex-wrap: wrap;
+}
+
+.pension-filter-btn {
+  background: #ffffff;
+  color: #2c5aa0;
+  border: 2px solid #e6f3ff;
+  padding: 16px 24px;
+  border-radius: 9999px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.pension-filter-btn:hover,
+.pension-filter-btn.active {
+  background: #2c5aa0;
+  color: #ffffff;
+  border-color: #2c5aa0;
+}
+
+/* 동반숙소 가격 범위 필터 */
+.pension-price-filter {
+  background: #ffffff;
+  padding: 24px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(74, 144, 226, 0.1);
+  margin-bottom: 48px;
+  max-width: 400px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.pension-price-filter h3 {
+  color: #2c5aa0;
+  margin-bottom: 16px;
+  text-align: center;
+}
+
+/* 동반숙소 그리드 레이아웃 */
+.pension-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 48px;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 16px;
+}
+
+/* 반응형 디자인 */
+@media (max-width: 768px) {
+  .pension-title {
+    font-size: 2rem;
+  }
+  
+  .pension-grid {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+  
+  .pension-filters {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .pension-amenities {
+    justify-content: center;
+  }
+}

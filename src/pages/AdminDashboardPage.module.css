@@ -1,0 +1,19 @@
+.dashboardContainer {
+    padding: 2rem;
+  }
+  
+  .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+  }
+  
+  .title {
+    font-size: 2rem;
+    font-weight: bold;
+  }
+  
+  .welcomeMessage {
+    font-size: 1.2rem;
+  }

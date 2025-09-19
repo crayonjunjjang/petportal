@@ -1,0 +1,18 @@
+<svg width="100" height="100" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <circle cx="50" cy="50" r="50" fill="#FEF3C7"/>
+  <!-- Cat ears -->
+  <path d="M35 20L40 35L30 35Z" fill="#F59E0B"/>
+  <path d="M65 20L70 35L60 35Z" fill="#F59E0B"/>
+  <!-- Cat face -->
+  <circle cx="50" cy="45" r="25" fill="#FBBF24"/>
+  <!-- Eyes -->
+  <ellipse cx="42" cy="38" rx="2" ry="4" fill="#1F2937"/>
+  <ellipse cx="58" cy="38" rx="2" ry="4" fill="#1F2937"/>
+  <!-- Nose -->
+  <path d="M50 48L47 52L53 52Z" fill="#F59E0B"/>
+  <!-- Whiskers -->
+  <line x1="30" y1="45" x2="40" y2="47" stroke="#1F2937" stroke-width="1"/>
+  <line x1="30" y1="50" x2="40" y2="50" stroke="#1F2937" stroke-width="1"/>
+  <line x1="60" y1="47" x2="70" y2="45" stroke="#1F2937" stroke-width="1"/>
+  <line x1="60" y1="50" x2="70" y2="50" stroke="#1F2937" stroke-width="1"/>
+</svg>

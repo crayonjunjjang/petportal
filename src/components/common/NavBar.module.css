@@ -1,0 +1,73 @@
+/* src/components/common/NavBar.module.css */
+@font-face {
+  font-family: 'Jalnan2';
+  src: url('../../fonts/Jalnan2.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+.nav {; /* relative 위치로 변경하여 플렉스 배치 사용 */
+  left: -10%; 
+  display: flex;
+  align-items: center;
+  gap: 1.8rem; /* 네비게이션 내부 간격을 3rem으로 설정 */
+  transition: background-color 0.3s ease, box-shadow 0.3s ease; /* Add transition for smooth hover effect */
+  background-color: transparent; /* Ensure it's transparent by default */
+  border-radius: 8px; /* Add some border-radius for the hover effect */
+  padding: 0.3rem; /* 패딩을 균등하게 설정 */
+  z-index: 10; /* Bring nav to front on hover */
+  flex-shrink: 0; /* 크기가 줄어들지 않도록 설정 */
+  min-width: 0; /* 최소 너비를 0으로 설정하여 flex 작동 */
+  margin: 0; /* 기본 마진 제거 */
+}
+
+
+
+.nav a {
+  font-family: 'Jalnan2', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 1rem; /* 폰트 크기를 약간 줄임 */
+  font-weight: 600;
+  color: #ffffff;
+  text-decoration: none;
+  padding: 0.5rem 0.7rem; /* 패딩을 텍스트 크기에 맞게 조정 */
+  position: relative;
+  white-space: nowrap; /* 텍스트 줄바꿈 방지 */
+  flex-shrink: 0; /* 크기가 줄어들지 않도록 설정 */
+  transition: color 0.3s ease, transform 0.3s ease;
+  text-shadow: 
+    -1px -1px 0 rgba(0, 0, 0, 0.8),
+    1px -1px 0 rgba(0, 0, 0, 0.8),
+    -1px 1px 0 rgba(0, 0, 0, 0.8),
+    1px 1px 0 rgba(0, 0, 0, 0.8);
+  transform: scale(1); /* Base scale */
+}
+
+.nav.scrolled a {
+  color: #2D3748;
+  text-shadow: 
+    -1px -1px 0 rgba(255, 255, 255, 0.8),
+    1px -1px 0 rgba(255, 255, 255, 0.8),
+    -1px 1px 0 rgba(255, 255, 255, 0.8),
+    1px 1px 0 rgba(255, 255, 255, 0.8);
+}
+
+.nav a:hover {
+  color: #4A90E2;
+  transform: scale(1.05); /* Scale on hover */
+}
+
+.nav a::after {
+  content: '';
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  width: 0;
+  height: 3px;
+  background-color: #4A90E2;
+  transition: all 0.3s ease;
+  transform: translateX(-50%);
+}
+
+.nav a:hover::after {
+  width: 80%;
+}

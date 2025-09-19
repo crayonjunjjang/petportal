@@ -1,0 +1,113 @@
+/* src/components/layout/Header.module.css - 헤더 컴포넌트의 스타일을 정의하는 CSS 모듈 파일입니다. */
+.header {
+  position: fixed; /* 요소를 뷰포트 기준으로 고정시켜 스크롤해도 항상 같은 위치에 있도록 합니다. */
+  top: 0; /* 화면 상단에 헤더를 배치합니다. */
+  left: 0; /* 화면 왼쪽에 헤더를 배치합니다. */
+  width: 100%; /* 헤더의 너비를 화면 전체 너비로 설정합니다. */
+  max-width: 100vw; /* 뷰포트 너비를 넘지 않도록 제한합니다. */
+  min-width: 320px; /* 헤더의 최소 너비를 320px로 설정하여 작은 화면에서도 레이아웃이 깨지지 않도록 합니다. */
+  height: 100px; /* 헤더의 높이를 고정값으로 설정합니다. */
+  background-color: transparent !important; /* 배경색을 투명하게 설정합니다. !important는 다른 스타일 규칙보다 우선 적용됩니다. */
+  background: none !important; /* 배경 이미지나 그라데이션을 완전히 제거합니다. */
+  z-index: 1000; /* 다른 요소들보다 위에 표시되도록 z-축 순서를 높게 설정합니다. */
+  transition: all 0.3s ease; /* 모든 속성(높이, 배경색 등)이 변경될 때 0.3초 동안 부드러운 전환 효과를 적용합니다. */
+  overflow-x: hidden !important; /* 가로 스크롤 방지 */
+  box-sizing: border-box; /* 패딩과 보더를 포함한 전체 크기 계산 */
+}
+
+.header.scrolled {
+  background-color: rgba(255, 255, 255, 0.5); /* 스크롤 시, 반투명한 흰색 배경을 적용합니다. (0.5는 50% 투명도를 의미) */
+  backdrop-filter: blur(1px); /* 헤더 뒤의 콘텐츠를 10px만큼 흐리게 만들어 '프로스티드 글래스' 효과를 줍니다. */
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* 헤더 아래쪽에 부드러운 그림자를 추가하여 입체감을 줍니다. */
+  height: 80px; /* 스크롤 시 헤더의 높이를 80px로 고정합니다. */
+}
+
+.container {
+  display: flex; /* 내부 요소(로고, 네비게이션 등)를 정렬하기 위해 Flexbox 레이아웃을 사용합니다. */
+  justify-content: space-between; /* 로고는 왼쪽, 메뉴는 오른쪽에 배치합니다. */
+  align-items: center; /* 자식 요소들을 수직 중앙에 정렬합니다. */
+  max-width: 1800px; /* 컨테이너의 최대 너비를 원래대로 복원합니다. */
+  margin: 0 auto; /* 컨테이너 자체를 부모 요소 내에서 수평 중앙에 배치합니다. */
+  width: 100%; /* 부모 요소(.header)의 전체 너비를 차지합니다. */
+  height: 100%; /* 부모 요소(.header)의 전체 높이를 차지합니다. */
+  position: relative; /* 자식 요소 중 position: absolute를 사용하는 요소의 기준점이 됩니다. */
+  transition: all 0.3s ease; /* 모든 속성 변경에 0.3초 동안 부드러운 전환 효과를 적용합니다. */
+  overflow-x: hidden; /* 헤더 내부에서도 가로 스크롤 방지 */
+  box-sizing: border-box; /* 패딩과 보더를 포함한 전체 크기 계산 */
+  padding: 0 20px; /* 양쪽에 패딩 추가 */
+}
+
+/* 로고 영역: 약 20% */
+.container > :first-child {
+  flex: 0 0 auto;
+  min-width: 0;
+}
+
+.header.scrolled .container {
+  padding-top: 0; /* 스크롤 시 상단 패딩을 0으로 초기화합니다. */
+  align-items: center; /* 스크롤 시 자식 요소들을 수직 중앙으로 정렬합니다. */
+}
+
+
+
+
+
+/* 태블릿 화면 크기(최대 1024px)에 대한 반응형 스타일입니다. */
+@media (max-width: 1024px) {
+  .container {
+    padding: 0 30px; /* 컨테이너의 좌우 패딩을 30px로 설정합니다. */
+  }
+  
+  .desktopMenu {
+    padding-right: 15px; /* 태블릿에서 오른쪽 패딩 줄임 */
+  }
+  
+  .desktopMenu > *:not(:last-child) {
+    margin-right: 1.2rem; /* 태블릿에서 간격 조정 */
+  }
+}
+
+/* 모바일 화면 크기(최대 768px)에 대한 반응형 스타일입니다. */
+@media (max-width: 768px) {
+  .header {
+    height: 70px; /* 모바일에서는 헤더 높이를 70px로 고정합니다. */
+  }
+  
+  .container {
+    padding: 0 20px; /* 컨테이너의 좌우 패딩을 20px로 설정합니다. */
+    justify-content: flex-start; /* 로고를 왼쪽에 배치하기 위해 자식 요소들을 시작점(왼쪽)으로 정렬합니다. */
+  }
+  
+  .desktopMenu {
+    display: none; /* 데스크톱 메뉴를 숨깁니다. (햄버거 메뉴로 대체) */
+  }
+}
+
+/* 매우 작은 모바일 화면(최대 480px)에 대한 반응형 스타일입니다. */
+@media (max-width: 480px) {
+  .container {
+    padding: 0 15px; /* 컨테이너의 좌우 패딩을 15px로 더 줄입니다. */
+  }
+}
+
+/* To push NavBar, SearchBar, CartIcon, ProfileIcons, AuthButtons to the right,
+   and create spacing between them. */
+.container > :nth-child(2) { /* Targets NavBar */
+  margin-left: auto; /* Pushes NavBar and subsequent elements to the right */
+}
+
+.container > :nth-child(3) { /* Targets SearchBar */
+  margin-left: 1.5rem; /* Spacing from NavBar */
+}
+
+.container > :nth-child(4) { /* Targets CartIcon */
+  margin-left: 1.5rem; /* Spacing from SearchBar */
+}
+
+.container > :nth-child(5) { /* Targets ProfileIcons */
+  margin-left: 1.5rem; /* Spacing from CartIcon */
+}
+
+.container > :nth-child(6) { /* Targets AuthButtons */
+  margin-left: 1.5rem; /* Spacing from ProfileIcons */
+}

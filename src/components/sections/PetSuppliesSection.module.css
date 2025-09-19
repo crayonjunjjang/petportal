@@ -1,0 +1,75 @@
+
+/* src/components/sections/PetSuppliesSection.module.css */
+.section {
+  padding: var(--section-padding) 0;
+  background-color: var(--section-background-color);
+  text-align: center;
+}
+
+.container {
+  max-width: var(--container-width);
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.title {
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--text-color);
+  margin-bottom: 15px;
+}
+
+.subtitle {
+  font-size: 1.1rem;
+  color: var(--text-light-color);
+  margin-bottom: 40px;
+  max-width: 500px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.categoryList {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 15px;
+  margin-bottom: 40px;
+}
+
+.categoryLink {
+  
+  display: inline-block;
+  padding: 10px 25px;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 500;
+  color: var(--text-light-color);
+  background-color: white;
+  border-radius: 30px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.categoryLink:hover {
+  background-color: var(--primary-color);
+  color: var(--white);
+  border-color: var(--primary-color);
+}
+
+.viewMoreButton {
+  display: inline-block;
+  padding: 12px 40px;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--white);
+  background-color: white;
+  border-radius: 8px;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+}
+
+.viewMoreButton:hover {
+  background-color: #003B8A; /* Darker shade of primary */
+}

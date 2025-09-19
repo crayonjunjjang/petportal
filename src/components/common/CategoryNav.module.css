@@ -1,0 +1,39 @@
+.categoryNav {
+    display: flex;
+    justify-content: space-around;
+    text-align: center;
+    padding-top: var(--spacing-md);
+    padding-bottom: var(--spacing-xl);
+    margin-bottom: var(--spacing-lg);
+  }
+  
+  .categoryItem {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    padding: var(--spacing-sm);
+    border-radius: var(--border-radius-md);
+    transition: transform 0.2s ease, background-color 0.2s ease;
+    width: 120px;
+  }
+  
+  .categoryItem:hover {
+    transform: translateY(-5px);
+    background-color: var(--color-background-medium);
+  }
+  
+  .categoryIcon {
+    font-size: var(--font-size-xl);
+    display: block;
+    margin-bottom: var(--spacing-xs);
+    color: var(--color-primary);
+  }
+  
+  .categoryName {
+    font-size: var(--font-size-base);
+    font-weight: 600;
+    color: var(--color-text-dark);
+  }
+  

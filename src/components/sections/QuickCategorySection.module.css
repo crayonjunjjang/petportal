@@ -1,0 +1,86 @@
+/* src/components/sections/QuickCategorySection.module.css */
+.section {
+  padding: var(--section-padding) 0;
+  background-color: var(--background-color);
+}
+
+.container {
+  max-width: var(--container-width);
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 30px;
+}
+
+.card {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+  background-color: white;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 12px;
+  padding: 40px;
+  text-decoration: none;
+  color: inherit;
+  transition: box-shadow 0.3s ease;
+}
+
+.card:hover {
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+}
+
+.imageWrapper {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+
+.image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.content {
+  text-align: left;
+}
+
+.title {
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--text-color);
+  margin-bottom: 10px;
+}
+
+.description {
+  font-size: 1.1rem;
+  color: var(--text-light-color);
+  margin-bottom: 20px;
+}
+
+.link {
+  font-weight: 600;
+  color: var(--primary-color);
+  transition: transform 0.3s ease;
+}
+
+.card:hover .link {
+  transform: translateX(5px);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+  .card {
+    flex-direction: column;
+    text-align: center;
+  }
+}

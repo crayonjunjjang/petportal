@@ -1,0 +1,16 @@
+/* src/pages/GroomingPage.module.css */
+
+.groomingContainer {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+}
+
+.groomingGrid {
+  padding: 0 20px 40px;
+}
+
+@media (max-width: 768px) {
+  .groomingGrid {
+    padding: 0 16px 24px;
+  }
+}

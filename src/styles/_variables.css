@@ -1,0 +1,114 @@
+:root {
+    /* Primary Brand Colors */
+    --primary-blue: #2c5aa0;
+    --primary-blue-light: #a7c7e7;
+    --primary-blue-dark: #1e3d6f;
+    --secondary-green: #b2e2b2;
+    --accent-pink: #ffd1dc;
+
+    /* Page-specific Theme Colors */
+    --theme-beauty-primary: #ff6b9d;
+    --theme-beauty-secondary: #ffb3d9;
+    --theme-beauty-bg-light: #fff5f8;
+
+    --theme-cafe-primary: #8b4513;
+    --theme-cafe-secondary: #d4a574;
+    --theme-cafe-bg-light: #faf8f5;
+
+    --theme-hospital-primary: #0078d4;
+    --theme-hospital-secondary: #00a8ff;
+    --theme-hospital-bg-light: #f1f9ff;
+
+    --theme-hotel-primary: #6c3483;
+    --theme-hotel-secondary: #8e44ad;
+    --theme-hotel-bg-light: #f8f4ff;
+  
+    /* Text Colors */
+    --text-dark: #1a202c;
+    --text-medium: #2d3748;
+    --text-body: #4a5568;
+    --text-light: #666666;
+    --text-muted: #999999;
+    --text-gray: #718096;
+  
+    /* Background Colors */
+    --bg-white: #ffffff;
+    --bg-light: #f8f9fa;
+    --bg-gray: #f5f5f5;
+    --bg-card: #f7fafc;
+  
+    /* Border Colors */
+    --border-light: #e0e0e0;
+    --border-medium: #ddd;
+    --border-gray: #e2e8f0;
+    --border-dark: #cbd5e0;
+  
+    /* Spacing Scale */
+    --spacing-xs: 8px;
+    --spacing-sm: 12px;
+    --spacing-md: 16px;
+    --spacing-lg: 24px;
+    --spacing-xl: 48px;
+    --spacing-2xl: 48px;
+    --spacing-3xl: 72px;
+  
+    /* Typography Scale */
+    --text-xs: 0.75rem;
+    --text-sm: 0.875rem;
+    --text-base: 1rem;
+    --text-lg: 1.125rem;
+    --text-xl: 1.25rem;
+    --text-2xl: 1.5rem;
+    --text-3xl: 2rem;
+    --text-4xl: 2.5rem;
+    --text-5xl: 3rem;
+  
+    /* Font Weights */
+    --font-normal: 400;
+    --font-medium: 500;
+    --font-semibold: 600;
+    --font-bold: 700;
+    --font-extrabold: 800;
+  
+    /* Border Radius Scale */
+    --radius-xs: 2px;
+    --radius-sm: 4px;
+    --radius-md: 8px;
+    --radius-lg: 12px;
+    --radius-xl: 16px;
+    --radius-2xl: 20px;
+    --radius-full: 9999px;
+  
+    /* Box Shadow Scale */
+    --shadow-xs: 0 1px 2px rgba(0, 0, 0, 0.05);
+    --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.1);
+    --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.1);
+    --shadow-lg: 0 8px 16px rgba(0, 0, 0, 0.1);
+    --shadow-xl: 0 10px 25px rgba(0, 0, 0, 0.15);
+  
+    /* Button Styles */
+    --btn-padding-sm: 6px 12px;
+    --btn-padding-md: 10px 20px;
+    --btn-padding-lg: 12px 24px;
+    --btn-padding-xl: 16px 32px;
+  
+    /* Container & Layout */
+    --container-padding: 20px;
+    --container-max-width: 1200px;
+    --page-padding-y: 40px;
+    --section-padding: var(--spacing-2xl);
+  
+    /* Grid & Flex */
+    --grid-gap: var(--spacing-lg);
+    --card-min-width: 300px;
+  
+    /* Transitions */
+    --transition-fast: 0.15s ease;
+    --transition-base: 0.2s ease;
+    --transition-slow: 0.3s ease;
+  
+    /* Z-index Scale */
+    --z-dropdown: 10;
+    --z-modal: 100;
+    --z-header: 1000;
+  }

@@ -1,0 +1,39 @@
+/* src/components/ui/QuantitySelector.module.css */
+.quantitySelector {
+  display: flex;
+  align-items: center;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.button {
+  background-color: #f8f8f8;
+  border: none;
+  cursor: pointer;
+  padding: 8px 12px;
+  font-size: 1rem;
+  font-weight: bold;
+  color: #555;
+  transition: background-color 0.2s;
+}
+
+.button:hover {
+  background-color: #eee;
+}
+
+.input {
+  width: 40px;
+  text-align: center;
+  border: none;
+  border-left: 1px solid #ddd;
+  border-right: 1px solid #ddd;
+  font-size: 1rem;
+  -moz-appearance: textfield; /* Firefox */
+}
+
+.input::-webkit-outer-spin-button,
+.input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}

@@ -1,0 +1,118 @@
+/* src/pages/SignupPage.module.css */
+.signupPage {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #1dd1a1 0%, #00b894 100%);
+  padding: 24px 0;
+}
+
+.signupContainer {
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 8px 24px rgba(29, 209, 161, 0.1);
+  overflow: hidden;
+  width: 100%;
+  max-width: 450px;
+  margin: 24px;
+}
+
+.signupForm {
+  padding: 48px;
+}
+
+.title {
+  text-align: center;
+  margin-bottom: 24px;
+  font-size: 2rem;
+  color: #2d3748;
+}
+
+.inputGroup {
+  margin-bottom: 24px;
+}
+
+.inputGroup label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: 500;
+  color: #2d3436;
+}
+
+.inputGroup input,
+.inputGroup select {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  font-size: 1rem;
+  transition: border-color 0.3s ease;
+}
+
+.inputGroup input:focus,
+.inputGroup select:focus {
+  outline: none;
+  border-color: #00b894;
+}
+
+.checkboxGroup {
+  margin-bottom: 24px;
+}
+
+.checkboxGroup label {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  font-size: 0.9rem;
+  color: #666666;
+}
+
+.checkboxGroup input {
+  margin-right: 8px;
+}
+
+.signupButton {
+  width: 100%;
+  background-color: #00b894;
+  color: white;
+  border: none;
+  padding: 12px;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin-top: 16px;
+}
+
+.signupButton:hover {
+  background-color: #1dd1a1;
+}
+
+.signupFooter {
+  text-align: center;
+  margin-top: 24px;
+}
+
+.signupFooter p {
+  margin-bottom: 8px;
+  color: #666666;
+}
+
+.signupFooter a {
+  color: #00b894;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.signupFooter a:hover {
+  text-decoration: underline;
+}
+
+.homeLink {
+  display: inline-block;
+  margin-top: 16px;
+  color: #666666;
+  font-size: 0.9rem;
+}

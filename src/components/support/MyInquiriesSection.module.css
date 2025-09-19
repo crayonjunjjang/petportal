@@ -1,0 +1,401 @@
+/* src/components/support/MyInquiriesSection.module.css */
+
+.container {
+  max-width: 800px;
+}
+
+.header {
+  margin-bottom: 32px;
+}
+
+.title {
+  font-size: 24px;
+  font-weight: 700;
+  color: #1f2937;
+  margin: 0 0 8px 0;
+}
+
+.description {
+  font-size: 14px;
+  color: #6b7280;
+  margin: 0;
+  line-height: 1.5;
+}
+
+.loginRequired {
+  text-align: center;
+  padding: 60px 20px;
+  background: #f9fafb;
+  border-radius: 12px;
+  border: 1px solid #e5e7eb;
+}
+
+.loginIcon {
+  font-size: 48px;
+  margin-bottom: 16px;
+}
+
+.loginRequired h3 {
+  font-size: 20px;
+  font-weight: 600;
+  color: #1f2937;
+  margin: 0 0 8px 0;
+}
+
+.loginRequired p {
+  color: #6b7280;
+  margin: 0 0 24px 0;
+}
+
+.loginButton {
+  background: #3b82f6;
+  color: white;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 500;
+  transition: background 0.2s ease;
+}
+
+.loginButton:hover {
+  background: #2563eb;
+}
+
+.loading {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 60px 20px;
+  color: #6b7280;
+}
+
+.spinner {
+  width: 32px;
+  height: 32px;
+  border: 3px solid #e5e7eb;
+  border-top: 3px solid #3b82f6;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  margin-bottom: 16px;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.inquiryList {
+  space-y: 16px;
+}
+
+.inquiryItem {
+  background: white;
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  overflow: hidden;
+  margin-bottom: 16px;
+  transition: all 0.2s ease;
+}
+
+.inquiryItem:hover {
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+}
+
+.inquiryHeader {
+  padding: 20px;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.inquiryTitle {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.category {
+  background: #f3f4f6;
+  color: #6b7280;
+  padding: 4px 8px;
+  border-radius: 12px;
+  font-size: 12px;
+  font-weight: 500;
+  flex-shrink: 0;
+}
+
+.titleText {
+  font-size: 16px;
+  font-weight: 600;
+  color: #1f2937;
+  margin: 0;
+  flex: 1;
+}
+
+.statusBadge {
+  padding: 4px 12px;
+  border-radius: 12px;
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+  flex-shrink: 0;
+}
+
+.statusBadge.pending {
+  background: #fef3c7;
+  color: #d97706;
+}
+
+.statusBadge.answered {
+  background: #d1fae5;
+  color: #065f46;
+}
+
+.statusBadge.closed {
+  background: #f3f4f6;
+  color: #6b7280;
+}
+
+.inquiryInfo {
+  display: flex;
+  gap: 16px;
+  font-size: 13px;
+  color: #6b7280;
+  flex-wrap: wrap;
+}
+
+.date,
+.responseDate {
+  white-space: nowrap;
+}
+
+.expandIcon {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  font-size: 12px;
+  color: #6b7280;
+  transition: transform 0.2s ease;
+}
+
+.expandIcon.expanded {
+  transform: rotate(180deg);
+}
+
+.inquiryHeader {
+  position: relative;
+}
+
+.inquiryDetails {
+  border-top: 1px solid #f3f4f6;
+  background: #fafbfc;
+}
+
+.inquiryContent {
+  padding: 20px;
+}
+
+.contentTitle {
+  font-size: 14px;
+  font-weight: 600;
+  color: #374151;
+  margin: 0 0 12px 0;
+}
+
+.contentText {
+  color: #4b5563;
+  line-height: 1.6;
+}
+
+.contentText p {
+  margin: 0 0 8px 0;
+}
+
+.contentText p:last-child {
+  margin-bottom: 0;
+}
+
+.adminResponse {
+  padding: 20px;
+  background: #f0f9ff;
+  border-top: 1px solid #e0f2fe;
+}
+
+.responseTitle {
+  font-size: 14px;
+  font-weight: 600;
+  color: #0c4a6e;
+  margin: 0 0 12px 0;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.responder {
+  font-size: 12px;
+  color: #0369a1;
+  font-weight: 400;
+}
+
+.responseText {
+  color: #0c4a6e;
+  line-height: 1.6;
+}
+
+.responseText p {
+  margin: 0 0 8px 0;
+}
+
+.responseText p:last-child {
+  margin-bottom: 0;
+}
+
+.pendingNotice {
+  padding: 20px;
+  background: #fffbeb;
+  border-top: 1px solid #fef3c7;
+  text-align: center;
+}
+
+.pendingNotice p {
+  color: #92400e;
+  margin: 0;
+  font-size: 14px;
+}
+
+.empty {
+  text-align: center;
+  padding: 80px 20px;
+  color: #6b7280;
+}
+
+.emptyIcon {
+  font-size: 64px;
+  margin-bottom: 16px;
+}
+
+.empty h3 {
+  font-size: 18px;
+  font-weight: 600;
+  color: #374151;
+  margin: 0 0 8px 0;
+}
+
+.empty p {
+  margin: 0;
+}
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  margin-top: 32px;
+}
+
+.pageButton {
+  padding: 8px 12px;
+  background: white;
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 14px;
+  color: #374151;
+  transition: all 0.2s ease;
+  min-width: 40px;
+}
+
+.pageButton:hover {
+  background: #f9fafb;
+  border-color: #9ca3af;
+}
+
+.pageButton.active {
+  background: #3b82f6;
+  border-color: #3b82f6;
+  color: white;
+}
+
+.pageButton.active:hover {
+  background: #2563eb;
+  border-color: #2563eb;
+}
+
+/* 반응형 디자인 */
+@media (max-width: 768px) {
+  .title {
+    font-size: 20px;
+  }
+
+  .inquiryHeader {
+    padding: 16px;
+  }
+
+  .titleText {
+    font-size: 14px;
+  }
+
+  .inquiryInfo {
+    font-size: 12px;
+    gap: 12px;
+  }
+
+  .expandIcon {
+    top: 16px;
+    right: 16px;
+  }
+
+  .inquiryContent,
+  .adminResponse,
+  .pendingNotice {
+    padding: 16px;
+  }
+
+  .contentTitle,
+  .responseTitle {
+    font-size: 13px;
+  }
+
+  .contentText,
+  .responseText {
+    font-size: 13px;
+  }
+
+  .statusBadge {
+    font-size: 11px;
+    padding: 2px 8px;
+  }
+
+  .category {
+    font-size: 11px;
+    padding: 2px 6px;
+  }
+
+  .empty {
+    padding: 60px 16px;
+  }
+
+  .emptyIcon {
+    font-size: 48px;
+  }
+
+  .empty h3 {
+    font-size: 16px;
+  }
+
+  .pagination {
+    gap: 4px;
+    margin-top: 24px;
+  }
+
+  .pageButton {
+    padding: 6px 8px;
+    font-size: 12px;
+    min-width: 32px;
+  }
+}

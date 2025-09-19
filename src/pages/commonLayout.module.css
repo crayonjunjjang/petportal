@@ -1,0 +1,136 @@
+/* src/styles/commonLayout.module.css */
+
+/* General Page Layout */
+.pageContainer {
+  padding: 60px 24px 40px; /* 헤더 높이 60px + 충분한 여유공간 40px */
+  display: flex;
+  flex-direction: wrow;
+  width: 100%;
+}
+
+.pageLayout {
+  display: flex;
+  height: 60%;
+  flex: 1;
+  padding: 12px 12px;
+  max-width: 1750px;
+  width: 100%;
+  margin: 0 auto;
+  gap: 32px;
+  min-height: calc(100vh - 180px);
+}
+
+.sidebar {
+  flex: 0 0 250px;
+  background-color: #f8f9fa; /* --color-background-medium is not defined, using a similar neutral color */
+  border-radius: 12px;
+  padding: 24px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  height: fit-content;
+  position: sticky;
+  top: 120px;
+}
+
+.mainContent {
+  flex: 1;
+  background-color: #ffffff;
+  border-radius: 12px;
+  padding: 24px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  min-width: 0;
+}
+
+/* Card Grid Layout (from MainPage.module.css / Page.module.css) */
+.cardGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: var(--spacing-md);
+    margin-bottom: var(--spacing-lg);
+}
+
+/* More Button Wrapper (from MainPage.module.css) */
+.moreButtonWrapper {
+  text-align: center;
+  margin-top: var(--spacing-md);
+}
+
+.moreButtonWrapper button {
+    border-radius: var(--border-radius-full);
+}
+
+/* CTA Section (from MainPage.module.css) */
+.ctaSection {
+  background-color: var(--color-background-medium);
+  padding: var(--spacing-xl) 0;
+  text-align: center;
+  margin-top: var(--spacing-xl);
+}
+
+.ctaContent {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--spacing-lg);
+}
+
+.ctaText h3 {
+    font-size: var(--font-size-xl);
+    font-weight: 700;
+    color: var(--color-primary);
+    margin-bottom: var(--spacing-md);
+}
+
+.ctaText p {
+    font-size: var(--font-size-md);
+    color: var(--color-text-dark);
+    line-height: 1.6;
+    margin-bottom: var(--spacing-lg);
+    max-width: 600px;
+}
+
+.ctaText strong {
+    font-weight: 700;
+    color: var(--color-primary-dark);
+}
+
+.ctaImage img {
+    max-width: 100%;
+    height: auto;
+    border-radius: var(--border-radius-lg);
+    box-shadow: var(--box-shadow-md);
+}
+
+@media (min-width: 768px) {
+    .ctaContent {
+        flex-direction: row;
+        text-align: left;
+        justify-content: center;
+    }
+    .ctaText, .ctaImage {
+        flex: 1;
+    }
+    .ctaText {
+        padding-right: 32px;
+    }
+    .ctaImage {
+        padding-left: 32px;
+    }
+}
+
+/* Responsive adjustments for sidebar layout */
+@media (max-width: 768px) {
+  .pageLayout {
+    flex-direction: column;
+    padding: 32px 24px;
+  }
+
+  .sidebar {
+    position: static;
+    width: 100%;
+    flex: none;
+  }
+
+  .mainContent {
+    padding: 24px;
+  }
+}

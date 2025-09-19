@@ -1,0 +1,238 @@
+.detailPageContainer {
+    padding-bottom: 72px;
+}
+
+.carouselSection {
+    position: relative;
+    color: #ffffff;
+}
+
+.carouselSection img {
+    height: 60vh;
+    object-fit: cover;
+}
+
+/* 어두운 오버레이를 캐러셀 전체가 아닌 텍스트 영역에만 적용 */
+.heroContent {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
+    max-width: 1200px; /* 추가: 콘텐츠 최대 너비 제한 */
+    padding: 0 15px; /* 추가: 좌우 여백 */
+    z-index: 2;
+    padding-bottom: 48px;
+    background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+}
+
+.pensionType {
+    background-color: #a7c7e7;
+    display: inline-block;
+    padding: 6px 12px;
+    border-radius: 4px;
+    font-size: 0.875rem;
+    font-weight: 600;
+    margin-bottom: 8px;
+}
+
+.heroContent h1 {
+    font-size: 3rem;
+    font-weight: 800;
+    margin: 0;
+    text-shadow: 2px 2px 8px rgba(0,0,0,0.5);
+}
+
+.pensionLocation {
+    font-size: 1.125rem;
+    font-weight: 500;
+    opacity: 0.9;
+}
+
+
+/* --- 메인 컨텐츠 --- */
+.mainContent {
+    /* container 클래스를 JSX에서 제거했으므로, 여기서 레이아웃을 잡아줍니다. */
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 48px;
+    padding-top: 48px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+.infoColumn {
+    display: flex;
+    flex-direction: column;
+    gap: 48px;
+}
+
+.infoBlock {
+    padding-bottom: 48px;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.infoBlock:last-child {
+    border-bottom: none;
+}
+
+.infoBlock h3 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin: 0 0 24px 0;
+}
+
+.tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.tag {
+    background-color: #f5f5f5;
+    color: #666666;
+    padding: 6px 14px;
+    border-radius: 9999px;
+    font-size: 0.875rem;
+    font-weight: 500;
+}
+
+.infoList {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.infoList li {
+    font-size: 1rem;
+}
+
+.description {
+    line-height: 1.8;
+    color: #666666;
+}
+
+
+/* --- 예약 컬럼 --- */
+.bookingColumn {
+    position: sticky;
+    top: 100px; /* 헤더 높이만큼 여유 */
+    height: fit-content;
+}
+
+.bookingBox {
+    border: 1px solid #e0e0e0;
+    border-radius: 12px;
+    padding: 24px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.price {
+    font-size: 1.5rem;
+    margin: 0 0 24px 0;
+}
+
+.price strong {
+    font-weight: 800;
+    font-size: 2rem;
+}
+
+.bookingActions {
+    margin-bottom: 16px;
+}
+.bookingButton {
+    width: 100%;
+}
+
+.bookingNote {
+    font-size: 0.875rem;
+    color: #999999;
+    text-align: center;
+    margin: 0;
+}
+
+
+/* --- 404 페이지 --- */
+.notFound {
+    text-align: center;
+    padding: 72px 0;
+}
+.notFound h2 {
+    font-size: 2rem;
+    margin-bottom: 16px;
+}
+.notFound p {
+    margin-bottom: 48px;
+}
+.bookingPrice {
+    font-size: 1.5rem;
+    margin: 0 0 24px 0;
+}
+.bookingPrice strong {
+    font-weight: 800;
+    font-size: 2rem;
+}
+.bookingInputs {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 24px;
+}
+.datePickers {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+}
+.dateInput {
+  width: 100%;
+  padding: 16px;
+  border: none;
+  font-size: 1rem;
+}
+.dateInput:first-child {
+  border-right: 1px solid #e0e0e0;
+}
+.guestInput {
+  width: 100%;
+  padding: 16px;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  font-size: 1rem;
+  text-align: left;
+  cursor: pointer;
+  background-color: #ffffff;
+}
+
+.totalPrice {
+    display: flex;
+    justify-content: space-between;
+    padding: 24px 0;
+    font-size: 1.5rem;
+    font-weight: 700;
+    border-top: 1px solid #e0e0e0;
+    margin-top: 24px;
+}
+
+.bookingActions {
+    margin-top: 24px;
+    margin-bottom: 0; /* 기존 마진 제거 */
+}
+.bookingSummary {
+    padding-bottom: 24px;
+    margin-bottom: 24px;
+    border-bottom: 1px solid #e0e0e0;
+  }
+  
+  .summaryList {
+    list-style: none;
+    padding: 0;
+    margin: 16px 0 0 0;
+    font-size: 0.875rem;
+    color: #666666;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }

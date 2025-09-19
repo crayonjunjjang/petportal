@@ -1,0 +1,65 @@
+/* CartIcon.module.css */
+.cartContainer {
+  position: relative;
+  cursor: pointer;
+  padding: 8px;
+  border-radius: 8px;
+  transition: background-color 0.2s;
+}
+
+.cartContainer:hover {
+  background-color: rgba(44, 90, 160, 0.1);
+}
+
+.cartIcon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #000000;
+  transition: color 0.2s;
+}
+
+.cartContainer:hover .cartIcon {
+  color: #ffffff;
+}
+
+.badge {
+  position: absolute;
+  top: 2px;
+  right: 2px;
+  background: #ff4444;
+  color: white;
+  border-radius: 50%;
+  min-width: 18px;
+  height: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.75rem;
+  font-weight: 600;
+  line-height: 1;
+  padding: 0 4px;
+}
+
+/* 배지가 숫자 3자리 이상일 때 */
+.badge:has-text('99+') {
+  border-radius: 9px;
+  padding: 0 6px;
+}
+
+@media (max-width: 768px) {
+  .cartContainer {
+    padding: 6px;
+  }
+  
+  .cartIcon svg {
+    width: 20px;
+    height: 20px;
+  }
+  
+  .badge {
+    min-width: 16px;
+    height: 16px;
+    font-size: 0.7rem;
+  }
+}

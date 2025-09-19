@@ -1,0 +1,57 @@
+/* src/components/sections/TrustSection.module.css */
+.section {
+  padding: var(--section-padding) 0;
+  background-color: var(--section-background-color);
+}
+
+.container {
+  max-width: var(--container-width);
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 40px;
+}
+
+.item {
+  text-align: left;
+}
+
+.number {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--primary-color);
+  margin-bottom: 10px;
+}
+
+.title {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: var(--text-color);
+  margin-bottom: 10px;
+}
+
+.description {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: var(--text-light-color);
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+  .item {
+    text-align: center;
+  }
+}

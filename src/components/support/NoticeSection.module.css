@@ -1,0 +1,211 @@
+/* src/components/support/NoticeSection.module.css */
+
+.container {
+  max-width: 800px;
+}
+
+.header {
+  margin-bottom: 32px;
+}
+
+.title {
+  font-size: 24px;
+  font-weight: 700;
+  color: #1f2937;
+  margin: 0 0 8px 0;
+}
+
+.description {
+  font-size: 14px;
+  color: #6b7280;
+  margin: 0;
+  line-height: 1.5;
+}
+
+.loading {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 60px 20px;
+  color: #6b7280;
+}
+
+.spinner {
+  width: 32px;
+  height: 32px;
+  border: 3px solid #e5e7eb;
+  border-top: 3px solid #3b82f6;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  margin-bottom: 16px;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.noticeList {
+  space-y: 16px;
+}
+
+.noticeItem {
+  background: white;
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  padding: 20px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  margin-bottom: 12px;
+}
+
+.noticeItem:hover {
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  border-color: #d1d5db;
+}
+
+.noticeItem.important {
+  border-color: #ef4444;
+  background: linear-gradient(to right, #fef2f2, white);
+}
+
+.noticeItem.important:hover {
+  box-shadow: 0 4px 6px -1px rgba(239, 68, 68, 0.2);
+}
+
+.noticeHeader {
+  margin-bottom: 12px;
+}
+
+.noticeTitle {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 8px;
+}
+
+.importantBadge {
+  background: #ef4444;
+  color: white;
+  padding: 2px 8px;
+  border-radius: 12px;
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.titleText {
+  font-size: 16px;
+  font-weight: 600;
+  color: #1f2937;
+  flex: 1;
+}
+
+.noticeInfo {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+  color: #6b7280;
+}
+
+.author {
+  font-weight: 500;
+}
+
+.divider {
+  color: #d1d5db;
+}
+
+.date, .views {
+  color: #9ca3af;
+}
+
+.noticePreview {
+  color: #4b5563;
+  line-height: 1.5;
+  font-size: 14px;
+}
+
+.empty {
+  text-align: center;
+  padding: 60px 20px;
+  color: #6b7280;
+}
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  margin-top: 32px;
+}
+
+.pageButton {
+  padding: 8px 12px;
+  background: white;
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 14px;
+  color: #374151;
+  transition: all 0.2s ease;
+  min-width: 40px;
+}
+
+.pageButton:hover {
+  background: #f9fafb;
+  border-color: #9ca3af;
+}
+
+.pageButton.active {
+  background: #3b82f6;
+  border-color: #3b82f6;
+  color: white;
+}
+
+.pageButton.active:hover {
+  background: #2563eb;
+  border-color: #2563eb;
+}
+
+/* 반응형 디자인 */
+@media (max-width: 768px) {
+  .title {
+    font-size: 20px;
+  }
+
+  .noticeItem {
+    padding: 16px;
+  }
+
+  .titleText {
+    font-size: 14px;
+  }
+
+  .noticeInfo {
+    font-size: 12px;
+    gap: 6px;
+  }
+
+  .noticePreview {
+    font-size: 13px;
+  }
+
+  .importantBadge {
+    font-size: 10px;
+    padding: 1px 6px;
+  }
+
+  .pagination {
+    gap: 4px;
+    margin-top: 24px;
+  }
+
+  .pageButton {
+    padding: 6px 8px;
+    font-size: 12px;
+    min-width: 32px;
+  }
+}

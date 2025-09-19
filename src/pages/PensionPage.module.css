@@ -1,0 +1,204 @@
+/* 펜션 페이지 전체 컨테이너 */
+.pensionPageContainer {
+  padding-top: 75px; /* 헤더 높이 100px + 여유공간 40px */
+}
+
+.pageHeader {
+  text-align: center;
+  margin-bottom: 80px;
+}
+
+.pageHeader h1 {
+  font-size: 3rem;
+  font-weight: 800;
+  margin-bottom: 8px;
+}
+
+.pageHeader p {
+  font-size: 1.5rem;
+  color: #666666;
+}
+
+/* 검색 섹션 */
+.searchSection {
+  margin-bottom: 48px;
+}
+
+.searchBox {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 16px;
+  background-color: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.searchInputGroup {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.searchInputGroup label {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: #666666;
+  margin-bottom: 4px;
+  padding-left: 8px;
+}
+
+.searchInputGroup input {
+  width: 100%;
+  border: none;
+  outline: none;
+  padding: 8px 8px;
+  font-size: 1rem;
+  background: transparent;
+  border-bottom: 2px solid transparent;
+  cursor: pointer;
+}
+.searchInputGroup input:read-only {
+  cursor: pointer;
+}
+.searchInputGroup input:focus {
+  border-bottom-color: #a7c7e7;
+}
+
+/* DatePicker 스타일 */
+.searchInputGroup .react-datepicker-wrapper {
+  width: 100%;
+}
+
+.searchInputGroup .react-datepicker__input-container input {
+  width: 100%;
+  border: none;
+  outline: none;
+  padding: 8px 8px;
+  font-size: 1rem;
+  background: transparent;
+  border-bottom: 2px solid transparent;
+  cursor: pointer;
+}
+
+.searchInputGroup .react-datepicker__input-container input:focus {
+  border-bottom-color: #a7c7e7;
+}
+
+/* Guest Selector Dropdown */
+.guestSelectorDropdown {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+  margin-top: 4px;
+}
+
+.searchButton {
+  flex-shrink: 0;
+}
+
+/* 메인 컨텐츠 영역 (필터 + 결과) */
+.mainContent {
+  display: flex;
+  gap: 48px;
+}
+
+.filters {
+  width: 250px;
+  flex-shrink: 0;
+  background-color: #f8f9fa; /* Using hardcoded color for now, ideally use CSS variable */
+  border-radius: 12px;
+  padding: 24px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  height: fit-content;
+  position: sticky;
+  top: 140px; /* 헤더 높이에 맞춰 조정 */
+}
+
+.filters h3 {
+  font-size: 1.5rem;
+  margin-bottom: 24px;
+  border-bottom: 2px solid #333333;
+  padding-bottom: 16px;
+}
+
+.filterGroup {
+  margin-bottom: 24px;
+}
+.filterGroup h4 {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #666666;
+  margin-bottom: 16px;
+}
+
+.filterGroup label {
+  display: flex;
+  align-items: center;
+  margin-bottom: 8px;
+  font-size: 1rem;
+}
+
+.filterGroup input[type="checkbox"] {
+  margin-right: 8px;
+}
+
+.results {
+  flex-grow: 1;
+}
+
+.resultsHeader {
+  margin-bottom: 24px;
+}
+
+.resultsHeader h2 {
+  font-size: 2rem;
+}
+
+.noResults {
+  text-align: center;
+  padding: 72px 0;
+  color: #666666;
+  background-color: #f5f5f5;
+  border-radius: 8px;
+}
+.resultsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 24px;
+}
+.applyFilterButton {
+  width: 100%;
+  margin-top: 24px;
+}
+.highlight {
+  color: #a7c7e7;
+  font-weight: 600;
+}
+
+/* 모바일 반응형 */
+@media (max-width: 768px) {
+  .pensionPageContainer {
+    padding-top: 110px; /* 모바일 헤더 높이 70px + 여유공간 40px */
+  }
+
+  .filters {
+    top: 110px; /* 모바일에서 sticky 위치 조정 */
+  }
+
+  .mainContent {
+    flex-direction: column;
+    gap: 24px;
+  }
+
+  .filters {
+    width: 100%;
+    position: static;
+  }
+}

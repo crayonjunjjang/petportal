@@ -1,0 +1,286 @@
+/* 게시글 상세 페이지 전체 컨테이너 */
+.postDetail {
+  max-width: 900px;
+  margin: 48px auto;
+  background-color: #ffffff;
+  border: 1px solid #e0e0e0;
+  border-radius: 12px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+/* 로딩 및 에러 상태 */
+.loading, .error {
+  text-align: center;
+  padding: 64px 24px;
+}
+
+.error {
+  color: #e53e3e;
+}
+
+.error p {
+  margin-bottom: 24px;
+  font-size: 1.1rem;
+}
+
+/* 게시글 헤더 */
+.postHeader {
+  padding: 32px 32px 24px 32px;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+/* 브레드크럼 네비게이션 */
+.breadcrumb {
+  margin-bottom: 16px;
+  font-size: 0.875rem;
+  color: #718096;
+}
+
+.breadcrumbLink {
+  color: #a7c7e7;
+  cursor: pointer;
+  transition: color 0.2s;
+}
+
+.breadcrumbLink:hover {
+  color: #2d3748;
+  text-decoration: underline;
+}
+
+.breadcrumbSeparator {
+  margin: 0 8px;
+  color: #cbd5e0;
+}
+
+/* 카테고리 배지 */
+.categoryBadge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 12px;
+  background-color: #e8f4fd;
+  color: #2b6cb0;
+  border-radius: 20px;
+  font-size: 0.875rem;
+  font-weight: 500;
+  margin-bottom: 16px;
+}
+
+.categoryIcon {
+  font-size: 1rem;
+}
+
+/* 게시글 제목 */
+.postTitle {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #2d3748;
+  line-height: 1.3;
+  margin-bottom: 24px;
+  word-wrap: break-word;
+}
+
+/* 게시글 메타 정보 */
+.postMeta {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 16px;
+}
+
+.authorInfo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex: 1;
+}
+
+.authorImage {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.authorDetails {
+  flex: 1;
+}
+
+.authorName {
+  font-weight: 600;
+  color: #2d3748;
+  font-size: 1rem;
+  display: block;
+  margin-bottom: 4px;
+}
+
+.postStats {
+  display: flex;
+  gap: 12px;
+  font-size: 0.75rem;
+  color: #718096;
+}
+
+.postStats span {
+  white-space: nowrap;
+}
+
+.postActions {
+  display: flex;
+  gap: 8px;
+}
+
+/* 게시글 내용 */
+.postContent {
+  padding: 32px;
+}
+
+.contentText {
+  line-height: 1.8;
+  color: #2d3748;
+  font-size: 1rem;
+  margin-bottom: 24px;
+}
+
+.contentText p {
+  margin-bottom: 16px;
+  word-wrap: break-word;
+}
+
+.contentText p:last-child {
+  margin-bottom: 0;
+}
+
+/* 게시글 이미지 */
+.postImages {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 16px;
+  margin-top: 24px;
+}
+
+.postImage {
+  width: 100%;
+  height: auto;
+  max-height: 400px;
+  object-fit: contain;
+  border-radius: 8px;
+  border: 1px solid #e0e0e0;
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.postImage:hover {
+  transform: scale(1.02);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* 게시글 푸터 */
+.postFooter {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 24px 32px;
+  border-top: 1px solid #e0e0e0;
+  background-color: #f8f9fa;
+  border-bottom-left-radius: 12px;
+  border-bottom-right-radius: 12px;
+}
+
+.postInteractions {
+  display: flex;
+  gap: 12px;
+}
+
+.likeButton {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.postNavigation {
+  display: flex;
+  gap: 12px;
+}
+
+/* 반응형 디자인 */
+@media (max-width: 768px) {
+  .postDetail {
+    margin: 16px;
+    border-radius: 8px;
+  }
+
+  .postHeader {
+    padding: 24px 20px 20px 20px;
+  }
+
+  .postTitle {
+    font-size: 1.5rem;
+  }
+
+  .postMeta {
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .postActions {
+    align-self: flex-end;
+  }
+
+  .postContent {
+    padding: 24px 20px;
+  }
+
+  .postFooter {
+    flex-direction: column;
+    gap: 16px;
+    padding: 20px;
+  }
+
+  .postInteractions,
+  .postNavigation {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .postStats {
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .postImages {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 480px) {
+  .postHeader {
+    padding: 20px 16px 16px 16px;
+  }
+
+  .postTitle {
+    font-size: 1.25rem;
+  }
+
+  .postContent {
+    padding: 20px 16px;
+  }
+
+  .postFooter {
+    padding: 16px;
+  }
+
+  .authorInfo {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
+
+  .authorName {
+    font-size: 0.875rem;
+  }
+
+  .postStats {
+    font-size: 0.6875rem;
+  }
+}

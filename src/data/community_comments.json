@@ -1,0 +1,82 @@
+[
+  {
+    "id": 1,
+    "postId": 1,
+    "author": "집사일기",
+    "content": "와 정말 인형 같아요!",
+    "createdAt": "2025-09-09",
+    "likes": 1
+  },
+  {
+    "id": 2,
+    "postId": 1,
+    "author": "산책러",
+    "content": "심장이 아프네요... 너무 귀여워서",
+    "createdAt": "2025-09-10",
+    "likes": 2
+  },
+  {
+    "id": 3,
+    "postId": 2,
+    "author": "멍멍맘",
+    "content": "저희 강아지도 저런 장난감 좋아해요!",
+    "createdAt": "2025-09-10",
+    "likes": 0
+  },
+  {
+    "id": 4,
+    "postId": 3,
+    "author": "냥이아빠",
+    "content": "고양이 미용은 정말 어려워요 ㅠㅠ",
+    "createdAt": "2025-09-11",
+    "likes": 3
+  },
+  {
+    "id": 5,
+    "postId": 3,
+    "author": "펫스타일리스트",
+    "content": "전문가에게 맡기시면 편해요!",
+    "createdAt": "2025-09-11",
+    "likes": 1
+  },
+  {
+    "id": 6,
+    "postId": 4,
+    "author": "정보통",
+    "content": "이 병원 정말 친절하고 좋아요! 추천합니다.",
+    "createdAt": "2025-09-12",
+    "likes": 5
+  },
+  {
+    "id": 7,
+    "postId": 4,
+    "author": "걱정맘",
+    "content": "진료비는 어떤가요?",
+    "createdAt": "2025-09-12",
+    "likes": 0
+  },
+  {
+    "id": 8,
+    "postId": 5,
+    "author": "카페탐방러",
+    "content": "여기 분위기 정말 좋고 음료도 맛있어요!",
+    "createdAt": "2025-09-13",
+    "likes": 4
+  },
+  {
+    "id": 9,
+    "postId": 5,
+    "author": "댕댕이와함께",
+    "content": "저도 조만간 방문해봐야겠어요!",
+    "createdAt": "2025-09-13",
+    "likes": 2
+  },
+  {
+    "id": 10,
+    "postId": 6,
+    "author": "쇼핑왕",
+    "content": "이 제품 정말 가성비 최고예요!",
+    "createdAt": "2025-09-14",
+    "likes": 7
+  }
+]

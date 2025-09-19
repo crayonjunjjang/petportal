@@ -1,0 +1,284 @@
+/* DetailPage.module.css */
+.detailContainer {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.backButton {
+  background: #2c5aa0;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 8px;
+  cursor: pointer;
+  margin-bottom: 20px;
+  font-size: 14px;
+  transition: background 0.2s;
+}
+
+.backButton:hover {
+  background: #1e3d6f;
+}
+
+.detailContent {
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+}
+
+.imageSection {
+  width: 100%;
+  height: 400px;
+}
+
+.imageSection .carousel-root {
+  height: 100%;
+}
+
+.imageSection .carousel .slide img {
+  width: 100%;
+  height: 400px;
+  object-fit: cover;
+}
+
+.infoSection {
+  padding: var(--spacing-2xl);
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 24px;
+  border-bottom: 2px solid #f0f0f0;
+  padding-bottom: 20px;
+}
+
+.name {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #1a202c;
+  margin: 0;
+}
+
+.rating {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.stars {
+  color: #ffd700;
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+
+.reviews {
+  color: #666;
+  font-size: 0.9rem;
+}
+
+.basicInfo {
+  display: grid;
+  gap: var(--spacing-sm);
+  margin-bottom: var(--spacing-2xl);
+}
+
+.infoItem {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-xs);
+  font-size: var(--text-base);
+}
+
+.infoItem strong {
+  min-width: 80px;
+  color: var(--text-medium);
+}
+
+.phoneButton {
+  background: none;
+  border: none;
+  color: #2c5aa0;
+  text-decoration: underline;
+  cursor: pointer;
+  font-size: inherit;
+}
+
+.phoneButton:hover {
+  color: #1e3d6f;
+}
+
+.description {
+  margin-bottom: 30px;
+}
+
+.description h3 {
+  font-size: 1.3rem;
+  color: #2d3748;
+  margin-bottom: 12px;
+}
+
+.description p {
+  line-height: 1.6;
+  color: #4a5568;
+}
+
+.servicesSection,
+.menuSection,
+.facilitiesSection,
+.policiesSection {
+  margin-bottom: 30px;
+}
+
+.servicesSection h3,
+.menuSection h3,
+.facilitiesSection h3,
+.policiesSection h3 {
+  font-size: 1.3rem;
+  color: #2d3748;
+  margin-bottom: 16px;
+}
+
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.tag {
+  background: #e2e8f0;
+  color: #2d3748;
+  padding: 6px 12px;
+  border-radius: 20px;
+  font-size: 0.9rem;
+}
+
+.menuGrid {
+  display: grid;
+  gap: 12px;
+}
+
+.menuItem {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px;
+  background: #f7fafc;
+  border-radius: 8px;
+}
+
+.menuInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.menuName {
+  font-weight: 500;
+  color: #2d3748;
+}
+
+.menuCategory {
+  font-size: 0.8rem;
+  color: #718096;
+}
+
+.menuPrice {
+  font-weight: 600;
+  color: #2c5aa0;
+}
+
+.facilitiesList,
+.policiesList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.facilitiesList li,
+.policiesList li {
+  padding: 8px 0;
+  border-bottom: 1px solid #e2e8f0;
+  position: relative;
+  padding-left: 20px;
+}
+
+.facilitiesList li:before {
+  content: '✓';
+  position: absolute;
+  left: 0;
+  color: #48bb78;
+  font-weight: bold;
+}
+
+.policiesList li:before {
+  content: '•';
+  position: absolute;
+  left: 0;
+  color: #ed8936;
+  font-weight: bold;
+}
+
+.facilitiesList li:last-child,
+.policiesList li:last-child {
+  border-bottom: none;
+}
+
+.notFound {
+  text-align: center;
+  padding: 100px 20px;
+  color: #666;
+  font-size: 1.2rem;
+}
+
+/* 반응형 디자인 */
+@media (max-width: 768px) {
+  .detailContainer {
+    padding: 10px;
+  }
+
+  .infoSection {
+    padding: 20px;
+  }
+
+  .header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
+
+  .name {
+    font-size: 1.5rem;
+  }
+
+  .imageSection {
+    height: 250px;
+  }
+
+  .imageSection .carousel .slide img {
+    height: 250px;
+  }
+
+  .basicInfo {
+    gap: 8px;
+  }
+
+  .infoItem {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 4px;
+  }
+
+  .infoItem strong {
+    min-width: auto;
+  }
+
+  .menuItem {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
+}

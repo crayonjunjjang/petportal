@@ -1,0 +1,90 @@
+.commentsContainer {
+  padding: 24px;
+}
+.commentsContainer h3 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin: 0 0 24px 0;
+}
+
+/* 댓글 입력창 */
+.commentForm {
+  margin-bottom: 48px;
+}
+.commentForm textarea {
+  width: 100%;
+  min-height: 80px;
+  padding: 16px;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  font-size: 1rem;
+  resize: vertical;
+  margin-bottom: 16px;
+}
+.commentForm button {
+  display: block;
+  width: 100px;
+  margin-left: auto; /* 버튼을 오른쪽으로 정렬 */
+}
+
+/* 댓글 목록 */
+.commentList {
+  display: flex;
+  flex-direction: column;
+}
+.commentItem {
+  padding: 24px 0;
+  border-top: 1px solid #e0e0e0;
+}
+.commentHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+}
+.commentAuthor {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 1rem;
+}
+.authorAvatar {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background-color: #f5f5f5;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: 700;
+  font-size: 0.875rem;
+  color: #a7c7e7;
+}
+.commentDate {
+  font-size: 0.875rem;
+  color: #999999;
+}
+.commentContent {
+  color: #333333;
+  line-height: 1.7;
+  padding-left: 36px; /* 아바타 너비만큼 들여쓰기 */
+  white-space: pre-wrap;
+  word-wrap: break-word;
+}
+.commentActions {
+  text-align: right;
+  margin-top: 16px;
+}
+.commentActions button {
+  font-size: 0.875rem;
+  color: #666666;
+  font-weight: 500;
+}
+.commentActions button:hover {
+  color: #a7c7e7;
+}
+.commentActions .liked,
+.commentActions .liked:hover {
+  color: #a7c7e7;
+  font-weight: 700;
+}

@@ -1,0 +1,58 @@
+/* src/components/common/FilterSection.module.css */
+.filterContainer {
+    width: 100%;
+}
+
+.searchAndToggle {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+}
+
+.filterInputWrapper {
+    display: flex;
+    align-items: center;
+    background: white;
+    border-radius: 8px;
+    padding: 8px 12px;
+    border: 1px solid #ddd;
+    flex-grow: 1; /* Take remaining space */
+}
+
+.searchIcon {
+    width: 16px;
+    height: 16px;
+    margin-right: 8px;
+    opacity: 0.6;
+}
+
+.filterInput {
+    border: none;
+    outline: none;
+    width: 100%;
+    font-size: 14px;
+    background: transparent;
+}
+
+.toggleButton {
+    background: transparent;
+    border: none;
+    color: var(--color-text-dark);
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    padding: 10px 4px;
+    white-space: nowrap;
+    flex-shrink: 0;
+    transition: color 0.2s;
+}
+
+.toggleButton:hover {
+    color: var(--color-primary);
+}
+
+.advancedFilters {
+    margin-top: 16px;
+    padding-top: 16px;
+    border-top: 1px solid rgba(255, 255, 255, 0.4);
+}

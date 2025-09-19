@@ -1,0 +1,15 @@
+<svg width="100" height="100" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <circle cx="50" cy="50" r="50" fill="#FED7AA"/>
+  <!-- Dog ears -->
+  <ellipse cx="35" cy="25" rx="8" ry="15" fill="#F97316" transform="rotate(-25 35 25)"/>
+  <ellipse cx="65" cy="25" rx="8" ry="15" fill="#F97316" transform="rotate(25 65 25)"/>
+  <!-- Dog face -->
+  <circle cx="50" cy="45" r="25" fill="#FB923C"/>
+  <!-- Eyes -->
+  <circle cx="42" cy="38" r="3" fill="#1F2937"/>
+  <circle cx="58" cy="38" r="3" fill="#1F2937"/>
+  <!-- Nose -->
+  <ellipse cx="50" cy="48" rx="2" ry="3" fill="#1F2937"/>
+  <!-- Mouth -->
+  <path d="M45 55C47 58 53 58 55 55" stroke="#1F2937" stroke-width="2" stroke-linecap="round"/>
+</svg>

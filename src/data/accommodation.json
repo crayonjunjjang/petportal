@@ -1,0 +1,232 @@
+[
+  {
+    "id": 1,
+    "name": "댕댕 포레스트",
+    "type": "펜션",
+    "location": "경기 가평군",
+    "price": 180000,
+    "rating": 4.8,
+    "images": [
+      "https://picsum.photos/seed/forest_main/1200/800",
+      "https://picsum.photos/seed/forest_room/1200/800",
+      "https://picsum.photos/seed/forest_yard/1200/800",
+      "https://picsum.photos/seed/forest_pool/1200/800"
+    ],
+    "tags": [
+      "#대형견가능",
+      "#개별운동장",
+      "#수영장",
+      "#독채"
+    ],
+    "maxGuests": 4,
+    "petsAllowed": true,
+    "checkInTime": "15:00",
+    "checkOutTime": "11:00"
+  },
+  {
+    "id": 2,
+    "name": "냥냥 파라다이스",
+    "type": "감성숙소",
+    "location": "제주 제주시",
+    "price": 250000,
+    "rating": 4.9,
+    "images": [
+      "https://picsum.photos/seed/paradise_main/1200/800",
+      "https://picsum.photos/seed/paradise_cat/1200/800",
+      "https://picsum.photos/seed/paradise_view/1200/800"
+    ],
+    "tags": [
+      "#고양이환영",
+      "#오션뷰",
+      "#캣타워",
+      "#감성숙소"
+    ],
+    "maxGuests": 2,
+    "petsAllowed": true,
+    "checkInTime": "16:00",
+    "checkOutTime": "12:00"
+  },
+  {
+    "id": 3,
+    "name": "해변의 멍뭉이",
+    "type": "리조트",
+    "location": "강원 강릉시",
+    "price": 210000,
+    "rating": 4.7,
+    "images": [
+      "https://picsum.photos/seed/beach_main/1200/800",
+      "https://picsum.photos/seed/beach_dog/1200/800",
+      "https://picsum.photos/seed/beach_bbq/1200/800"
+    ],
+    "tags": [
+      "#오션뷰",
+      "#바베큐",
+      "#해변인접"
+    ],
+    "maxGuests": 6,
+    "petsAllowed": true,
+    "checkInTime": "15:00",
+    "checkOutTime": "11:00"
+  },
+  {
+    "id": 4,
+    "name": "펫 프렌들리 경주",
+    "type": "펜션",
+    "location": "경북 경주시",
+    "price": 165000,
+    "rating": 4.6,
+    "images": [
+      "https://picsum.photos/seed/gyeongju_main/1200/800",
+      "https://picsum.photos/seed/gyeongju_hanok/1200/800",
+      "https://picsum.photos/seed/gyeongju_room/1200/800"
+    ],
+    "tags": [
+      "#한옥",
+      "#소형견",
+      "#조용한"
+    ],
+    "maxGuests": 3,
+    "petsAllowed": true,
+    "checkInTime": "15:00",
+    "checkOutTime": "11:00"
+  },
+  {
+    "id": 5,
+    "name": "마운틴 댕뷰",
+    "type": "펜션",
+    "location": "경기 포천시",
+    "price": 195000,
+    "rating": 4.5,
+    "images": [
+      "https://picsum.photos/seed/mountain_main/1200/800",
+      "https://picsum.photos/seed/mountain_view/1200/800",
+      "https://picsum.photos/seed/mountain_creek/1200/800"
+    ],
+    "tags": [
+      "#산책로",
+      "#계곡인접",
+      "#바베큐",
+      "#대형견가능"
+    ],
+    "maxGuests": 5,
+    "petsAllowed": true,
+    "checkInTime": "14:00",
+    "checkOutTime": "11:00"
+  },
+  {
+    "id": 6,
+    "name": "제주 돌담길 냥이네",
+    "type": "감성숙소",
+    "location": "제주 서귀포시",
+    "price": 280000,
+    "rating": 5.0,
+    "images": [
+      "https://picsum.photos/seed/jeju_cat_main/1200/800",
+      "https://picsum.photos/seed/jeju_cat_interior/1200/800",
+      "https://picsum.photos/seed/jeju_cat_garden/1200/800"
+    ],
+    "tags": [
+      "#독채",
+      "#돌담집",
+      "#고양이환영",
+      "#한적한"
+    ],
+    "maxGuests": 2,
+    "petsAllowed": true,
+    "checkInTime": "16:00",
+    "checkOutTime": "12:00"
+  },
+  {
+    "id": 7,
+    "name": "가평 힐링독",
+    "type": "펜션",
+    "location": "경기 가평군",
+    "price": 220000,
+    "rating": 4.8,
+    "images": [
+      "https://picsum.photos/seed/healing_dog_main/1200/800",
+      "https://picsum.photos/seed/healing_dog_spa/1200/800",
+      "https://picsum.photos/seed/healing_dog_pool/1200/800"
+    ],
+    "tags": [
+      "#수영장",
+      "#펫스파",
+      "#개별운동장",
+      "#바베큐"
+    ],
+    "maxGuests": 4,
+    "petsAllowed": true,
+    "checkInTime": "15:00",
+    "checkOutTime": "11:00"
+  },
+  {
+    "id": 8,
+    "name": "멍비치 하우스",
+    "type": "리조트",
+    "location": "강원 양양군",
+    "price": 240000,
+    "rating": 4.7,
+    "images": [
+      "https://picsum.photos/seed/dog_beach_main/1200/800",
+      "https://picsum.photos/seed/dog_beach_terrace/1200/800",
+      "https://picsum.photos/seed/dog_beach_room/1200/800"
+    ],
+    "tags": [
+      "#해변인접",
+      "#서핑",
+      "#오션뷰",
+      "#대형견가능"
+    ],
+    "maxGuests": 8,
+    "petsAllowed": true,
+    "checkInTime": "15:00",
+    "checkOutTime": "11:00"
+  },
+  {
+    "id": 9,
+    "name": "고양이와 숲",
+    "type": "펜션",
+    "location": "경기 양평군",
+    "price": 170000,
+    "rating": 4.9,
+    "images": [
+      "https://picsum.photos/seed/cat_forest_main/1200/800",
+      "https://picsum.photos/seed/cat_forest_room/1200/800",
+      "https://picsum.photos/seed/cat_forest_path/1200/800"
+    ],
+    "tags": [
+      "#숲속",
+      "#고양이환영",
+      "#조용한",
+      "#산책로"
+    ],
+    "maxGuests": 2,
+    "petsAllowed": true,
+    "checkInTime": "15:00",
+    "checkOutTime": "12:00"
+  },
+  {
+    "id": 10,
+    "name": "스타디움 뷰 펫 호텔",
+    "type": "호텔",
+    "location": "서울 송파구",
+    "price": 350000,
+    "rating": 4.9,
+    "images": [
+      "https://picsum.photos/seed/stadium_hotel_main/1200/800",
+      "https://picsum.photos/seed/stadium_hotel_lobby/1200/800",
+      "https://picsum.photos/seed/stadium_hotel_room/1200/800",
+      "https://picsum.photos/seed/stadium_hotel_spa/1200/800"
+    ],
+    "tags": [
+      "#호텔",
+      "#도심",
+      "#펫스파",
+      "#룸서비스"
+    ],
+    "maxGuests": 2,
+    "petsAllowed": true,
+    "checkInTime": "15:00",
+    "checkOutTime": "11:00"
+  }
+]

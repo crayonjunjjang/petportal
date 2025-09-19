@@ -1,0 +1,134 @@
+/* src/components/common/BusinessCard.module.css */
+.card {
+    background: white;
+    border-radius: var(--border-radius-lg);
+    box-shadow: var(--shadow-soft);
+    border: 1px solid #f0f0f0;
+    transition: var(--transition-smooth);
+    overflow: hidden;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+}
+
+.card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-medium);
+}
+
+.eventBanner {
+    padding: 6px 12px;
+    color: white;
+    font-weight: 600;
+    font-size: 0.8rem;
+    text-align: center;
+}
+
+.eventBanner.discount {
+    background-color: #ef4444;
+    /* red-500 */
+}
+
+.eventBanner.info {
+    background-color: #3b82f6;
+    /* blue-500 */
+}
+
+.cardContent {
+    padding: 20px;
+    flex-grow: 1;
+}
+
+.cardHeader {
+    background-color: white;
+    border: #000000;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 12px;
+}
+
+.name {
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: var(--color-neutral-dark);
+}
+
+.status {
+    font-size: 0.85rem;
+    font-weight: 600;
+    padding: 4px 10px;
+    border-radius: 12px;
+    flex-shrink: 0;
+}
+
+.status.open {
+    color: #059669;
+    /* green-700 */
+    background-color: #d1fae5;
+    /* green-100 */
+}
+
+.status.closed {
+    color: #be123c;
+    /* rose-700 */
+    background-color: #ffe4e6;
+    /* rose-100 */
+}
+
+.info {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 16px;
+    color: var(--color-neutral-medium);
+    font-size: 0.9rem;
+}
+
+.rating {
+    font-weight: 600;
+    color: #f59e0b;
+    /* amber-500 */
+}
+
+.reviewSnippet {
+    font-size: 0.9rem;
+    color: #4b5563;
+    /* gray-600 */
+    border-left: 3px solid var(--color-primary);
+    padding-left: 12px;
+    margin: 0;
+    font-style: italic;
+}
+
+.ctaContainer {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    border-top: 1px solid #f0f0f0;
+    margin-top: auto;
+    /* Push to the bottom */
+}
+
+.ctaButton {
+    padding: 14px;
+    text-align: center;
+    font-weight: 600;
+    font-size: 0.9rem;
+    color: var(--color-neutral-dark);
+    transition: background-color 0.2s;
+}
+
+.ctaButton:not(:last-child) {
+    border-right: 1px solid #f0f0f0;
+}
+
+
+.ctaButton:hover {
+    background-color: #f9fafb;
+    /* gray-50 */
+}
+
+.ctaButton.primary {
+    color: var(--color-primary);
+    font-weight: 700;
+}

@@ -1,0 +1,261 @@
+[
+  {
+    "id": "c1",
+    "name": "도그앤카페",
+    "distanceKm": 0.9,
+    "services": [
+      "애견음료",
+      "대형견 가능",
+      "야외 테라스",
+      "수제 간식"
+    ],
+    "operatingHours": {
+      "start": "09:00",
+      "end": "22:00"
+    },
+    "requiresReservation": false,
+    "rating": 4.5,
+    "reviews": 187,
+    "lat": 37.55,
+    "lng": 126.98,
+    "address": "서울 중구 세종대로 110",
+    "phone": "02-1234-5678",
+    "description": "반려견과 함께 즐길 수 있는 다양한 음료와 디저트가 준비되어 있습니다. 넓은 야외 테라스도 이용 가능합니다.",
+    "images": [
+      "https://images.unsplash.com/photo-1558788353-f76d92427f16?auto=format&fit=crop&q=80&w=800",
+      "https://images.unsplash.com/photo-1537151608828-ea2b11777ee8?auto=format&fit=crop&q=80&w=800"
+    ]
+  },
+  {
+    "id": "c2",
+    "name": "냥냥카페",
+    "distanceKm": 2.1,
+    "services": [
+      "고양이 전용 공간",
+      "굿즈",
+      "보드게임"
+    ],
+    "operatingHours": {
+      "start": "10:00",
+      "end": "21:00"
+    },
+    "requiresReservation": true,
+    "rating": 4.6,
+    "reviews": 92,
+    "lat": 37.565,
+    "lng": 126.99,
+    "address": "서울 종로구 종로 1",
+    "phone": "02-2345-6789",
+    "description": "귀여운 고양이들과 교감하며 힐링할 수 있는 공간입니다. 다양한 고양이 굿즈도 판매하고 있습니다. (예약 필수)",
+    "images": [
+      "https://images.unsplash.com/photo-1519052537078-e6302a4968d4?auto=format&fit=crop&q=80&w=800",
+      "https://images.unsplash.com/photo-1574158622682-e40e6984100d?auto=format&fit=crop&q=80&w=800"
+    ]
+  },
+  {
+    "id": "c3",
+    "name": "펫프렌즈 라운지",
+    "distanceKm": 4.2,
+    "services": [
+      "애견음료",
+      "실내놀이터",
+      "포토존"
+    ],
+    "operatingHours": {
+      "start": "08:00",
+      "end": "23:00"
+    },
+    "requiresReservation": false,
+    "rating": 4.2,
+    "reviews": 60,
+    "lat": 37.57,
+    "lng": 127,
+    "address": "서울 강남구 테헤란로 152",
+    "phone": "02-3456-7890",
+    "description": "반려동물과 함께 편안하게 쉴 수 있는 라운지입니다. 실내 놀이터가 있어 날씨에 구애받지 않고 즐길 수 있습니다.",
+    "images": [
+      "https://images.unsplash.com/photo-1560807707-8cc77767d783?auto=format&fit=crop&q=80&w=800"
+    ]
+  },
+  {
+    "id": "c4",
+    "name": "해피독 브런치카페",
+    "distanceKm": 1.5,
+    "services": [
+      "대형견 가능",
+      "수제 간식",
+      "야외 테라스",
+      "주차 가능"
+    ],
+    "operatingHours": {
+      "start": "07:00",
+      "end": "20:00"
+    },
+    "requiresReservation": false,
+    "rating": 4.8,
+    "reviews": 324,
+    "lat": 37.5547,
+    "lng": 126.9706,
+    "address": "서울 중구 명동길 74",
+    "phone": "02-4567-8901",
+    "description": "아침 일찍부터 저녁까지 운영하는 브런치 전문 카페입니다. 대형견도 환영하며, 넓은 야외 테라스에서 반려견과 함께 여유로운 시간을 보낼 수 있습니다.",
+    "images": [
+      "https://images.unsplash.com/photo-1554118811-1e0d58224f24?auto=format&fit=crop&q=80&w=800",
+      "https://images.unsplash.com/photo-1551963831-b3b1ca40c98e?auto=format&fit=crop&q=80&w=800"
+    ]
+  },
+  {
+    "id": "c5",
+    "name": "캣앤독 힐링센터",
+    "distanceKm": 3.8,
+    "services": [
+      "고양이 전용 공간",
+      "굿즈",
+      "애견음료",
+      "보드게임",
+      "포토존"
+    ],
+    "operatingHours": {
+      "start": "11:00",
+      "end": "22:00"
+    },
+    "requiresReservation": true,
+    "rating": 4.4,
+    "reviews": 156,
+    "lat": 37.5172,
+    "lng": 127.0473,
+    "address": "서울 서초구 강남대로 465",
+    "phone": "02-5678-9012",
+    "description": "고양이와 강아지 모두를 위한 특별한 공간입니다. 층별로 구분된 전용 공간에서 스트레스 없이 즐길 수 있으며, 다양한 반려동물 굿즈와 포토존이 마련되어 있습니다. (예약 필수)",
+    "images": [
+      "https://images.unsplash.com/photo-1548199973-03cce0bbc87b?auto=format&fit=crop&q=80&w=800",
+      "https://images.unsplash.com/photo-1514888286974-6c03e2ca1dba?auto=format&fit=crop&q=80&w=800",
+      "https://images.unsplash.com/photo-1516734212186-a967f81ad0d7?auto=format&fit=crop&q=80&w=800"
+    ]
+  },
+  {
+    "id": "c6",
+    "name": "멍멍 다방",
+    "distanceKm": 0.5,
+    "services": [
+      "애견음료",
+      "수제 간식",
+      "실내 놀이터"
+    ],
+    "operatingHours": {
+      "start": "10:00",
+      "end": "20:00"
+    },
+    "requiresReservation": false,
+    "rating": 4.3,
+    "reviews": 110,
+    "lat": 37.54,
+    "lng": 126.99,
+    "address": "서울 용산구 이태원로 200",
+    "phone": "02-1122-3344",
+    "description": "아늑한 분위기에서 반려견과 함께 커피를 즐길 수 있는 공간입니다.",
+    "images": [
+      "https://images.unsplash.com/photo-1534361960057-19889db9621e?auto=format&fit=crop&q=80&w=800"
+    ]
+  },
+  {
+    "id": "c7",
+    "name": "고양이 정원",
+    "distanceKm": 1.8,
+    "services": [
+      "고양이 전용 공간",
+      "굿즈",
+      "조용한 분위기"
+    ],
+    "operatingHours": {
+      "start": "12:00",
+      "end": "21:00"
+    },
+    "requiresReservation": true,
+    "rating": 4.7,
+    "reviews": 85,
+    "lat": 37.57,
+    "lng": 127.01,
+    "address": "서울 성동구 왕십리로 100",
+    "phone": "02-5566-7788",
+    "description": "아름다운 정원에서 고양이들과 함께 평화로운 시간을 보낼 수 있습니다.",
+    "images": [
+      "https://images.unsplash.com/photo-1518791841217-8f162f1e1131?auto=format&fit=crop&q=80&w=800"
+    ]
+  },
+  {
+    "id": "c8",
+    "name": "펫츠 플레이스",
+    "distanceKm": 3.1,
+    "services": [
+      "대형견 가능",
+      "실내 놀이터",
+      "애견 호텔"
+    ],
+    "operatingHours": {
+      "start": "09:00",
+      "end": "23:00"
+    },
+    "requiresReservation": false,
+    "rating": 4.0,
+    "reviews": 70,
+    "lat": 37.50,
+    "lng": 127.03,
+    "address": "서울 강남구 논현로 300",
+    "phone": "02-9988-7766",
+    "description": "넓은 실내 놀이터와 애견 호텔을 겸비한 복합 문화 공간입니다.",
+    "images": [
+      "https://images.unsplash.com/photo-1543466835-00a7907e9dde?auto=format&fit=crop&q=80&w=800"
+    ]
+  },
+  {
+    "id": "c9",
+    "name": "멍냥 브런치",
+    "distanceKm": 2.0,
+    "services": [
+      "애견음료",
+      "수제 간식",
+      "브런치 메뉴"
+    ],
+    "operatingHours": {
+      "start": "08:00",
+      "end": "18:00"
+    },
+    "requiresReservation": false,
+    "rating": 4.6,
+    "reviews": 150,
+    "lat": 37.53,
+    "lng": 126.97,
+    "address": "서울 마포구 동교로 150",
+    "phone": "02-4455-6677",
+    "description": "반려동물과 함께 즐기는 맛있는 브런치와 커피.",
+    "images": [
+      "https://images.unsplash.com/photo-1546238232-20216becf525?auto=format&fit=crop&q=80&w=800"
+    ]
+  },
+  {
+    "id": "c10",
+    "name": "힐링 펫 카페",
+    "distanceKm": 1.2,
+    "services": [
+      "고양이 전용 공간",
+      "애견음료",
+      "아로마 테라피"
+    ],
+    "operatingHours": {
+      "start": "11:00",
+      "end": "20:00"
+    },
+    "requiresReservation": true,
+    "rating": 4.5,
+    "reviews": 95,
+    "lat": 37.52,
+    "lng": 127.02,
+    "address": "서울 강동구 성내로 50",
+    "phone": "02-8899-0011",
+    "description": "반려동물의 스트레스 해소를 위한 아로마 테라피와 함께하는 힐링 카페.",
+    "images": [
+      "https://images.unsplash.com/photo-1514888286974-6c03e2ca1dba?auto=format&fit=crop&q=80&w=800"
+    ]
+  }
+]

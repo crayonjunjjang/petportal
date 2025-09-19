@@ -1,0 +1,124 @@
+
+/* src/components/sections/BestProductsSection.module.css */
+.section {
+    padding: var(--section-padding) 0;
+    background-color: var(--section-background-color);
+}
+
+.container {
+    max-width: var(--container-width);
+    margin: 0 auto;
+    padding: 0 var(--container-padding);
+    text-align: center;
+}
+
+.header {
+    margin-bottom: 50px;
+}
+
+.title {
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--text-color);
+    margin-bottom: 15px;
+}
+
+.subtitle {
+    font-size: 1.1rem;
+    color: var(--text-light-color);
+    margin-bottom: 25px;
+}
+
+.viewMore {
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--primary-color);
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 20px;
+}
+
+.card {
+    background-color: #fff;
+    border-radius: 12px;
+    overflow: hidden;
+    border: 1px solid var(--border-color);
+    cursor: pointer;
+    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+}
+
+.imageWrapper {
+    position: relative;
+    width: 100%;
+    padding-top: 100%; /* 1:1 Aspect Ratio */
+}
+
+.image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.categoryBadge {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    padding: 5px 10px;
+    border-radius: 15px;
+    font-size: 0.8rem;
+    font-weight: 600;
+}
+
+.cardBody {
+    padding: 15px;
+    text-align: left;
+}
+
+.productName {
+    font-size: 1rem;
+    font-weight: 600;
+    margin-bottom: 10px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.productInfo {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.productPrice {
+    font-size: 1.1rem;
+    font-weight: 700;
+}
+
+.rating {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    font-size: 0.9rem;
+}
+
+.loading {
+    padding: 50px;
+    text-align: center;
+    color: var(--text-light-color);
+}

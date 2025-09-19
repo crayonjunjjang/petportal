@@ -1,0 +1,56 @@
+.boardTable {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 1rem;
+  border-top: 2px solid #a7c7e7;
+}
+
+.boardTable th,
+.boardTable td {
+  padding: 16px;
+  text-align: center;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.boardTable thead {
+  background-color: #f5f5f5;
+}
+
+.boardTable th {
+  font-weight: 600;
+  color: #333333;
+}
+
+.thNumber { width: 10%; }
+.thTitle { width: 50%; }
+.thAuthor { width: 15%; }
+.thDate { width: 15%; }
+.thViews { width: 10%; }
+
+.tdTitle {
+  text-align: left;
+}
+
+.tdTitle a {
+  text-decoration: none;
+  color: #333333;
+  transition: color 0.2s ease;
+}
+
+.tdTitle a:hover {
+  color: #a7c7e7;
+  text-decoration: underline;
+}
+
+.noticeRow {
+  background-color: #f8f9fa;
+}
+
+.noticeBadge {
+  background-color: #a7c7e7;
+  color: #ffffff;
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-size: 0.875rem;
+  font-weight: 600;
+}

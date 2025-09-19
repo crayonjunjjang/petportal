@@ -1,0 +1,341 @@
+/* src/pages/PetSupplyDetailPage.module.css */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.loading, .error {
+  text-align: center;
+  padding: 60px;
+}
+
+.error h2 {
+  color: #dc3545;
+  margin-bottom: 10px;
+}
+
+.error p {
+  color: #666;
+  margin-bottom: 20px;
+}
+
+.breadcrumb {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 30px;
+  font-size: 0.9rem;
+}
+
+.breadcrumbLink {
+  color: #007bff;
+  text-decoration: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  font-size: inherit;
+}
+
+.breadcrumbLink:hover {
+  text-decoration: underline;
+}
+
+.separator {
+  color: #666;
+}
+
+.currentPage {
+  color: #333;
+  font-weight: 500;
+}
+
+.productDetail {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  margin-bottom: 40px;
+}
+
+.imageSection {
+  position: sticky;
+  top: 20px;
+  height: fit-content;
+}
+
+.mainImageWrapper {
+  position: relative;
+  width: 100%;
+  height: 500px;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+.mainImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.bestBadge {
+  position: absolute;
+  top: 15px;
+  left: 15px;
+  background: #ff4757;
+  color: white;
+  padding: 6px 12px;
+  border-radius: 6px;
+  font-size: 0.8rem;
+  font-weight: bold;
+  z-index: 1;
+}
+
+.featuredBadge {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  background: #2ed573;
+  color: white;
+  padding: 6px 12px;
+  border-radius: 6px;
+  font-size: 0.8rem;
+  font-weight: bold;
+  z-index: 1;
+}
+
+.infoSection {
+  padding: 20px 0;
+}
+
+.category {
+  font-size: 0.9rem;
+  color: #007bff;
+  font-weight: 600;
+  text-transform: uppercase;
+  margin-bottom: 10px;
+}
+
+.productName {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #333;
+  margin-bottom: 15px;
+  line-height: 1.3;
+}
+
+.brand {
+  font-size: 1rem;
+  color: #666;
+  margin-bottom: 15px;
+}
+
+.rating {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 20px;
+}
+
+.stars {
+  font-size: 1.1rem;
+}
+
+.ratingText {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #333;
+}
+
+.reviewCount {
+  font-size: 0.9rem;
+  color: #666;
+}
+
+.price {
+  margin-bottom: 25px;
+}
+
+.currentPrice {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #007bff;
+}
+
+.description {
+  margin-bottom: 25px;
+}
+
+.description h3 {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.description p {
+  font-size: 1rem;
+  color: #666;
+  line-height: 1.6;
+}
+
+.stockInfo {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 30px;
+}
+
+.stockLabel {
+  font-weight: 600;
+  color: #333;
+}
+
+.stockStatus {
+  font-weight: 500;
+}
+
+.stockStatus.inStock {
+  color: #28a745;
+}
+
+.stockStatus.outOfStock {
+  color: #dc3545;
+}
+
+.actions {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 40px;
+}
+
+.cartButton, .buyButton {
+  flex: 1;
+  padding: 15px 20px;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.cartButton {
+  background: #f8f9fa;
+  color: #333;
+  border: 2px solid #e9ecef;
+}
+
+.cartButton:hover:not(:disabled) {
+  background: #e9ecef;
+}
+
+.buyButton {
+  background: #007bff;
+  color: white;
+}
+
+.buyButton:hover:not(:disabled) {
+  background: #0056b3;
+}
+
+.cartButton:disabled, .buyButton:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.productInfo {
+  border-top: 1px solid #e9ecef;
+  padding-top: 30px;
+}
+
+.productInfo h3 {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 15px;
+}
+
+.infoGrid {
+  display: grid;
+  gap: 12px;
+}
+
+.infoItem {
+  display: grid;
+  grid-template-columns: 120px 1fr;
+  gap: 15px;
+  padding: 10px 0;
+  border-bottom: 1px solid #f1f3f4;
+}
+
+.infoLabel {
+  font-weight: 500;
+  color: #666;
+}
+
+.infoValue {
+  color: #333;
+}
+
+.backToList {
+  text-align: center;
+  padding: 20px 0;
+}
+
+.backButton {
+  padding: 12px 24px;
+  background: #6c757d;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.backButton:hover {
+  background: #5a6268;
+}
+
+/* 반응형 디자인 */
+@media (max-width: 768px) {
+  .container {
+    padding: 15px;
+  }
+
+  .productDetail {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .imageSection {
+    position: static;
+  }
+
+  .mainImageWrapper {
+    height: 300px;
+  }
+
+  .productName {
+    font-size: 1.5rem;
+  }
+
+  .currentPrice {
+    font-size: 1.5rem;
+  }
+
+  .actions {
+    flex-direction: column;
+  }
+
+  .breadcrumb {
+    flex-wrap: wrap;
+  }
+
+  .infoItem {
+    grid-template-columns: 1fr;
+    gap: 5px;
+  }
+}

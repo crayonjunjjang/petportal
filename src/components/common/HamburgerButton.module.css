@@ -1,0 +1,60 @@
+/* src/components/common/HamburgerButton.module.css */
+.hamburgerButton {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 40px;
+  height: 40px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  position: absolute;
+  right: 40px;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 1001;
+  padding: 8px;
+}
+
+.line {
+  width: 24px;
+  height: 3px;
+  background-color: #ffffff;
+  margin: 2px 0;
+  transition: all 0.3s ease;
+  transform-origin: center;
+  box-shadow: 
+    -1px -1px 0 rgba(0, 0, 0, 0.8),
+    1px -1px 0 rgba(0, 0, 0, 0.8),
+    -1px 1px 0 rgba(0, 0, 0, 0.8),
+    1px 1px 0 rgba(0, 0, 0, 0.8);
+}
+
+.hamburgerButton.scrolled .line {
+  background-color: #2D3748;
+  box-shadow: 
+    -1px -1px 0 rgba(255, 255, 255, 0.8),
+    1px -1px 0 rgba(255, 255, 255, 0.8),
+    -1px 1px 0 rgba(255, 255, 255, 0.8),
+    1px 1px 0 rgba(255, 255, 255, 0.8);
+}
+
+.hamburgerButton.open .line:nth-child(1) {
+  transform: translateY(7px) rotate(45deg);
+}
+
+.hamburgerButton.open .line:nth-child(2) {
+  opacity: 0;
+}
+
+.hamburgerButton.open .line:nth-child(3) {
+  transform: translateY(-7px) rotate(-45deg);
+}
+
+@media (max-width: 768px) {
+  .hamburgerButton {
+    display: flex;
+    right: 20px;
+  }
+}

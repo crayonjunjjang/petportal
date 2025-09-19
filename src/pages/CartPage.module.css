@@ -1,0 +1,63 @@
+.pageHeader {
+  text-align: center;
+  margin-bottom: 48px;
+}
+
+.pageHeader h1 {
+  font-size: 3rem;
+  font-weight: 800;
+  margin-bottom: 8px;
+}
+
+.cartLayout {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 48px;
+  align-items: flex-start;
+}
+
+/* 장바구니 상품 목록 */
+.item {
+  display: flex;
+  gap: 16px;
+  padding: 24px 0;
+  border-bottom: 1px solid #e0e0e0;
+}
+.item img {
+  width: 120px;
+  height: 120px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+.itemInfo { flex-grow: 1; }
+.brand { color: #666666; font-size: 0.875rem; }
+.name { font-weight: 500; margin: 8px 0; }
+.price { font-weight: 700; }
+
+.itemControls {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 16px;
+}
+
+.itemTotal { font-size: 1.125rem; font-weight: 700; }
+.removeButton { font-size: 1.5rem; color: #666666; }
+
+/* 결제 예상 금액 */
+.summary {
+  position: sticky;
+  top: 100px;
+  border: 1px solid #e0e0e0;
+  border-radius: 12px;
+  padding: 24px;
+}
+.summary h2 { font-size: 1.5rem; margin: 0 0 24px 0; }
+.summaryRow { display: flex; justify-content: space-between; margin-bottom: 16px; }
+.shippingInfo { font-size: 0.875rem; color: #1dd1a1; text-align: right; margin: -8px 0 16px 0; }
+.total { font-size: 1.5rem; font-weight: 700; border-top: 1px solid #333333; padding-top: 24px; }
+.orderButton { width: 100%; margin-top: 24px; }
+
+/* 장바구니 비었을 때 */
+.emptyCart { text-align: center; padding: 72px 0; }
+.emptyCart p { font-size: 1.125rem; color: #666666; margin-bottom: 24px; }

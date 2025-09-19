@@ -1,0 +1,819 @@
+[
+  {
+    "id": 1,
+    "name": "튼튼 관절 저알러지 사료 (연어)",
+    "brand": "헬시펫",
+    "price": 58000,
+    "rating": 4.9,
+    "reviewCount": 1204,
+    "image": "https://images.pexels.com/photos/8434641/pexels-photo-8434641.jpeg",
+    "category": "사료",
+    "tags": [
+      "#관절건강",
+      "#알러지케어"
+    ],
+    "description": "신선한 노르웨이산 연어와 가수분해 단백질을 사용하여 알러지 반응을 최소화하고, 글루코사민과 콘드로이친 성분이 관절 건강에 도움을 주는 기능성 사료입니다. 오메가-3가 풍부하여 피부와 모질 개선에도 효과적입니다.",
+    "reviews": [
+      {
+        "id": 1,
+        "author": "멍멍이아빠",
+        "rating": 5,
+        "content": "벌써 3년째 이것만 먹여요! 슬개골이 안 좋았는데 산책할 때 훨씬 활기차졌어요."
+      },
+      {
+        "id": 2,
+        "author": "알러지견주",
+        "rating": 5,
+        "content": "눈물 자국이랑 발 핥는 게 거짓말처럼 줄었네요. 정착합니다!"
+      }
+    ]
+  },
+  {
+    "id": 7,
+    "name": "다이어트 처방식 사료 (닭고기)",
+    "brand": "헬시펫",
+    "price": 62000,
+    "rating": 4.8,
+    "reviewCount": 850,
+    "image": "https://images.pexels.com/photos/8434641/pexels-photo-8434641.jpeg",
+    "category": "사료",
+    "tags": [
+      "#체중조절",
+      "#처방식"
+    ],
+    "description": "고단백 저지방 설계로 포만감을 유지해주면서 체중 감량에 도움을 주는 수의사 처방식 사료입니다. L-카르니틴 성분이 지방 연소를 촉진합니다. 반드시 수의사와 상담 후 급여해주세요.",
+    "reviews": [
+      {
+        "id": 1,
+        "author": "뚱보견주",
+        "rating": 5,
+        "content": "병원 추천으로 먹이기 시작했는데 3개월 만에 1kg 감량 성공했어요!"
+      },
+      {
+        "id": 2,
+        "author": "관리의중요성",
+        "rating": 5,
+        "content": "처방식인데도 기호성이 좋아서 잘 먹습니다."
+      }
+    ]
+  },
+  {
+    "id": 13,
+    "name": "소형견 맞춤 어덜트 사료 (오리)",
+    "brand": "리틀프렌드",
+    "price": 32000,
+    "rating": 4.9,
+    "reviewCount": 2150,
+    "image": "https://images.pexels.com/photos/8434641/pexels-photo-8434641.jpeg",
+    "category": "사료",
+    "tags": [
+      "#소형견전용",
+      "#작은알갱이"
+    ],
+    "description": "활동량 많은 소형견의 작은 입과 치아 구조에 맞게 설계된 사료입니다. 소화 흡수율이 높은 오리고기를 주원료로 사용하였고, 유산균이 함유되어 장 건강에 도움을 줍니다.",
+    "reviews": [
+      {
+        "id": 1,
+        "author": "푸들맘",
+        "rating": 5,
+        "content": "알갱이가 작아서 저희 아이가 너무 잘 먹어요! 변 냄새도 줄었네요."
+      }
+    ]
+  },
+  {
+    "id": 14,
+    "name": "중형견 활력 부스트 사료 (소고기)",
+    "brand": "액티브독",
+    "price": 45000,
+    "rating": 4.8,
+    "reviewCount": 1890,
+    "image": "https://images.pexels.com/photos/8434641/pexels-photo-8434641.jpeg",
+    "category": "사료",
+    "tags": [
+      "#중형견전용",
+      "#활동견"
+    ],
+    "description": "비글, 코카 스파니엘 등 활동적인 중형견을 위한 고단백 에너지 사료입니다. 호주산 청정 소고기를 사용하여 근육 발달에 도움을 주고, 초록입홍합이 함유되어 관절을 보호합니다.",
+    "reviews": [
+      {
+        "id": 1,
+        "author": "비글에너자이저",
+        "rating": 5,
+        "content": "산책을 두 시간씩 해도 지치지 않아요. 사료 덕분인가봐요."
+      }
+    ]
+  },
+  {
+    "id": 15,
+    "name": "대형견 체중 조절 사료 (칠면조)",
+    "brand": "빅바이트",
+    "price": 75000,
+    "rating": 4.9,
+    "reviewCount": 1560,
+    "image": "https://images.pexels.com/photos/8434641/pexels-photo-8434641.jpeg",
+    "category": "사료",
+    "tags": [
+      "#대형견전용",
+      "#체중관리"
+    ],
+    "description": "리트리버, 셰퍼드 등 대형견의 관절 부담을 줄여주기 위한 체중 조절용 사료입니다. 저지방 고단백 칠면조 고기를 사용하고 섬유질을 강화하여 포만감을 오래 유지시켜 줍니다.",
+    "reviews": [
+      {
+        "id": 1,
+        "author": "리트리버네",
+        "rating": 5,
+        "content": "알갱이가 커서 씹는 맛이 있는지 잘 먹네요. 몸무게도 조금씩 줄고 있어요."
+      }
+    ]
+  },
+  {
+    "id": 2,
+    "name": "냥냥펀치 치킨맛 스틱 간식 30개입",
+    "brand": "캣딜라이트",
+    "price": 12500,
+    "rating": 4.8,
+    "reviewCount": 3450,
+    "image": "https://images.pexels.com/photos/8434641/pexels-photo-8434641.jpeg",
+    "category": "간식",
+    "tags": [
+      "#기호성최고",
+      "#스틱형"
+    ],
+    "description": "100% 국내산 무항생제 닭가슴살을 사용하여 만든 프리미엄 스틱 간식입니다. 동결건조 공법으로 영양소 파괴를 최소화했으며, 말랑한 식감으로 어린 고양이부터 노령묘까지 모두 즐길 수 있습니다.",
+    "reviews": [
+      {
+        "id": 1,
+        "author": "집사일기",
+        "rating": 5,
+        "content": "없어서 못 먹습니다... 이 봉지 소리만 나면 자다가도 뛰쳐나와요."
+      }
+    ]
+  },
+  {
+    "id": 6,
+    "name": "튼튼 치아 덴탈껌 (중형견용)",
+    "brand": "덴탈케어",
+    "price": 15000,
+    "rating": 4.8,
+    "reviewCount": 2800,
+    "image": "https://images.pexels.com/photos/8434641/pexels-photo-8434641.jpeg",
+    "category": "간식",
+    "tags": [
+      "#치석제거",
+      "#오래먹는"
+    ],
+    "description": "독특한 톱니바퀴 모양이 치아 구석구석의 플라그를 제거해주고, 오래 씹을 수 있는 단단한 제형으로 만들어져 스트레스 해소에도 도움을 줍니다. 클로로필 성분이 입 냄새 제거에 효과적입니다.",
+    "reviews": [
+      {
+        "id": 1,
+        "author": "치카싫어",
+        "rating": 5,
+        "content": "양치하기 싫어하는 아이인데 이건 환장하고 먹어요. 입냄새도 줄었어요."
+      }
+    ]
+  },
+  {
+    "id": 10,
+    "name": "헤어볼 케어 캣그라스 키트",
+    "brand": "캣딜라이트",
+    "price": 7500,
+    "rating": 4.7,
+    "reviewCount": 1500,
+    "image": "https://picsum.photos/seed/catgrass1/600/600",
+    "category": "간식",
+    "tags": [
+      "#헤어볼",
+      "#캣그라스"
+    ],
+    "description": "물만 부어주면 5-7일 만에 신선한 귀리싹이 자라나는 재배 키트입니다. 풍부한 섬유질이 고양이의 헤어볼 배출을 자연스럽게 돕고 소화를 촉진합니다.",
+    "reviews": [
+      {
+        "id": 1,
+        "author": "풀뜯냥",
+        "rating": 5,
+        "content": "자라나는 거 보는 재미도 있고, 아이가 너무 잘 뜯어먹어요."
+      }
+    ]
+  },
+  {
+    "id": 16,
+    "name": "촉촉한 리얼 참치 퓨레 간식",
+    "brand": "캣딜라이트",
+    "price": 9800,
+    "rating": 5.0,
+    "reviewCount": 4120,
+    "image": "https://picsum.photos/seed/cattuna/600/600",
+    "category": "간식",
+    "tags": [
+      "#고양이간식",
+      "#음수량증가"
+    ],
+    "description": "신선한 참치를 그대로 갈아 만든 고수분 퓨레 간식입니다. 물을 잘 마시지 않는 고양이들의 음수량 보충에 도움을 주며, 전연령 급여가 가능합니다.",
+    "reviews": [
+      {
+        "id": 1,
+        "author": "물좀마셔",
+        "rating": 5,
+        "content": "이거라도 안 먹였으면 탈수 왔을 거예요. 생명의 은인입니다."
+      }
+    ]
+  },
+  {
+    "id": 21,
+    "name": "소형견 한입 쏙 트릿 (북어)",
+    "brand": "리틀프렌드",
+    "price": 8900,
+    "rating": 4.9,
+    "reviewCount": 3800,
+    "image": "https://picsum.photos/seed/smalldogtreat/600/600",
+    "category": "간식",
+    "tags": [
+      "#소형견간식",
+      "#훈련용"
+    ],
+    "description": "칭찬 간식, 노즈워크 훈련에 최적화된 작은 사이즈의 동결건조 북어 트릿입니다. 첨가물 없이 100% 원물만을 사용하여 안심하고 급여할 수 있습니다.",
+    "reviews": [
+      {
+        "id": 1,
+        "author": "노즈워크홀릭",
+        "rating": 5,
+        "content": "크기가 작아서 훈련할 때 주기에 부담 없고 너무 좋아요."
+      }
+    ]
+  },
+  {
+    "id": 22,
+    "name": "대형견용 수제 우족껌",
+    "brand": "빅바이트",
+    "price": 18000,
+    "rating": 4.8,
+    "reviewCount": 1300,
+    "image": "https://picsum.photos/seed/bigdogtreat/600/600",
+    "category": "간식",
+    "tags": [
+      "#대형견간식",
+      "#스트레스해소"
+    ],
+    "description": "국내산 한우 우족을 그대로 건조하여 만든 100% 수제 간식입니다. 오래 씹으며 스트레스를 해소하고 치석 제거에도 도움을 줍니다.",
+    "reviews": [
+      {
+        "id": 1,
+        "author": "파괴왕골댕이",
+        "rating": 5,
+        "content": "이거 하나면 2시간은 조용합니다. 대형견 최고의 간식!"
+      }
+    ]
+  },
+  {
+    "id": 3,
+    "name": "스트레스 해소 바스락볼",
+    "brand": "펫플레이",
+    "price": 8900,
+    "rating": 4.7,
+    "reviewCount": 890,
+    "image": "https://picsum.photos/seed/toy1/600/600",
+    "category": "장난감",
+    "tags": [
+      "#캣닙",
+      "#바스락"
+    ],
+    "description": "고양이의 호기심을 자극하는 바스락 소리와 천연 캣닙이 내장되어 있어 스트레스 해소 및 사냥 본능 충족에 도움을 줍니다. 가벼운 소재로 만들어져 혼자서도 잘 가지고 놉니다.",
+    "reviews": [
+      {
+        "id": 1,
+        "author": "우다다냥",
+        "rating": 5,
+        "content": "새벽에 공놀이 하느라 잠을 못 잘 지경이에요. 너무 좋아하네요."
+      }
+    ]
+  },
+  {
+    "id": 8,
+    "name": "숨숨 터널 하우스",
+    "brand": "펫플레이",
+    "price": 28000,
+    "rating": 4.9,
+    "reviewCount": 1230,
+    "image": "https://picsum.photos/seed/toy2/600/600",
+    "category": "장난감",
+    "tags": [
+      "#숨숨집",
+      "#놀이용"
+    ],
+    "description": "아늑한 숨숨집과 신나는 터널 놀이를 동시에 즐길 수 있는 2-in-1 아이템입니다. 부드러운 소재로 제작되었으며, 쉽게 접어서 보관할 수 있어 공간 활용도가 높습니다.",
+    "reviews": [
+      {
+        "id": 1,
+        "author": "두냥이네",
+        "rating": 5,
+        "content": "둘이서 신나게 우다다하고 잘 때는 쏙 들어가서 자요. 뽕 뽑았어요."
+      }
+    ]
+  },
+  {
+    "id": 17,
+    "name": "자동 레이저 포인터 장난감",
+    "brand": "펫플레이",
+    "price": 35000,
+    "rating": 4.8,
+    "reviewCount": 1100,
+    "image": "https://picsum.photos/seed/laser_toy/600/600",
+    "category": "장난감",
+    "tags": [
+      "#자동장난감",
+      "#사냥놀이"
+    ],
+    "description": "불규칙한 패턴으로 움직이는 레이저 포인터가 고양이의 사냥 본능을 자극합니다. 15분 자동 타이머 기능이 내장되어 있어 외출 시에도 고양이가 혼자 놀 수 있습니다.",
+    "reviews": [
+      {
+        "id": 1,
+        "author": "집사해방",
+        "rating": 5,
+        "content": "놀아줄 시간 없을 때 최고예요. 배터리도 오래가네요."
+      }
+    ]
+  },
+  {
+    "id": 23,
+    "name": "똑똑 노즈워크 간식 퍼즐",
+    "brand": "브레인펫",
+    "price": 22000,
+    "rating": 4.8,
+    "reviewCount": 950,
+    "image": "https://picsum.photos/seed/puzzledog/600/600",
+    "category": "장난감",
+    "tags": [
+      "#노즈워크",
+      "#분리불안"
+    ],
+    "description": "간식을 숨겨두면 강아지가 스스로 생각해서 찾아 먹는 두뇌 개발 장난감입니다. 분리불안 완화와 스트레스 해소에 효과적이며, 난이도 조절이 가능합니다.",
+    "reviews": [
+      {
+        "id": 1,
+        "author": "천재견주",
+        "rating": 5,
+        "content": "처음엔 헤매더니 이제는 1분 만에 다 찾아 먹어요. 너무 똑똑해진 느낌!"
+      }
+    ]
+  },
+  {
+    "id": 24,
+    "name": "파닥파닥 생선 인형",
+    "brand": "캣딜라이트",
+    "price": 17000,
+    "rating": 4.7,
+    "reviewCount": 2200,
+    "image": "https://picsum.photos/seed/fishcat/600/600",
+    "category": "장난감",
+    "tags": [
+      "#자동장난감",
+      "#캣닙"
+    ],
+    "description": "건드리면 살아있는 생선처럼 파닥거리는 자동 인형입니다. 고양이의 사냥 본능을 강하게 자극하며, 충전식으로 편리하게 사용할 수 있습니다.",
+    "reviews": [
+      {
+        "id": 1,
+        "author": "냥냥펀치",
+        "rating": 5,
+        "content": "진짜 물고기인 줄 아나봐요. 붙잡고 뒷발 팡팡 난리 났어요."
+      }
+    ]
+  },
+  {
+    "id": 4,
+    "name": "포근 올인원 강아지 겨울 패딩",
+    "brand": "리틀테일",
+    "price": 42000,
+    "rating": 4.9,
+    "reviewCount": 540,
+    "image": "https://picsum.photos/seed/cloth1/600/600",
+    "category": "의류",
+    "tags": [
+      "#겨울용",
+      "#방수"
+    ],
+    "description": "생활 방수 기능이 있는 겉감과 부드러운 기모 안감으로 제작되어 추운 겨울에도 따뜻하게 산책할 수 있습니다. 등 부분의 지퍼로 하네스와 함께 착용하기 편리합니다.",
+    "reviews": [
+      {
+        "id": 1,
+        "author": "패셔니스타",
+        "rating": 5,
+        "content": "색감도 예쁘고 너무 따뜻해 보여요. 입히고 벗기기도 편하네요."
+      }
+    ]
+  },
+  {
+    "id": 25,
+    "name": "시원한 강아지 쿨나시",
+    "brand": "썸머독",
+    "price": 18000,
+    "rating": 4.8,
+    "reviewCount": 1200,
+    "image": "https://picsum.photos/seed/coolshirt/600/600",
+    "category": "의류",
+    "tags": [
+      "#여름용",
+      "#쿨링소재"
+    ],
+    "description": "특수 냉감 원단으로 제작되어 시원함과 쾌적함을 유지시켜주는 여름용 나시입니다. 뜨거운 아스팔트의 열기와 자외선으로부터 아이의 피부를 보호해줍니다.",
+    "reviews": [
+      {
+        "id": 1,
+        "author": "더위사냥",
+        "rating": 5,
+        "content": "입히고 산책했더니 헥헥거리는 게 훨씬 줄었어요. 신기하네요."
+      }
+    ]
+  },
+  {
+    "id": 26,
+    "name": "귀여운 꿀벌 후드티",
+    "brand": "리틀테일",
+    "price": 25000,
+    "rating": 5.0,
+    "reviewCount": 980,
+    "image": "https://picsum.photos/seed/beedog/600/600",
+    "category": "의류",
+    "tags": [
+      "#코스튬",
+      "#산책룩"
+    ],
+    "description": "귀여운 꿀벌 디자인으로 산책 시 시선 집중! 부드러운 면 소재로 만들어져 착용감이 좋으며, 봄가을 간절기에 입히기 딱 좋습니다.",
+    "reviews": [
+      {
+        "id": 1,
+        "author": "인싸견",
+        "rating": 5,
+        "content": "이거 입고 나가면 다들 귀엽다고 난리예요. 인생샷 보장!"
+      }
+    ]
+  },
+  {
+    "id": 27,
+    "name": "가슴으로 입는 H형 하네스",
+    "brand": "세이프독",
+    "price": 38000,
+    "rating": 4.9,
+    "reviewCount": 4500,
+    "image": "https://picsum.photos/seed/harness/600/600",
+    "category": "의류",
+    "tags": [
+      "#산책필수템",
+      "#기관지보호"
+    ],
+    "description": "목을 압박하지 않는 H형 디자인으로 기관지가 약한 아이들도 편안하게 착용할 수 있습니다. 가볍고 튼튼한 소재로 제작되었으며, 사이즈 조절이 용이합니다.",
+    "reviews": [
+      {
+        "id": 1,
+        "author": "킁킁산책",
+        "rating": 5,
+        "content": "목줄 할 때보다 아이가 훨씬 편안해 보여요. 켁켁거림이 사라졌어요."
+      }
+    ]
+  },
+  {
+    "id": 28,
+    "name": "미끄럼 방지 애견 양말 4개 세트",
+    "brand": "리틀테일",
+    "price": 12000,
+    "rating": 4.7,
+    "reviewCount": 1600,
+    "image": "https://picsum.photos/seed/dogsocks/600/600",
+    "category": "의류",
+    "tags": [
+      "#실내용",
+      "#미끄럼방지"
+    ],
+    "description": "발바닥의 고무 패드가 실내에서 미끄러지는 것을 방지하여 슬개골과 관절을 보호해줍니다. 발을 핥는 습관이 있는 아이들에게도 좋습니다.",
+    "reviews": [
+      {
+        "id": 1,
+        "author": "슬개골지킴이",
+        "rating": 5,
+        "content": "집에서 우다다 뛰어다녀도 안 미끄러져서 안심이 돼요."
+      }
+    ]
+  },
+  {
+    "id": 5,
+    "name": "대용량 고양이 모래 (무향)",
+    "brand": "더스트프리",
+    "price": 21000,
+    "rating": 4.9,
+    "reviewCount": 11020,
+    "image": "https://picsum.photos/seed/sand1/600/600",
+    "category": "위생/배변",
+    "tags": [
+      "#응고형",
+      "#무향"
+    ],
+    "description": "99.9% 먼지 제거 공정을 거친 프리미엄 벤토나이트 모래입니다. 강력한 응고력으로 부서짐이 적고, 활성탄 성분이 악취를 효과적으로 잡아줍니다.",
+    "reviews": [
+      {
+        "id": 1,
+        "author": "깔끔집사",
+        "rating": 5,
+        "content": "이 모래 쓰고 사막화가 거의 없어졌어요. 응고력도 최고!"
+      }
+    ]
+  },
+  {
+    "id": 12,
+    "name": "휴대용 풉백 & 디스펜서",
+    "brand": "에코펫",
+    "price": 9900,
+    "rating": 4.8,
+    "reviewCount": 4200,
+    "image": "https://picsum.photos/seed/poopbag1/600/600",
+    "category": "위생/배변",
+    "tags": [
+      "#산책필수템",
+      "#친환경"
+    ],
+    "description": "100% 생분해성 소재로 만들어진 친환경 배변 봉투와 리드줄에 쉽게 탈부착 가능한 디스펜서 세트입니다. 산책 시 필수품을 간편하고 스타일리시하게 챙기세요.",
+    "reviews": [
+      {
+        "id": 1,
+        "author": "프로산책러",
+        "rating": 5,
+        "content": "디자인도 예쁘고 튼튼해서 좋아요. 뜯기도 편해요."
+      }
+    ]
+  },
+  {
+    "id": 29,
+    "name": "강아지 저자극 샴푸 (피부 진정)",
+    "brand": "퓨어펫",
+    "price": 19000,
+    "rating": 4.9,
+    "reviewCount": 2800,
+    "image": "https://picsum.photos/seed/shampoo/600/600",
+    "category": "위생/배변",
+    "tags": [
+      "#저자극",
+      "#피부진정"
+    ],
+    "description": "EWG 그린 등급의 안전한 성분과 편백수, 병풀추출물을 함유하여 민감한 피부를 가진 아이들도 안심하고 사용할 수 있는 저자극 샴푸입니다.",
+    "reviews": [
+      {
+        "id": 1,
+        "author": "민감피부",
+        "rating": 5,
+        "content": "이걸로 바꾸고 각질이랑 긁는 게 많이 줄었어요. 향도 은은해서 좋아요."
+      }
+    ]
+  },
+  {
+    "id": 30,
+    "name": "초흡수 배변패드 100매",
+    "brand": "이지패드",
+    "price": 17900,
+    "rating": 4.8,
+    "reviewCount": 8900,
+    "image": "https://picsum.photos/seed/peepad/600/600",
+    "category": "위생/배변",
+    "tags": [
+      "#대용량",
+      "#흡수력"
+    ],
+    "description": "다이아몬드 엠보싱과 고분자 흡수체가 소변을 빠르게 흡수하여 발도장 찍힘과 냄새 걱정을 줄여주는 배변패드입니다. 100매 대용량으로 경제적입니다.",
+    "reviews": [
+      {
+        "id": 1,
+        "author": "다견가정",
+        "rating": 5,
+        "content": "흡수력이 좋아서 여러 번 쉬해도 뽀송해요. 이것만 씁니다."
+      }
+    ]
+  },
+  {
+    "id": 31,
+    "name": "반려동물용 칫솔 & 치약 세트",
+    "brand": "덴탈케어",
+    "price": 13500,
+    "rating": 4.7,
+    "reviewCount": 3100,
+    "image": "https://picsum.photos/seed/toothbrush/600/600",
+    "category": "위생/배변",
+    "tags": [
+      "#구강관리",
+      "#치석예방"
+    ],
+    "description": "360도 칫솔모가 어금니 안쪽까지 쉽게 닦아주고, 아이들이 좋아하는 닭고기맛 효소 치약이 거부감 없는 양치 습관을 길러줍니다.",
+    "reviews": [
+      {
+        "id": 1,
+        "author": "건치견",
+        "rating": 5,
+        "content": "칫솔모가 부드러워서 잇몸에 자극이 덜 가는 것 같아요. 치약도 잘 먹네요."
+      }
+    ]
+  },
+  {
+    "id": 9,
+    "name": "자동 급식기 (타이머 설정)",
+    "brand": "펫스테이션",
+    "price": 89000,
+    "rating": 4.9,
+    "reviewCount": 2100,
+    "image": "https://picsum.photos/seed/feeder1/600/600",
+    "category": "급식기/급수기",
+    "tags": [
+      "#자동급식",
+      "#분리세척"
+    ],
+    "description": "정해진 시간에 정해진 양만큼 정확하게 배급하여 반려동물의 규칙적인 식습관을 도와줍니다. 스테인리스 식기와 내부 부품이 쉽게 분리되어 세척이 편리하고 위생적입니다.",
+    "reviews": [
+      {
+        "id": 1,
+        "author": "프로출근러",
+        "rating": 5,
+        "content": "출근해도 밥 걱정 없어서 너무 편해요. 시간도 정확하고 좋아요."
+      }
+    ]
+  },
+  {
+    "id": 19,
+    "name": "원목 높이조절 식기",
+    "brand": "리틀테일",
+    "price": 48000,
+    "rating": 4.9,
+    "reviewCount": 1800,
+    "image": "https://picsum.photos/seed/bowl/600/600",
+    "category": "급식기/급수기",
+    "tags": [
+      "#높이조절",
+      "#척추보호"
+    ],
+    "description": "반려동물의 성장에 맞춰 3단계로 높이를 조절할 수 있는 원목 식기입니다. 아이가 고개를 숙이지 않고 편안한 자세로 식사할 수 있어 소화와 관절 건강에 도움을 줍니다.",
+    "reviews": [
+      {
+        "id": 1,
+        "author": "닥스훈트견주",
+        "rating": 5,
+        "content": "허리 디스크 걱정 때문에 샀는데 확실히 편해 보여요. 디자인도 예뻐요."
+      }
+    ]
+  },
+  {
+    "id": 32,
+    "name": "고양이 정수기 (2.5L)",
+    "brand": "아쿠아펫",
+    "price": 52000,
+    "rating": 4.9,
+    "reviewCount": 3500,
+    "image": "https://picsum.photos/seed/water_fountain/600/600",
+    "category": "급식기/급수기",
+    "tags": [
+      "#자동급수",
+      "#음수량증가"
+    ],
+    "description": "흐르는 물이 고양이의 호기심을 자극하여 음수량 증가에 도움을 주는 자동 급수기입니다. 4중 필터 시스템이 물을 항상 깨끗하고 신선하게 유지시켜 줍니다.",
+    "reviews": [
+      {
+        "id": 1,
+        "author": "신장지킴이",
+        "rating": 5,
+        "content": "이거 설치하고 아이가 물 마시는 양이 2배는 늘었어요. 강력 추천!"
+      }
+    ]
+  },
+  {
+    "id": 33,
+    "name": "강아지 슬로우 식기",
+    "brand": "천천히",
+    "price": 15000,
+    "rating": 4.8,
+    "reviewCount": 2900,
+    "image": "https://picsum.photos/seed/slow_feeder/600/600",
+    "category": "급식기/급수기",
+    "tags": [
+      "#급체방지",
+      "#비만예방"
+    ],
+    "description": "내부의 미로 구조가 식사 속도를 늦춰주어 급하게 먹는 습관을 개선하고, 체하거나 토하는 것을 방지해주는 기능성 식기입니다.",
+    "reviews": [
+      {
+        "id": 1,
+        "author": "허겁지겁",
+        "rating": 5,
+        "content": "5초 컷이었는데 이제 5분은 걸리네요. 소화도 잘 되는 것 같아요."
+      }
+    ]
+  },
+  {
+    "id": 11,
+    "name": "프리미엄 워셔블 방석 (L사이즈)",
+    "brand": "리틀테일",
+    "price": 55000,
+    "rating": 5.0,
+    "reviewCount": 980,
+    "image": "https://picsum.photos/seed/cushion1/500/500",
+    "category": "리빙",
+    "tags": [
+      "#분리세탁",
+      "#푹신한"
+    ],
+    "description": "커버와 솜이 분리되어 세탁기 사용이 가능한 프리미엄 방석입니다. 마이크로화이버 충전재가 뛰어난 복원력과 쿠션감을 제공하며, 바닥의 미끄럼 방지 처리가 되어있습니다.",
+    "reviews": [
+      {
+        "id": 1,
+        "author": "꿀잠예약",
+        "rating": 5,
+        "content": "진짜 푹신하고 좋은지 여기서만 자요. 세탁할 수 있어서 제일 좋아요."
+      }
+    ]
+  },
+  {
+    "id": 18,
+    "name": "강아지 쿨링 방석 (M사이즈)",
+    "brand": "쿨펫",
+    "price": 29000,
+    "rating": 4.9,
+    "reviewCount": 3200,
+    "image": "https://picsum.photos/seed/coolmat/600/600",
+    "category": "리빙",
+    "tags": [
+      "#여름용품",
+      "#쿨매트"
+    ],
+    "description": "특수 냉감 소재와 쿨젤이 들어있어 무더운 여름철 반려동물의 체온을 시원하게 유지시켜 줍니다. 전기 없이 사용 가능하며, 오염 시 물티슈로 쉽게 닦아낼 수 있습니다.",
+    "reviews": [
+      {
+        "id": 1,
+        "author": "더위타는개",
+        "rating": 5,
+        "content": "에어컨 틀어줘도 맨날 현관에 누워있었는데, 이젠 여기 딱 붙어있어요."
+      }
+    ]
+  },
+  {
+    "id": 20,
+    "name": "강아지용 논슬립 계단 (3단)",
+    "brand": "세이프스텝",
+    "price": 62000,
+    "rating": 4.8,
+    "reviewCount": 2500,
+    "image": "https://picsum.photos/seed/stairs/600/600",
+    "category": "리빙",
+    "tags": [
+      "#슬개골보호",
+      "#미끄럼방지"
+    ],
+    "description": "고밀도 압축 스펀지로 제작되어 충격 흡수가 뛰어나며, 바닥과 스텝 커버 모두 미끄럼 방지 처리가 되어있어 아이들이 안전하게 오르내릴 수 있습니다. 커버는 분리하여 세탁할 수 있습니다.",
+    "reviews": [
+      {
+        "id": 1,
+        "author": "우다다강쥐",
+        "rating": 5,
+        "content": "침대에서 뛰어내리다가 다리 다칠까 봐 샀는데 너무 잘 써요. 튼튼해요."
+      }
+    ]
+  },
+  {
+    "id": 34,
+    "name": "스크래쳐 겸용 캣타워",
+    "brand": "캣딜라이트",
+    "price": 129000,
+    "rating": 4.9,
+    "reviewCount": 2800,
+    "image": "https://picsum.photos/seed/cattower/600/600",
+    "category": "리빙",
+    "tags": [
+      "#캣타워",
+      "#스크래쳐"
+    ],
+    "description": "고양이의 수직 공간에 대한 본능과 스크래치 습성을 모두 충족시켜주는 올인원 캣타워입니다. 튼튼한 원목과 사이잘 로프로 제작되어 내구성이 뛰어납니다.",
+    "reviews": [
+      {
+        "id": 1,
+        "author": "집사등골브레이커",
+        "rating": 5,
+        "content": "비싸서 고민했는데 제일 잘 산 아이템이에요. 소파가 드디어 해방됐어요!"
+      }
+    ]
+  },
+  {
+    "id": 35,
+    "name": "차량용 애견 카시트",
+    "brand": "세이프독",
+    "price": 78000,
+    "rating": 4.8,
+    "reviewCount": 2100,
+    "image": "https://picsum.photos/seed/carseat/600/600",
+    "category": "리빙",
+    "tags": [
+      "#카시트",
+      "#안전운전"
+    ],
+    "description": "차량 이동 시 반려동물을 안전하게 보호해주는 드라이빙 카시트입니다. 내부 안전고리가 있어 급정거 시에도 아이를 잡아주며, 푹신한 쿠션이 편안함을 제공합니다.",
+    "reviews": [
+      {
+        "id": 1,
+        "author": "프로드라이버",
+        "rating": 5,
+        "content": "이제 조수석에서 얌전히 창밖 구경해요. 운전이 훨씬 편해졌어요."
+      }
+    ]
+  }
+]

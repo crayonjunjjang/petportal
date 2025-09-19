@@ -1,0 +1,106 @@
+/* src/pages/LoginPage.module.css */
+
+/* 로그인 페이지 전체를 감싸는 컨테이너 */
+.loginPage {
+  min-height: 100vh; /* 최소 높이를 뷰포트 전체 높이로 설정 */
+  display: flex; /* Flexbox 레이아웃 사용 */
+  align-items: center; /* 자식 요소를 수직 중앙 정렬 */
+  justify-content: center; /* 자식 요소를 수평 중앙 정렬 */
+  background: linear-gradient(135deg, #1dd1a1 0%, #00b894 100%); /* 배경에 선형 그라데이션 적용 */
+}
+
+/* 로그인 폼을 담는 흰색 박스 컨테이너 */
+.loginContainer {
+  background: white; /* 배경색을 흰색으로 설정 */
+  border-radius: 12px; /* 모서리를 둥글게 처리 */
+  box-shadow: 0 8px 24px rgba(29, 209, 161, 0.1); /* 그림자 효과 추가 */
+  overflow: hidden; /* 내부 요소가 컨테이너를 벗어날 경우 숨김 */
+  width: 100%; /* 너비를 100%로 설정 */
+  max-width: 400px; /* 최대 너비를 400px로 제한 */
+  margin: 24px; /* 주변 여백 설정 */
+}
+
+/* 로그인 폼 내부의 패딩을 설정하는 영역 */
+.loginForm {
+  padding: 48px; /* 내부 여백을 48px로 설정 */
+}
+
+/* '로그인' 제목 스타일 */
+.title {
+  text-align: center; /* 텍스트를 중앙 정렬 */
+  margin-bottom: 24px; /* 아래쪽 여백 설정 */
+  font-size: 2rem; /* 글자 크기 설정 */
+  color: #2d3748; /* 글자 색상 설정 (변수 사용) */
+}
+
+/* 이메일, 비밀번호 등 각 입력 필드를 그룹화하는 컨테이너 */
+.inputGroup {
+  margin-bottom: 24px; /* 아래쪽 여백 설정 */
+}
+
+.inputGroup input {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  font-size: 1rem;
+  transition: border-color 0.3s ease;
+}
+
+/* 입력 필드에 포커스될 때 스타일 */
+.inputGroup input:focus {
+  outline: none; /* 기본 아웃라인 제거 */
+  border-color: #00b894; /* 테두리 색상을 기본 색상으로 변경 */
+}
+
+/* 로그인 버튼 스타일 */
+.loginButton {
+  width: 100%; /* 너비를 100%로 설정 */
+  background-color: #00b894; /* 배경색을 기본 색상으로 설정 */
+  color: white; /* 글자색을 흰색으로 설정 */
+  border: none; /* 테두리 제거 */
+  padding: 12px; /* 내부 여백 설정 */
+  border-radius: 8px; /* 모서리를 둥글게 처리 */
+  font-size: 1rem; /* 글자 크기 설정 */
+  font-weight: 600; /* 글자 굵기 설정 */
+  cursor: pointer; /* 마우스 커서를 포인터로 변경 */
+  transition: background-color 0.3s ease; /* 배경색 변경 시 부드러운 전환 효과 */
+  margin-top: 16px; /* 위쪽 여백 설정 */
+}
+
+/* 로그인 버튼에 마우스를 올렸을 때 스타일 */
+.loginButton:hover {
+  background-color: #1dd1a1; /* 배경색을 더 어두운 기본 색상으로 변경 */
+}
+
+/* 폼 하단의 회원가입 링크 및 홈으로 가기 링크 영역 */
+.loginFooter {
+  text-align: center; /* 텍스트 중앙 정렬 */
+  margin-top: 24px; /* 위쪽 여백 설정 */
+}
+
+/* 하단 푸터의 문단(<p>) 스타일 */
+.loginFooter p {
+  margin-bottom: 8px; /* 아래쪽 여백 설정 */
+  color: #666666; /* 글자 색상 설정 (변수 사용) */
+}
+
+/* 하단 푸터의 링크(<a>) 스타일 */
+.loginFooter a {
+  color: #00b894; /* 글자 색상을 기본 색상으로 설정 */
+  text-decoration: none; /* 밑줄 제거 */
+  font-weight: 500; /* 글자 굵기 설정 */
+}
+
+/* 하단 푸터 링크에 마우스를 올렸을 때 스타일 */
+.loginFooter a:hover {
+  text-decoration: underline; /* 밑줄 표시 */
+}
+
+/* '홈으로 돌아가기' 링크 스타일 */
+.homeLink {
+  display: inline-block; /* 인라인 블록 요소로 설정 */
+  margin-top: 16px; /* 위쪽 여백 설정 */
+  color: #666666; /* 글자 색상 설정 (변수 사용) */
+  font-size: 0.9rem; /* 글자 크기 설정 */
+}
