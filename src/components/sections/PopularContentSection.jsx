@@ -6,7 +6,7 @@ import styles from './PopularContentSection.module.css';
 // Import all data sources
 import groomingData from '../../data/grooming.json';
 import cafeData from '../../data/cafe.json';
-import accommodationData from '../../data/accommodation.json';
+import { mockPensionData as accommodationData } from '../../data/mockPensionData.js';
 import hospitalData from '../../data/hospital.json';
 import hotelData from '../../data/hotel.json';
 

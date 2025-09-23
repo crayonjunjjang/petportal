@@ -1,0 +1,35 @@
+.reviewItem {
+  background-color: #fdfbfb;
+  padding: 16px;
+  border-radius: 8px;
+  border: 1px solid #f0e6d2;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.03);
+}
+
+.reviewHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8px;
+}
+
+.reviewAuthor {
+  color: #3c2415;
+  font-weight: 600;
+  font-size: 0.95rem;
+}
+
+.starRating .filledStar {
+  color: #ffc107;
+}
+
+.starRating .emptyStar {
+  color: #e0e0e0;
+}
+
+.reviewContent {
+  font-size: 0.9rem;
+  color: #5c4b42;
+  line-height: 1.6;
+  margin: 0;
+}

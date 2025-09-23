@@ -1,0 +1,87 @@
+/* src/components/layout/Footer.module.css */
+.footer {
+    background-color: var(--color-text-dark); /* 어두운 배경색 */
+    color: var(--color-white);
+    padding-top: var(--spacing-xl);
+    font-size: var(--font-size-sm);
+    margin-top: var(--spacing-xl);
+  }
+  
+  .footerContent {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: var(--spacing-lg);
+    padding-bottom: var(--spacing-xl);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  }
+  
+  .footerBrand .logo {
+    font-size: var(--font-size-lg);
+    font-weight: 800;
+    color: var(--color-primary);
+    margin-bottom: var(--spacing-sm);
+  }
+  
+  .footerBrand p {
+    color: var(--color-text-light);
+    margin-bottom: var(--spacing-md);
+    line-height: 1.5;
+  }
+  
+  .socialLinks {
+    display: flex;
+    gap: var(--spacing-sm);
+  }
+  
+  .socialLinks img {
+    width: 24px;
+    height: 24px;
+    filter: invert(1); /* 아이콘이 흰색으로 보이도록 */
+  }
+  
+  .footerNav h4 {
+    font-size: var(--font-size-base);
+    font-weight: 600;
+    margin-bottom: var(--spacing-sm);
+    color: var(--color-white);
+  }
+  
+  .footerNav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .footerNav li {
+    margin-bottom: var(--spacing-xs);
+  }
+  
+  .footerNav a {
+    color: var(--color-text-light);
+    transition: color 0.3s ease;
+  }
+  
+  .footerNav a:hover {
+    color: var(--color-primary);
+  }
+  
+  .copyright {
+    background-color: #222;
+    padding: var(--spacing-md) 0;
+    color: var(--color-text-light);
+    text-align: center;
+  }
+  
+  .copyright .container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+  }
+  
+  .legalLinks a {
+      color: var(--color-text-light);
+      margin-left: var(--spacing-md);
+  }
+  .legalLinks a:hover {
+      color: var(--color-primary);
+  }

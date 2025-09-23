@@ -18,29 +18,6 @@
   padding: 90px 0 40px 0;
 }
 
-.hotel-header {
-  text-align: center;
-  margin-bottom: 64px;
-}
-
-.hotel-title {
-  color: var(--hotel-primary);
-  font-size: 3rem;
-  font-weight: 900;
-  margin-bottom: 12px;
-  letter-spacing: -1px;
-  text-shadow: 0 4px 16px rgba(142,68,173,.13), 0 1px 0 #fff;
-}
-
-.hotel-subtitle {
-  color: #2c2c54;
-  font-size: 1.3rem;
-  font-weight: 500;
-  opacity: 0.85;
-  letter-spacing: 0.2px;
-  margin-bottom: 0;
-}
-
 /* 카드 스타일 */
 .hotel-card {
   background: var(--hotel-white);

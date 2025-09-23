@@ -1,0 +1,120 @@
+/* src/components/layout/Header.module.css */
+.header {
+    /* --- 핵심 변경 사항 --- */
+    position: fixed; /* 화면 상단에 고정 */
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: transparent; /* 기본 배경을 투명하게 */
+    box-shadow: none; /* 기본 그림자 제거 */
+    padding: var(--spacing-sm) 0;
+    z-index: 1000; /* 다른 요소들 위에 오도록 z-index 설정 */
+    transition: background-color 0.4s ease-in-out, box-shadow 0.4s ease-in-out; /* 부드러운 전환 효과 */
+  }
+  
+  /* --- 스크롤 시 적용될 스타일 --- */
+  .header.scrolled {
+    background-color: var(--color-white); /* 흰색 배경으로 변경 */
+    box-shadow: var(--box-shadow-sm); /* 그림자 추가 */
+  }
+  
+  /* --- 나머지 스타일 (색상 변경 필요) --- */
+  .headerContent {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    min-height: 96px;
+  }
+  
+  .logo {
+    font-size: var(--font-size-lg);
+    font-weight: 800;
+    color: var(--color-white); /* 기본 로고 색상을 흰색으로 */
+    transition: color 0.4s ease-in-out;
+  }
+  .header.scrolled .logo {
+    color: var(--color-primary); /* 스크롤 시 브랜드 컬러로 변경 */
+  }
+  
+  .nav a {
+    font-size: var(--font-size-base);
+    font-weight: 500;
+    color: var(--color-white); /* 기본 메뉴 색상을 흰색으로 */
+    padding: var(--spacing-xs) 0;
+    position: relative;
+    transition: color 0.4s ease-in-out;
+  }
+  .header.scrolled .nav a {
+    color: var(--color-text-dark); /* 스크롤 시 어두운 색으로 변경 */
+  }
+  .header.scrolled .nav a:hover {
+      color: var(--color-primary); /* 스크롤 시 호버 색상 */
+  }
+  .nav ul {
+    /* --- 핵심 수정 사항 --- */
+    display: flex;         /* 👈 이 부분이 li들을 가로로 배열합니다. */
+    align-items: center;   /* 세로 중앙 정렬 (선택 사항) */
+    /* --- 기본 스타일 초기화 --- */
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    /* --- 아이템 간 간격 --- */
+    gap: var(--spacing-md);
+  }
+  .nav a::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 0;
+    height: 2px;
+    background-color: var(--color-primary);
+    transition: width 0.3s ease-in-out;
+  }
+  
+  .nav a:hover::after {
+    width: 100%;
+  }
+  
+  .authActions {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+  }
+  
+  .loginLink {
+    font-size: var(--font-size-sm);
+    color: var(--color-white); /* 기본 로그인 링크 색상을 흰색으로 */
+    padding: var(--spacing-xs);
+    transition: color 0.4s ease-in-out;
+  }
+  .header.scrolled .loginLink {
+    color: var(--color-text-medium); /* 스크롤 시 중간 톤 색으로 변경 */
+  }
+  .header.scrolled .loginLink:hover {
+      color: var(--color-primary); /* 스크롤 시 호버 색상 */
+  }
+  
+  .signupButton {
+    background-color: var(--color-white); /* 배경 없는 상태에서 잘 보이도록 흰색으로 */
+    color: var(--color-primary); /* 글자색은 브랜드 컬러 */
+    border: 1px solid var(--color-white); /* 테두리 추가 */
+    padding: 8px var(--spacing-sm);
+    border-radius: var(--border-radius-full);
+    font-size: var(--font-size-sm);
+    font-weight: 600;
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+  
+  .signupButton:hover {
+    background-color: rgba(255, 255, 255, 0.9);
+  }
+  
+  .header.scrolled .signupButton {
+    background-color: var(--color-primary); /* 스크롤 시 원래 디자인으로 복귀 */
+    color: var(--color-white);
+    border-color: var(--color-primary);
+  }
+  .header.scrolled .signupButton:hover {
+    background-color: var(--color-primary-dark);
+  }

@@ -1,16 +1,15 @@
 import React, { useEffect, useMemo, useState, useCallback } from 'react';
-import GroomingMapView from '../components/service/maps/GroomingMapView';
+import MapView from '../components/common/MapView';
 import GroomingCardGrid from '../components/grooming/GroomingCardGrid';
 import FilterSection from '../components/common/FilterSection';
 import pageStyles from './Page.module.css';
 import mapStyles from './MapPage.module.css';
 import styles from './GroomingPage.module.css';
 import { getDistance } from '../utils/locationUtils';
-import allGroomings from '../data/grooming.json';
+import groomingData from '../data/grooming.json';
 
 const GroomingPage = () => {
   const [userLocation, setUserLocation] = useState(null);
-  const [groomings, setGroomings] = useState([]);
   const [filters, setFilters] = useState({
     location: '',
     date: '',
@@ -19,43 +18,62 @@ const GroomingPage = () => {
     targetAnimals: []
   });
 
-  const applyFilters = useCallback(() => {
-    let filtered = allGroomings;
+  const [groomings, setGroomings] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+  const [isMobile, setIsMobile] = useState(window.innerWidth < 768); // Add isMobile state
 
-    if (filters.location) {
-        filtered = filtered.filter(grooming =>
-            grooming.name.toLowerCase().includes(filters.location.toLowerCase()) ||
-            grooming.address.toLowerCase().includes(filters.location.toLowerCase())
-        );
-    }
-    if (filters.groomingTypes.length > 0) {
-        filtered = filtered.filter(grooming => filters.groomingTypes.every(type => (grooming.services || []).includes(type)));
-    }
-    if (filters.targetAnimals.length > 0) {
-        filtered = filtered.filter(grooming => filters.targetAnimals.every(animal => (grooming.targetAnimals || []).includes(animal)));
-    }
-    if (userLocation) {
-        filtered = filtered.filter(grooming => {
-            if (typeof grooming.lat === 'number' && typeof grooming.lng === 'number') {
-                const distance = getDistance(userLocation.lat, userLocation.lng, grooming.lat, grooming.lng);
-                return distance <= 20; // 20km
-            }
-            return true;
-        });
-    }
-    setGroomings(filtered);
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
+  useEffect(() => {
+    // Simulate data fetching and filtering
+    setLoading(true);
+    setError(null);
+    setTimeout(() => {
+      let result = groomingData;
+
+      if (filters.location && !result.some(grooming =>
+          grooming.name.toLowerCase().includes(filters.location.toLowerCase()) ||
+          grooming.address.toLowerCase().includes(filters.location.toLowerCase()))
+      ) {
+          result = [];
+      } else if (filters.location) {
+          result = result.filter(grooming =>
+              grooming.name.toLowerCase().includes(filters.location.toLowerCase()) ||
+              grooming.address.toLowerCase().includes(filters.location.toLowerCase())
+          );
+      }
+      if (filters.groomingTypes.length > 0) {
+          result = result.filter(grooming => filters.groomingTypes.every(type => (grooming.services || []).includes(type)));
+      }
+      if (filters.targetAnimals.length > 0) {
+          result = result.filter(grooming => filters.targetAnimals.every(animal => (grooming.targetAnimals || []).includes(animal)));
+      }
+      // 거리 필터링 추가 (mock data에서는 실제 위치 기반 필터링 어려움)
+      // if (userLocation && result.length > 0) { ... }
+
+      setGroomings(result);
+      setLoading(false);
+    }, 500);
   }, [filters, userLocation]);
 
   useEffect(() => {
     navigator.geolocation?.getCurrentPosition(
       (pos) => setUserLocation({ lat: pos.coords.latitude, lng: pos.coords.longitude }),
-      () => setUserLocation({ lat: 37.5665, lng: 126.9780 })
+      (err) => {
+        setError(new Error('위치 정보를 가져올 수 없습니다. 기본 위치로 지도를 표시합니다.'));
+        setUserLocation({ lat: 37.5665, lng: 126.9780 }); // Default to Seoul
+      }
     );
   }, []);
 
-  useEffect(() => {
-    applyFilters();
-  }, [applyFilters]);
+  const markers = useMemo(() => groomings.map(({ id, lat, lng, name }) => ({ id, lat, lng, name })), [groomings]);
 
   const handleFilterChange = (filterType, value) => {
     setFilters(prev => ({ ...prev, [filterType]: value }));
@@ -71,6 +89,15 @@ const GroomingPage = () => {
     });
   };
 
+
+  if (loading) {
+    return <div className={pageStyles.pageContainer}>미용 정보를 불러오는 중...</div>;
+  }
+
+  if (error) {
+    return <div className={pageStyles.pageContainer} style={{ color: 'red' }}>오류: {error.message || '데이터를 불러오는 중 오류가 발생했습니다.'}</div>;
+  }
+
   return (
     <div className={pageStyles.pageContainer}>
       <header className={pageStyles.pageHeader}>
@@ -82,7 +109,10 @@ const GroomingPage = () => {
         <div className={mapStyles.filterPanel}>
           <FilterSection
             locationPlaceholder="미용실명이나 지역을 검색해보세요"
-            onLocationChange={(value) => handleFilterChange('location', value)}
+            searchTerm={filters.location}
+            onSearchTermChange={(value) => handleFilterChange('location', value)}
+            onSearch={() => { /* 검색 버튼 클릭 시 필요한 로직 추가 */ }}
+            isMobile={isMobile} // Pass isMobile prop
           >
             <div className={mapStyles.filterGroup}>
               <div className={`${mapStyles.filterInputWrapper} ${mapStyles.dateInputWrapper}`}>
@@ -133,7 +163,7 @@ const GroomingPage = () => {
           </FilterSection>
         </div>
         <div className={mapStyles.mapContainer}>
-          <GroomingMapView userLocation={userLocation} rawData={groomings} serviceType="grooming" />
+          <MapView userLocation={userLocation} markers={markers} />
         </div>
       </div>
 

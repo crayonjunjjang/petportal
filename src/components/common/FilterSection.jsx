@@ -3,14 +3,18 @@ import React, { useState } from 'react';
 import styles from './FilterSection.module.css';
 import searchIcon from '../../assets/search.png';
 
-const FilterSection = ({ children, locationPlaceholder, onLocationChange }) => {
+const FilterSection = ({ children, locationPlaceholder, searchTerm, onSearchTermChange, onSearch }) => {
     const [isFilterVisible, setIsFilterVisible] = useState(false);
-    const [location, setLocation] = useState('');
 
     const handleLocationChange = (e) => {
-        setLocation(e.target.value);
-        if (onLocationChange) {
-            onLocationChange(e.target.value);
+        if (onSearchTermChange) {
+            onSearchTermChange(e.target.value);
+        }
+    };
+
+    const handleSearch = () => {
+        if (onSearch) {
+            onSearch();
         }
     };
 
@@ -22,11 +26,12 @@ const FilterSection = ({ children, locationPlaceholder, onLocationChange }) => {
                     <input
                         type="text"
                         placeholder={locationPlaceholder}
-                        value={location}
+                        value={searchTerm}
                         onChange={handleLocationChange}
                         className={styles.filterInput}
                     />
                 </div>
+                <button onClick={handleSearch} className={styles.searchButton}>검색</button>
                 <button
                     onClick={() => setIsFilterVisible(!isFilterVisible)}
                     className={styles.toggleButton}

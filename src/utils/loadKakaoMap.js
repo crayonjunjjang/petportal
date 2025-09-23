@@ -1,13 +1,9 @@
 // src/utils/loadKakaoMap.js
-// IMPORTANT: Replace 'YOUR_KAKAO_MAP_API_KEY' with your actual Kakao Map JavaScript API Key.
-// You can get one from https://developers.kakao.com/
-const KAKAO_MAP_API_KEY = 'YOUR_KAKAO_MAP_API_KEY';
-
-export function loadKakaoMap(appKey = KAKAO_MAP_API_KEY) {
+export function loadKakaoMap(appKey) {
   return new Promise((resolve, reject) => {
     // API 키 확인
-    if (!appKey || appKey === 'YOUR_KAKAO_MAP_API_KEY') {
-      return reject(new Error('카카오맵 API 키가 설정되지 않았습니다. loadKakaoMap.js 파일을 확인하여 API 키를 설정해주세요.'));
+    if (!appKey) {
+      return reject(new Error('카카오맵 API 키가 설정되지 않았습니다.'));
     }
 
     // 이미 로드된 경우 체크

@@ -5,7 +5,7 @@ import "react-responsive-carousel/lib/styles/carousel.min.css";
 import styles from './CafeDetailPage.module.css';
 import Button from '../components/ui/Button';
 import { useUI } from '../contexts/UIContext';
-import allCafes from '../data/cafe.json'; // Import local data
+import { mockCafes } from './CafePage'; // Import the mock data
 
 const CafeDetailPage = () => {
   const { cafeId } = useParams();
@@ -18,16 +18,28 @@ const CafeDetailPage = () => {
     setIsLoading(true);
     setLoading(true);
     setError(null);
-    // Find the cafe directly from local data
-    const foundCafe = allCafes.find(c => c.id === cafeId); // cafeId is string, cafe.id is string
-
-    if (foundCafe) {
-      setCafe(foundCafe);
-    } else {
-      setError('해당 카페 정보를 찾을 수 없습니다.');
-    }
-    setLoading(false);
-    setIsLoading(false);
+    setTimeout(() => {
+      const foundCafe = mockCafes.find(c => c.id === parseInt(cafeId, 10));
+      
+      if (foundCafe) {
+        // Simulate fetching more details if needed, for now just use the found data
+        const detailedCafe = {
+          ...foundCafe,
+          images: [
+            `https://picsum.photos/seed/cafe_detail${foundCafe.id}_1/1200/800`,
+            `https://picsum.photos/seed/cafe_detail${foundCafe.id}_2/1200/800`,
+            `https://picsum.photos/seed/cafe_detail${foundCafe.id}_3/1200/800`,
+          ],
+          type: '카페',
+          location: foundCafe.address, // Use address for location
+        };
+        setCafe(detailedCafe);
+      } else {
+        setError('카페 정보를 찾을 수 없습니다.');
+      }
+      setLoading(false);
+      setIsLoading(false);
+    }, 500);
   }, [cafeId, setIsLoading]);
 
   if (loading) {
@@ -79,7 +91,7 @@ const CafeDetailPage = () => {
             ))
           ) : (
             <div key="default-image">
-              <img src="https://via.placeholder.com/1200x400?text=No+Image" alt="기본 이미지" />
+              <img src="https://placehold.co/1200x400?text=No+Image" alt="기본 이미지" />
             </div>
           )}
         </Carousel>

@@ -23,7 +23,7 @@ const Board = ({ notices, posts, boardKey }) => {
               {/* 👇 2. boardKey 없이 postId만 사용하도록 경로를 수정합니다. */}
               <Link to={`/community/posts/${post.id}`}>{post.title}</Link>
             </td>
-            <td>{post.author_name || '알 수 없음'}</td>
+            <td>{post.author || '알 수 없음'}</td>
             <td>{post.createdAt}</td>
             <td>{post.views}</td>
           </tr>
@@ -35,7 +35,7 @@ const Board = ({ notices, posts, boardKey }) => {
               {/* 👇 2. boardKey 없이 postId만 사용하도록 경로를 수정합니다. */}
               <Link to={`/community/posts/${post.id}`}>{post.title}</Link>
             </td>
-            <td>{post.author_name || '알 수 없음'}</td>
+            <td>{post.author || '알 수 없음'}</td>
             <td>{post.createdAt}</td>
             <td>{post.views}</td>
           </tr>

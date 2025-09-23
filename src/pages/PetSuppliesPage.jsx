@@ -1,36 +1,26 @@
-// src/pages/PetSuppliesPage.jsx
 import React, { useState, useEffect } from 'react';
-import { useNavigate, useParams, Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import styles from './PetSuppliesPage.module.css';
+import '../styles/commonPage.css';
 import allProducts from '../data/products.json'; // 모든 상품 데이터를 로컬 JSON 파일에서 가져옵니다.
 
 // PetSuppliesPage: 반려용품 목록을 표시하고, 카테고리 필터링, 검색, 페이지네이션 기능을 제공하는 페이지 컴포넌트입니다.
 const PetSuppliesPage = () => {
   // --- STATE MANAGEMENT ---
-  // products: 현재 페이지에 보여줄 상품 목록
   const [products, setProducts] = useState([]);
-  // categories: 전체 상품 데이터에서 추출한 카테고리 목록
   const [categories, setCategories] = useState([]);
-  // loading: 데이터 로딩 상태
   const [loading, setLoading] = useState(true);
-  // currentPage: 현재 페이지 번호
   const [currentPage, setCurrentPage] = useState(1);
-  // totalPages: 전체 페이지 수
   const [totalPages, setTotalPages] = useState(1);
-  // selectedCategory: 사용자가 선택한 카테고리
   const [selectedCategory, setSelectedCategory] = useState('');
-  // searchTerm: 사용자가 입력한 검색어
   const [searchTerm, setSearchTerm] = useState('');
+  const [sortBy, setSortBy] = useState('popularity'); // 'popularity', 'price-asc', 'price-desc', 'reviews'
+  const [viewMode, setViewMode] = useState('grid'); // 'grid' or 'list'
   
   // --- HOOKS ---
-  const navigate = useNavigate(); // 페이지 이동을 위한 navigate 함수
-  const { category } = useParams(); // URL 파라미터에서 카테고리 값을 가져옵니다. (e.g., /pet-supplies/category/사료)
 
   // --- EFFECTS ---
-  // 상품 데이터 필터링 및 페이지네이션을 처리하는 메인 로직입니다.
-  // currentPage, selectedCategory, searchTerm, category(URL 파라미터)가 변경될 때마다 실행됩니다.
   useEffect(() => {
-    // 1. 카테고리 목록 설정 (최초 렌더링 시 한 번만 실행)
     if (categories.length === 0) {
       const uniqueCategories = [...new Set(allProducts.map(p => p.category))];
       setCategories(uniqueCategories);
@@ -38,12 +28,10 @@ const PetSuppliesPage = () => {
 
     setLoading(true);
     
-    // 2. 필터링 적용
     let filteredProducts = allProducts;
-    const currentCategory = category || selectedCategory; // URL 파라미터 카테고리를 우선 적용
     
-    if (currentCategory) {
-      filteredProducts = filteredProducts.filter(p => p.category === currentCategory);
+    if (selectedCategory) {
+      filteredProducts = filteredProducts.filter(p => p.category === selectedCategory);
     }
     if (searchTerm) {
       filteredProducts = filteredProducts.filter(p => 
@@ -51,47 +39,48 @@ const PetSuppliesPage = () => {
       );
     }
 
-    // 3. 페이지네이션 계산
+    // Sorting logic
+    if (sortBy === 'price-asc') {
+      filteredProducts.sort((a, b) => a.price - b.price);
+    } else if (sortBy === 'price-desc') {
+      filteredProducts.sort((a, b) => b.price - a.price);
+    } else if (sortBy === 'reviews') {
+      filteredProducts.sort((a, b) => (b.reviewCount || 0) - (a.reviewCount || 0));
+    } else { // popularity
+      filteredProducts.sort((a, b) => (b.sales || 0) - (a.sales || 0));
+    }
+
     const totalItems = filteredProducts.length;
     const itemsPerPage = 12;
     setTotalPages(Math.ceil(totalItems / itemsPerPage));
     
-    // 4. 현재 페이지에 해당하는 상품 목록 슬라이싱
     const paginatedProducts = filteredProducts.slice((currentPage - 1) * itemsPerPage, currentPage * itemsPerPage);
     setProducts(paginatedProducts);
     
     setLoading(false);
-  }, [currentPage, selectedCategory, searchTerm, category, categories.length]);
-
-  // URL 파라미터로 카테고리가 들어온 경우, selectedCategory 상태를 업데이트합니다.
-  useEffect(() => {
-    if (category) {
-      setSelectedCategory(category);
-    }
-  }, [category]);
+  }, [currentPage, selectedCategory, searchTerm, categories.length, sortBy]);
 
   // --- HANDLER FUNCTIONS ---
-  // 카테고리 버튼 클릭 시 호출되는 함수
   const handleCategoryChange = (categoryName) => {
     setSelectedCategory(categoryName);
-    setCurrentPage(1); // 카테고리 변경 시 1페이지로 초기화
-    // URL을 변경하여 사용자가 현재 필터 상태를 북마크하거나 공유할 수 있도록 합니다.
-    navigate(categoryName ? `/pet-supplies/category/${categoryName}` : '/pet-supplies');
+    setCurrentPage(1);
   };
 
-  // 검색 폼 제출 시 호출되는 함수
   const handleSearch = (e) => {
     e.preventDefault();
-    setCurrentPage(1); // 검색 시 1페이지로 초기화
+    setCurrentPage(1);
   };
 
-  // 페이지 번호 변경 시 호출되는 함수
   const handlePageChange = (page) => {
     setCurrentPage(page);
-    window.scrollTo(0, 0); // 페이지 변경 시 화면 상단으로 스크롤
+    window.scrollTo(0, 0);
   };
 
-  // 가격을 원화 형식으로 포맷하는 헬퍼 함수
+  const handleSortChange = (sortType) => {
+    setSortBy(sortType);
+    setCurrentPage(1);
+  };
+
   const formatPrice = (price) => {
     return new Intl.NumberFormat('ko-KR', {
       style: 'currency',
@@ -101,14 +90,30 @@ const PetSuppliesPage = () => {
 
   // --- RENDER ---
   return (
-    <div className={styles.container}>
-      <div className={styles.header}>
-        <h1 className={styles.title}>반려용품</h1>
-        <p className={styles.subtitle}>우리 아이를 위한 특별한 용품들을 만나보세요</p>
-      </div>
+    <div className="common-page-container">
+      <header className="common-header">
+        <h1 className="common-title">반려용품</h1>
+        <p className="common-subtitle">우리 아이를 위한 특별한 용품들을 만나보세요</p>
+      </header>
 
-      {/* 필터 및 검색 섹션 */}
-      <div className={styles.filterSection}>
+      <div className={styles.controlsContainer}>
+        <div className={styles.categoryFilter}>
+            <button
+              className={`${styles.categoryButton} ${!selectedCategory ? styles.active : ''}`}
+              onClick={() => handleCategoryChange('')}
+            >
+              전체
+            </button>
+            {categories.map((cat) => (
+              <button
+                key={cat}
+                className={`${styles.categoryButton} ${selectedCategory === cat ? styles.active : ''}`}
+                onClick={() => handleCategoryChange(cat)}
+              >
+                {cat}
+              </button>
+            ))}
+        </div>
         <form onSubmit={handleSearch} className={styles.searchForm}>
           <input
             type="text"
@@ -120,31 +125,25 @@ const PetSuppliesPage = () => {
           <button type="submit" className={styles.searchButton}>검색</button>
         </form>
 
-        <div className={styles.categoryFilter}>
-          <button
-            className={`${styles.categoryButton} ${!selectedCategory ? styles.active : ''}`}
-            onClick={() => handleCategoryChange('')}
-          >
-            전체
-          </button>
-          {categories.map((cat) => (
-            <button
-              key={cat}
-              className={`${styles.categoryButton} ${selectedCategory === cat ? styles.active : ''}`}
-              onClick={() => handleCategoryChange(cat)}
-            >
-              {cat}
-            </button>
-          ))}
+        <div className={styles.sortAndViewContainer}>
+          <div className={styles.sortOptions}>
+            <button className={`${styles.sortButton} ${sortBy === 'popularity' ? styles.active : ''}`} onClick={() => handleSortChange('popularity')}>인기순</button>
+            <button className={`${styles.sortButton} ${sortBy === 'price-asc' ? styles.active : ''}`} onClick={() => handleSortChange('price-asc')}>가격낮은순</button>
+            <button className={`${styles.sortButton} ${sortBy === 'price-desc' ? styles.active : ''}`} onClick={() => handleSortChange('price-desc')}>가격높은순</button>
+            <button className={`${styles.sortButton} ${sortBy === 'reviews' ? styles.active : ''}`} onClick={() => handleSortChange('reviews')}>리뷰많은순</button>
+          </div>
+          <div className={styles.viewToggle}>
+            <button className={`${styles.toggleButton} ${viewMode === 'grid' ? styles.active : ''}`} onClick={() => setViewMode('grid')}>격자</button>
+            <button className={`${styles.toggleButton} ${viewMode === 'list' ? styles.active : ''}`} onClick={() => setViewMode('list')}>목록</button>
+          </div>
         </div>
       </div>
 
-      {/* 상품 목록 또는 로딩/결과 없음 표시 */}
       {loading ? (
         <div className={styles.loading}>상품을 불러오는 중...</div>
       ) : (
         <>
-          <div className={styles.productsGrid}>
+          <div className={`${styles.productsGrid} ${viewMode === 'list' ? styles.listView : ''}`}>
             {products.length > 0 ? (
               products.map((product) => (
                 <Link
@@ -152,7 +151,6 @@ const PetSuppliesPage = () => {
                   to={`/pet-supplies/${product.id}`}
                   className={styles.productCard}
                 >
-                  {/* 상품 카드 UI */}
                   <div className={styles.imageWrapper}>
                     <img
                       src={product.imageUrl || 'https://images.unsplash.com/photo-1589924691995-400dc9ecc119?w=400'}
@@ -186,7 +184,6 @@ const PetSuppliesPage = () => {
             )}
           </div>
 
-          {/* 페이지네이션 UI */}
           {totalPages > 1 && (
             <div className={styles.pagination}>
               <button onClick={() => handlePageChange(currentPage - 1)} disabled={currentPage === 1} className={styles.pageButton}>이전</button>

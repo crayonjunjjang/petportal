@@ -5,17 +5,12 @@ import FilterSection from '../components/common/FilterSection';
 import Pagination from '../components/common/Pagination';
 import BusinessCardGrid from '../components/common/BusinessCardGrid';
 import '../styles/cafe.css';
-import allCafes from '../data/cafe.json'; // Import local data
-
-const ITEMS_PER_PAGE = 6;
+import { useUI } from '../contexts/UIContext';
+import cafeData from '../data/cafe.json';
 
 const CafePage = () => {
+  const { setIsLoading } = useUI();
   const [userLocation, setUserLocation] = useState(null);
-  const [cafes, setCafes] = useState([]);
-  const [filteredCafes, setFilteredCafes] = useState(allCafes);
-  const [currentPage, setCurrentPage] = useState(1);
-  const [totalPages, setTotalPages] = useState(1);
-
   const [filters, setFilters] = useState({
     location: '',
     startTime: '',
@@ -24,44 +19,61 @@ const CafePage = () => {
     requiresReservation: null
   });
 
-  const applyFilters = useCallback(() => {
-    let filtered = allCafes;
+  const [filteredCafes, setFilteredCafes] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+  const [currentPage, setCurrentPage] = useState(1);
+  const itemsPerPage = 6;
 
-    if (filters.location) {
-        filtered = filtered.filter(cafe =>
-        cafe.name.toLowerCase().includes(filters.location.toLowerCase()) ||
-        cafe.address.toLowerCase().includes(filters.location.toLowerCase()));
-    }
-    if (filters.startTime && filters.endTime) {
-        filtered = filtered.filter(cafe => {
-        const cafeStart = parseInt((cafe.operatingHours?.start || '0').split(':')[0]);
-        const cafeEnd = parseInt((cafe.operatingHours?.end || '0').split(':')[0]);
-        const filterStart = parseInt(filters.startTime.split(':')[0]);
-        const filterEnd = parseInt(filters.endTime.split(':')[0]);
-        return cafeStart <= filterStart && cafeEnd >= filterEnd;
-      });
-    }
-    if (filters.services.length > 0) {
-        filtered = filtered.filter(cafe => filters.services.every(service => (cafe.services || []).includes(service)));
-    }
-    if (filters.requiresReservation !== null) {
-        filtered = filtered.filter(cafe => cafe.requiresReservation === filters.requiresReservation);
-    }
+  useEffect(() => {
+    // Simulate data fetching and filtering
+    setLoading(true);
+    setIsLoading(true);
+    setTimeout(() => {
+      let result = cafeData;
 
-    setFilteredCafes(filtered);
-    setTotalPages(Math.ceil(filtered.length / ITEMS_PER_PAGE));
-    const paginated = filtered.slice((currentPage - 1) * ITEMS_PER_PAGE, currentPage * ITEMS_PER_PAGE);
-    setCafes(paginated);
+      if (filters.location) {
+        result = result.filter(cafe =>
+          cafe.name.toLowerCase().includes(filters.location.toLowerCase()) ||
+          cafe.address.toLowerCase().includes(filters.location.toLowerCase()));
+      }
+      if (filters.startTime && filters.endTime) {
+        result = result.filter(cafe => {
+          const cafeStart = parseInt((cafe.operatingHours?.start || '0').split(':')[0]);
+          const cafeEnd = parseInt((cafe.operatingHours?.end || '0').split(':')[0]);
+          const filterStart = parseInt(filters.startTime.split(':')[0]);
+          const filterEnd = parseInt(filters.endTime.split(':')[0]);
+          return cafeStart <= filterStart && cafeEnd >= filterEnd;
+        });
+      }
+      if (filters.services.length > 0) {
+        result = result.filter(cafe => filters.services.every(service => (cafe.services || []).includes(service)));
+      }
+      if (filters.requiresReservation !== null) {
+        result = result.filter(cafe => cafe.requiresReservation === filters.requiresReservation);
+      }
 
-  }, [currentPage, filters]);
+      setFilteredCafes(result);
+      setLoading(false);
+      setIsLoading(false);
+    }, 500);
+  }, [filters, setIsLoading]);
 
   useEffect(() => {
     navigator.geolocation?.getCurrentPosition(
       (pos) => setUserLocation({ lat: pos.coords.latitude, lng: pos.coords.longitude }),
-      () => setUserLocation({ lat: 37.5665, lng: 126.9780 })
+      (err) => {
+        setError(new Error('위치 정보를 가져올 수 없습니다. 기본 위치로 지도를 표시합니다.'));
+        setUserLocation({ lat: 37.5665, lng: 126.9780 }); // Default to Seoul
+      }
     );
-    applyFilters();
-  }, [applyFilters]);
+  }, []);
+
+  const totalPages = Math.ceil(filteredCafes.length / itemsPerPage);
+  const currentCafes = filteredCafes.slice(
+    (currentPage - 1) * itemsPerPage,
+    currentPage * itemsPerPage
+  );
 
   const markers = useMemo(() => filteredCafes.map(cafe => ({
     id: cafe.id,
@@ -74,16 +86,23 @@ const CafePage = () => {
     openingHours: cafe.operatingHours ? `${cafe.operatingHours.start}-${cafe.operatingHours.end}` : '09:00-22:00',
     rating: cafe.rating || 4.0,
     phone: cafe.phone || '',
-    address: cafe.address || ''
+    address: cafe.address || '',
   })), [filteredCafes]);
 
   const handleFilterChange = (filterType, value) => {
     setFilters(prev => ({ ...prev, [filterType]: value }));
-    setCurrentPage(1);
+    setCurrentPage(1); // Reset to first page on filter change
   };
 
   const goToPage = (page) => {
     setCurrentPage(page);
+  };
+
+  if (loading) {
+    return <div className="pageContainer">카페 정보를 불러오는 중...</div>;
+  }
+  if (error) {
+    return <div className="pageContainer" style={{ color: 'red' }}>오류: {error.message || '데이터를 불러오는 중 오류가 발생했습니다.'}</div>;
   }
 
   return (
@@ -102,6 +121,7 @@ const CafePage = () => {
           }}
           onMarkerClick={(markerData) => {
             console.log('Cafe marker clicked:', markerData);
+            // Could show detailed popup or navigate to detail page
           }}
         />
         <div className="filtersOnMap">
@@ -169,11 +189,13 @@ const CafePage = () => {
         </div>
       </div>
 
+      {/* BusinessCardGrid 대신 직접 4열 그리드 구성 */}
       <div className="cafe-grid">
-        <BusinessCardGrid items={cafes.map(c => ({ ...c, type: 'cafe' }))} />
+        <BusinessCardGrid items={currentCafes.map(c => ({ ...c, type: 'cafe' }))} />
       </div>
 
-      {cafes.length > 0 && totalPages > 1 && (
+      {/* 페이징 */}
+      {filteredCafes.length > 0 && totalPages > 1 && (
         <Pagination
           currentPage={currentPage}
           totalPages={totalPages}

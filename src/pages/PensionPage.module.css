@@ -1,91 +1,102 @@
-/* 펜션 페이지 전체 컨테이너 */
-.pensionPageContainer {
-  padding-top: 75px; /* 헤더 높이 100px + 여유공간 40px */
-}
+/* PensionPage.module.css */
 
-.pageHeader {
-  text-align: center;
-  margin-bottom: 80px;
-}
-
-.pageHeader h1 {
-  font-size: 3rem;
-  font-weight: 800;
-  margin-bottom: 8px;
-}
-
-.pageHeader p {
-  font-size: 1.5rem;
-  color: #666666;
-}
-
-/* 검색 섹션 */
-.searchSection {
-  margin-bottom: 48px;
-}
-
-.searchBox {
+/* 1. 페이지 구조 (2단 컬럼) */
+.mainContent {
   display: flex;
-  align-items: center;
-  gap: 16px;
-  padding: 16px;
-  background-color: #ffffff;
-  border-radius: 12px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  gap: 48px; /* 좌우 컬럼 간격 */
+  max-width: 1200px; /* 전체 콘텐츠 최대 너비 */
+  margin: 100px auto 40px; /* 페이지 상단 여백 증가, 상/하/좌우 -> 상/좌우/하 */
 }
 
-.searchInputGroup {
-  flex-grow: 1;
+/* 2. 왼쪽 필터 컬럼 */
+.filters {
+  width: 250px;
+  flex-shrink: 0;
+}
+
+.filterGroup {
+  margin-bottom: 32px;
+}
+
+.filterTitle {
+  font-size: 1.125rem; /* 18px */
+  font-weight: 700;
+  padding-bottom: 12px;
+  margin-bottom: 20px;
+  border-bottom: 1px solid #e9ecef; /* 연한 회색 밑줄 */
+}
+
+.radioGroup, .checkboxGroup {
   display: flex;
   flex-direction: column;
+  gap: 16px;
 }
 
-.searchInputGroup label {
-  font-size: 0.875rem;
+.radioLabel, .checkboxLabel {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  font-size: 1rem; /* 16px */
+  color: #495057;
+}
+
+/* 3. 오른쪽 메인 컬럼 */
+.results {
+  flex-grow: 1;
+  width: 100%;
+}
+
+/* 타이틀 박스 */
+.titleBox {
+  background-color: #f8f9fa;
+  padding: 24px;
+  border-radius: 8px;
+  margin-bottom: 24px; /* 아래 검색 섹션과의 간격 */
+}
+
+.title {
+  font-size: 1.75rem; /* 28px */
+  font-weight: 700;
+  margin: 0 0 8px 0;
+}
+
+.subtitle {
+  font-size: 1rem; /* 16px */
+  color: #495057;
+  margin: 0;
+}
+
+.highlight {
+  color: #e53e3e; /* 포인트 컬러 */
   font-weight: 600;
-  color: #666666;
-  margin-bottom: 4px;
-  padding-left: 8px;
 }
 
-.searchInputGroup input {
+/* 검색 섹션 (FilterSection 재스타일링) */
+/* FilterSection 내부의 요소들은 기존 클래스명을 유지하므로, 그것들을 활용하여 스타일을 덮어씁니다. */
+
+.filterGroupInline {
+  margin-bottom: 1rem;
+}
+
+.filterLabel {
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  display: block;
+}
+
+.datePickerWrapper {
+  display: flex;
+  gap: 8px;
+}
+
+.dateInput, .guestInput {
   width: 100%;
-  border: none;
-  outline: none;
-  padding: 8px 8px;
-  font-size: 1rem;
-  background: transparent;
-  border-bottom: 2px solid transparent;
-  cursor: pointer;
-}
-.searchInputGroup input:read-only {
-  cursor: pointer;
-}
-.searchInputGroup input:focus {
-  border-bottom-color: #a7c7e7;
+  height: 40px;
+  padding: 0 12px;
+  border: 1px solid #ced4da;
+  border-radius: 4px;
 }
 
-/* DatePicker 스타일 */
-.searchInputGroup .react-datepicker-wrapper {
-  width: 100%;
-}
-
-.searchInputGroup .react-datepicker__input-container input {
-  width: 100%;
-  border: none;
-  outline: none;
-  padding: 8px 8px;
-  font-size: 1rem;
-  background: transparent;
-  border-bottom: 2px solid transparent;
-  cursor: pointer;
-}
-
-.searchInputGroup .react-datepicker__input-container input:focus {
-  border-bottom-color: #a7c7e7;
-}
-
-/* Guest Selector Dropdown */
 .guestSelectorDropdown {
   position: absolute;
   top: 100%;
@@ -99,106 +110,52 @@
   margin-top: 4px;
 }
 
-.searchButton {
-  flex-shrink: 0;
+.filterActions {
+  margin-top: 1rem;
 }
 
-/* 메인 컨텐츠 영역 (필터 + 결과) */
-.mainContent {
-  display: flex;
-  gap: 48px;
-}
-
-.filters {
-  width: 250px;
-  flex-shrink: 0;
-  background-color: #f8f9fa; /* Using hardcoded color for now, ideally use CSS variable */
-  border-radius: 12px;
-  padding: 24px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
-  height: fit-content;
-  position: sticky;
-  top: 140px; /* 헤더 높이에 맞춰 조정 */
-}
-
-.filters h3 {
-  font-size: 1.5rem;
-  margin-bottom: 24px;
-  border-bottom: 2px solid #333333;
-  padding-bottom: 16px;
-}
-
-.filterGroup {
-  margin-bottom: 24px;
-}
-.filterGroup h4 {
-  font-size: 1rem;
-  font-weight: 600;
-  color: #666666;
-  margin-bottom: 16px;
-}
-
-.filterGroup label {
-  display: flex;
-  align-items: center;
-  margin-bottom: 8px;
-  font-size: 1rem;
-}
-
-.filterGroup input[type="checkbox"] {
-  margin-right: 8px;
-}
-
-.results {
-  flex-grow: 1;
-}
-
+/* 검색 결과 헤더 */
 .resultsHeader {
-  margin-bottom: 24px;
+  margin-bottom: 20px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid #e9ecef;
 }
 
 .resultsHeader h2 {
-  font-size: 2rem;
-}
-
-.noResults {
-  text-align: center;
-  padding: 72px 0;
-  color: #666666;
-  background-color: #f5f5f5;
-  border-radius: 8px;
-}
-.resultsGrid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-  gap: 24px;
-}
-.applyFilterButton {
-  width: 100%;
-  margin-top: 24px;
-}
-.highlight {
-  color: #a7c7e7;
+  font-size: 1.25rem; /* 20px */
   font-weight: 600;
 }
 
-/* 모바일 반응형 */
-@media (max-width: 768px) {
-  .pensionPageContainer {
-    padding-top: 110px; /* 모바일 헤더 높이 70px + 여유공간 40px */
-  }
+/* 펜션 카드 그리드 */
+.resultsGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* 항상 2열 고정 */
+  gap: 32px 24px; /* 세로, 가로 간격 */
+  margin-bottom: 48px;
+}
 
-  .filters {
-    top: 110px; /* 모바일에서 sticky 위치 조정 */
-  }
+.noResults {
+  grid-column: 1 / -1;
+  text-align: center;
+  padding: 80px 0;
+  color: #666;
+  background-color: #f8f9fa;
+  border-radius: 8px;
+}
 
+/* 반응형 */
+@media (max-width: 992px) {
   .mainContent {
     flex-direction: column;
-    gap: 24px;
   }
-
   .filters {
     width: 100%;
     position: static;
+  }
+}
+
+@media (max-width: 768px) {
+  .resultsGrid {
+    grid-template-columns: 1fr; /* 모바일에서는 1열 */
   }
 }

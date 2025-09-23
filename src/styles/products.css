@@ -1,0 +1,399 @@
+/* 반려용품 관련 스타일 */
+
+/* 반려용품 페이지 컨테이너 */
+.products-container {
+  background: linear-gradient(135deg, #fff5f5 0%, #ffffff 100%);
+  min-height: 100vh;
+  padding: 48px 0;
+}
+
+.products-header {
+  text-align: center;
+  margin-bottom: 72px;
+}
+
+.products-title {
+  color: #e84393;
+  font-size: 3rem;
+  font-weight: 800;
+  margin-bottom: 16px;
+  text-shadow: 0 2px 4px rgba(232, 67, 147, 0.1);
+}
+
+.products-subtitle {
+  color: #2d3436;
+  font-size: 1.5rem;
+  font-weight: 400;
+  opacity: 0.8;
+}
+
+/* 반려용품 카드 스타일 */
+.products-card {
+  background: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 8px 24px rgba(255, 118, 117, 0.12);
+  overflow: hidden;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.products-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 16px 40px rgba(255, 118, 117, 0.2);
+}
+
+.products-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, #ff7675, #e84393);
+}
+
+.products-image {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-bottom: 1px solid #ffe8e8;
+}
+
+.products-content {
+  padding: 24px;
+}
+
+.products-name {
+  color: #e84393;
+  font-size: 1.125rem;
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+
+.products-brand {
+  color: #2d3436;
+  font-size: 0.875rem;
+  font-weight: 600;
+  opacity: 0.8;
+  margin-bottom: 8px;
+}
+
+.products-description {
+  color: #2d3436;
+  font-size: 0.875rem;
+  line-height: 1.6;
+  margin-bottom: 16px;
+}
+
+.products-price {
+  color: #ff7675;
+  font-size: 1.5rem;
+  font-weight: 800;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+
+.products-price::before {
+  content: '';
+  font-size: 1.2em;
+}
+
+.products-price-original {
+  text-decoration: line-through;
+  color: #2d3436;
+  font-size: 0.875rem;
+  font-weight: 400;
+  opacity: 0.6;
+}
+
+.products-discount {
+  background: #ff7675;
+  color: #ffffff;
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-size: 0.7rem;
+  font-weight: 700;
+  margin-left: 8px;
+}
+
+/* 제품 재고 상태 */
+.products-stock {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+
+.products-stock-indicator {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #00b894;
+}
+
+.products-stock-indicator.low {
+  background: #fdcb6e;
+}
+
+.products-stock-indicator.out {
+  background: #ff7675;
+}
+
+.products-stock-text {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: #2d3436;
+}
+
+/* 제품 카테고리 태그 */
+.products-categories {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+
+.products-category-tag {
+  background: #ffe8e8;
+  color: #e84393;
+  padding: 4px 8px;
+  border-radius: 9999px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.products-category-tag.food::before {
+  content: '🥘';
+}
+
+.products-category-tag.toy::before {
+  content: '🧸';
+}
+
+.products-category-tag.accessory::before {
+  content: '👔';
+}
+
+.products-category-tag.health::before {
+  content: '💊';
+}
+
+.products-category-tag.grooming::before {
+  content: '✂️';
+}
+
+.products-category-tag.bed::before {
+  content: '🛏️';
+}
+
+/* 제품 평점 및 리뷰 */
+.products-rating {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+
+.products-stars {
+  color: #ffd700;
+  font-size: 0.875rem;
+}
+
+.products-rating-text {
+  color: #2d3436;
+  font-size: 0.875rem;
+  font-weight: 500;
+}
+
+.products-reviews {
+  color: #2d3436;
+  font-size: 0.8rem;
+  opacity: 0.7;
+  margin-left: 8px;
+}
+
+/* 제품 혜택 */
+.products-benefits {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+
+.products-benefit-tag {
+  background: #00b894;
+  color: #ffffff;
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-size: 0.7rem;
+  font-weight: 600;
+}
+
+.products-benefit-tag.shipping::before {
+  content: '🚚 ';
+}
+
+.products-benefit-tag.return::before {
+  content: '🔄 ';
+}
+
+.products-benefit-tag.warranty::before {
+  content: '🛡️ ';
+}
+
+/* 제품 위시리스트 버튼 */
+.products-wishlist {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  background: #ffffff;
+  border: 2px solid #ffe8e8;
+  border-radius: 50%;
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.products-wishlist:hover {
+  background: #ff7675;
+  border-color: #ff7675;
+  color: #ffffff;
+  transform: scale(1.1);
+}
+
+.products-wishlist.active {
+  background: #ff7675;
+  border-color: #ff7675;
+  color: #ffffff;
+}
+
+/* 반려용품 버튼 스타일 */
+.products-btn {
+  background: linear-gradient(135deg, #ff7675, #e84393);
+  color: #ffffff;
+  padding: 16px 24px;
+  border-radius: 9999px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  transition: all 0.3s ease;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+}
+
+.products-btn:hover {
+  transform: scale(1.02);
+  box-shadow: 0 8px 16px rgba(255, 118, 117, 0.3);
+}
+
+.products-btn:disabled {
+  background: #999999;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.products-btn-cart {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.products-btn-cart::before {
+  content: '🛒';
+  font-size: 1em;
+}
+
+/* 반려용품 필터 섹션 */
+.products-filters {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  margin-bottom: 72px;
+  flex-wrap: wrap;
+}
+
+.products-filter-btn {
+  background: #ffffff;
+  color: #e84393;
+  border: 2px solid #ffe8e8;
+  padding: 16px 24px;
+  border-radius: 9999px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.products-filter-btn:hover,
+.products-filter-btn.active {
+  background: #e84393;
+  color: #ffffff;
+  border-color: #e84393;
+}
+
+/* 제품 정렬 옵션 */
+.products-sort {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 48px;
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 0 16px;
+}
+
+.products-sort-select {
+  background: #ffffff;
+  border: 2px solid #ffe8e8;
+  border-radius: 4px;
+  padding: 8px 16px;
+  color: #2d3436;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+/* 반려용품 그리드 레이아웃 */
+.products-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 48px;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 16px;
+}
+
+/* 반응형 디자인 */
+@media (max-width: 768px) {
+  .products-title {
+    font-size: 2rem;
+  }
+  
+  .products-grid {
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 24px;
+  }
+  
+  .products-filters {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .products-categories,
+  .products-benefits {
+    justify-content: center;
+  }
+  
+  .products-sort {
+    justify-content: center;
+  }
+}

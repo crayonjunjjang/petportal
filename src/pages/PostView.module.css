@@ -1,0 +1,194 @@
+.postViewContainer {
+  max-width: 800px;
+  margin: 48px auto;
+  background-color: #ffffff;
+  border: 1px solid #e0e0e0;
+  border-radius: 12px;
+}
+
+.postHeader {
+  padding: 24px;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.category {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: #a7c7e7;
+  margin-bottom: 8px;
+}
+
+.postHeader h1 {
+  font-size: 1.8rem;
+  font-weight: 700;
+  margin: 0 0 24px 0;
+  line-height: 1.4;
+}
+
+.authorInfo {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.authorProfile {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 1rem;
+}
+
+.authorAvatar {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background-color: #f5f5f5;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: 700;
+  color: #a7c7e7;
+}
+
+.postMeta {
+  display: flex;
+  gap: 16px;
+  font-size: 0.875rem;
+  color: #999999;
+}
+
+.postContent {
+  padding: 48px 24px;
+  min-height: 250px;
+  font-size: 1rem;
+  line-height: 1.8;
+  color: #333333;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.postContent pre {
+  white-space: pre-wrap;
+  word-wrap: break-word;
+  font-family: inherit;
+  margin: 0;
+}
+
+.actionBar {
+  display: flex;
+  justify-content: center;
+  padding: 24px;
+}
+.actionBar button {
+  min-width: 120px;
+  font-size: 1.125rem;
+}
+
+.postFooter {
+  padding: 24px;
+  text-align: right;
+  background-color: #f5f5f5;
+  border-bottom-left-radius: 12px;
+  border-bottom-right-radius: 12px;
+}
+.actionBar button.liked,
+.actionBar button.liked:hover {
+  background-color: #a7c7e7; /* 파란색 배경 */
+  color: #ffffff;           /* 흰색 글씨 */
+  font-weight: 700;
+  border-color: #a7c7e7;    /* 파란색 테두리 */
+}
+.attachmentSection {
+  padding: 24px;
+  margin-top: 48px;
+  border-top: 1px solid #e0e0e0;
+}
+
+.attachmentSection strong {
+  display: block;
+  margin-bottom: 24px;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #333333;
+}
+
+/* 이미지 그리드 스타일 */
+.imageGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+.imageWrapper {
+  position: relative;
+  border-radius: 8px;
+  overflow: hidden; /* 아이콘이 밖으로 나가지 않도록 */
+  border: 1px solid #e0e0e0;
+  cursor: pointer;
+}
+
+.imageWrapper img {
+  width: 100%;
+  height: 120px;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+.imageWrapper:hover img {
+  transform: scale(1.05);
+  filter: brightness(0.8); /* 이미지를 살짝 어둡게 */
+}
+
+/* 다운로드 아이콘 스타일 */
+.downloadIcon {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  font-size: 1.5rem;
+  padding: 10px;
+  background-color: rgba(0, 0, 0, 0.5);
+  border-radius: 50%;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  z-index: 10;
+}
+
+.imageWrapper:hover .downloadIcon {
+  opacity: 1; /* 마우스를 올렸을 때만 보이게 */
+}
+
+/* 파일 목록 스타일 */
+.fileList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.fileList a {
+  display: inline-flex;
+  align-items: center;
+  padding: 8px 12px;
+  border-radius: 4px;
+  background-color: #f5f5f5;
+  color: #333333;
+  text-decoration: none;
+  transition: background-color 0.2s ease, color 0.2s ease;
+  font-size: 0.875rem;
+}
+
+.fileList a:hover {
+  background-color: #e9e9e9;
+  color: #a7c7e7;
+}
+
+.fileIcon {
+  margin-right: 10px;
+  color: #666666;
+  font-size: 1.1em;
+}

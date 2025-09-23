@@ -6,32 +6,6 @@
   padding: 90px 0 50px 0;
 }
 
-.grooming-header {
-  text-align: center;
-  margin-bottom: 60px;
-}
-
-.grooming-title {
-  color: #111111;
-  font-size: 2.6rem;
-  font-weight: 900;
-  margin-bottom: 12px;
-  letter-spacing: 0.01em;
-  text-shadow: 0 2px 16px #f7ecd2, 0 2px 0 #fff;
-  border-bottom: 3px solid #ccad79;
-  display: inline-block;
-  padding-bottom: 6px;
-}
-
-.grooming-subtitle {
-  color: #444241;
-  font-size: 1.1rem;
-  font-weight: 500;
-  opacity: 0.85;
-  letter-spacing: 0.11em;
-  margin-bottom: 0;
-}
-
 /* 카드 스타일 */
 .grooming-card {
   background: #fff;

@@ -1,0 +1,19 @@
+/* src/components/layout/Logo.module.css */
+.logo { 
+    font-family: 'Jalnan2', sans-serif;
+    position: absolute; /* 독립적인 위치 지정을 위해 absolute 사용 */
+    left: 60px; /* 화면 왼쪽에서 20px 떨어짐 */
+    top: 50%; /* 세로 중앙 정렬 */
+    transform: translateY(-50%); /* 세로 중앙 정렬 */
+    font-size: 36px;
+    font-weight: 800;
+    letter-spacing: 2px; /* 글자 사이 간격 추가 */
+    color: var(--color-white); /* 기본 로고 색상을 흰색으로 */
+    transition: color 0.4s ease-in-out;
+    z-index: 1; /* 다른 headerContent 요소 위에 오도록 설정 */
+  }
+
+  .logo.scrolled {
+    color: var(--color-primary); /* 스크롤 시 브랜드 컬러로 변경 */
+  }
+  

@@ -7,26 +7,6 @@
   padding: 75px 0 48px 0; /* 140px (헤더 마진) + 48px (기존 패딩) */
 }
 
-.hospital-header {
-  text-align: center;
-  margin-bottom: 72px;
-}
-
-.hospital-title {
-  color: #0078d4;
-  font-size: 3rem;
-  font-weight: 800;
-  margin-bottom: 16px;
-  text-shadow: 0 2px 4px rgba(0, 168, 255, 0.1);
-}
-
-.hospital-subtitle {
-  color: #2f3542;
-  font-size: 1.5rem;
-  font-weight: 400;
-  opacity: 0.8;
-}
-
 /* 병원 카드 스타일 */
 .hospital-card {
   background: #8b0606;
@@ -328,6 +308,7 @@
   }
 
   .hospital-title {
+    text-align: center;
     font-size: 2rem;
   }
   

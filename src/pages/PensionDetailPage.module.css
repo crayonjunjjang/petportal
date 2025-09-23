@@ -191,6 +191,7 @@
   padding: 16px;
   border: none;
   font-size: 1rem;
+  box-sizing: border-box;
 }
 .dateInput:first-child {
   border-right: 1px solid #e0e0e0;
@@ -198,12 +199,19 @@
 .guestInput {
   width: 100%;
   padding: 16px;
-  border: 1px solid #e0e0e0;
+  border: none;
   border-radius: 8px;
   font-size: 1rem;
   text-align: left;
   cursor: pointer;
   background-color: #ffffff;
+  box-sizing: border-box;
+}
+
+.guestInputWrapper {
+  position: relative;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
 }
 
 .totalPrice {
