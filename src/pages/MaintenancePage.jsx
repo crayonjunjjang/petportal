@@ -155,8 +155,8 @@ const MaintenancePage = () => {
 
         {/* 브랜드 */}
         <div className={styles.brandingContainer}>
-          <div className={styles.logo}>PetCare</div>
-          <p className={styles.brandText}>PetCare 서비스를 이용해 주셔서 감사합니다.</p>
+          <div className={styles.logo}>PetPortal</div>
+          <p className={styles.brandText}>PetPortal 서비스를 이용해 주셔서 감사합니다.</p>
         </div>
       </div>
 

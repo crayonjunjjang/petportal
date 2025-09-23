@@ -3,7 +3,6 @@ import React from 'react';
 // Removed Header and Footer imports
 import HeroSection from '../components/sections/HeroSection';
 import BestProductsSection from '../components/sections/BestProductsSection';
-import PetSuppliesSection from '../components/sections/PetSuppliesSection';
 import TrustSection from '../components/sections/TrustSection';
 import PopularContentSection from '../components/sections/PopularContentSection';
 import TestimonialSection from '../components/sections/TestimonialSection';
@@ -19,7 +18,7 @@ const HomePage = () => {
       <main>
         <HeroSection />
         <BestProductsSection />
-        <PetSuppliesSection />
+        
         <TrustSection />
         <PopularContentSection />
         <TestimonialSection />

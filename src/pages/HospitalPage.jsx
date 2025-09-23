@@ -2,7 +2,7 @@ import React, { useEffect, useMemo, useState, useCallback } from 'react';
 import HospitalMapView from '../components/service/maps/HospitalMapView';
 import BusinessCardGrid from '../components/common/BusinessCardGrid';
 import FilterSection from '../components/common/FilterSection';
-import '../styles/hospital.css';
+import styles from './HospitalPage.module.css';
 import Pagination from '../components/common/Pagination';
 import hospitalData from '../data/hospital.json';
 
@@ -92,73 +92,75 @@ const HospitalPage = () => {
   );
 
   if (error) {
-    return <div className="pageContainer" style={{ color: 'red' }}>오류: {error.message || '데이터를 불러오는 중 오류가 발생했습니다.'}</div>;
-  }
-
-  if (loading) {
-    return <div className="pageContainer">병원 정보를 불러오는 중...</div>;
+    return <div className={styles.hospitalContainer}><div className={styles.statusContainer} style={{ color: 'red' }}>오류: {error.message || '데이터를 불러오는 중 오류가 발생했습니다.'}</div></div>;
   }
 
   return (
-    <div className="hospital-container">
-      <header className="hospital-header">
-        <h1 className="hospital-title">동물병원</h1>
-        <p className="hospital-subtitle">우리 아이를 맡길 수 있는 믿을 만한 동물병원을 찾아보세요</p>
-      </header>
+    <div className={styles.hospitalContainer}>
+      {loading ? (
+        <div className={styles.statusContainer}>병원 정보를 불러오는 중...</div>
+      ) : (
+        <>
+          <header className={styles.pageHeader}>
+            <h1 className={styles.pageTitle}>동물병원</h1>
+            <p className={styles.pageSubtitle}>우리 아이를 맡길 수 있는 믿을 만한 동물병원을 찾아보세요</p>
+          </header>
 
-      <div className="mapWrapper">
-        <HospitalMapView 
-          userLocation={userLocation} 
-          markers={markers}
-          filters={{
-            specialties: filters.hospitalServices,
-            emergencyOnly: filters.hospitalServices.includes('24시 응급'),
-            available24h: filters.hospitalServices.includes('24시 응급')
-          }}
-          onMarkerClick={(markerData) => {
-            console.log('Hospital marker clicked:', markerData);
-            // Could show detailed popup or navigate to detail page
-          }}
-        />
-        <div className="filtersOnMap">
-          <FilterSection
-            locationPlaceholder="병원이름이나 지역을 검색해보세요"
-            onLocationChange={(value) => handleFilterChange('location', value)}
-          >
-            <div className="filterGroup">
-              <label className="filterLabel">진료 종류</label>
-              <div className="pillButtonContainer">
-                {['24시 응급', '내과', '외과', '치과', '심장 전문', 'MRI/CT'].map(type => (
-                  <button key={type} onClick={() => handleToggleFilter('hospitalServices', type)} className={`hospital-filter-btn ${filters.hospitalServices.includes(type) ? 'active' : ''}`}>
-                    {type}
-                  </button>
-                ))}
-              </div>
+          <div className={styles.mapWrapper}>
+            <HospitalMapView 
+              userLocation={userLocation} 
+              markers={markers}
+              filters={{
+                specialties: filters.hospitalServices,
+                emergencyOnly: filters.hospitalServices.includes('24시 응급'),
+                available24h: filters.hospitalServices.includes('24시 응급')
+              }}
+              onMarkerClick={(markerData) => {
+                console.log('Hospital marker clicked:', markerData);
+                // Could show detailed popup or navigate to detail page
+              }}
+            />
+            <div className={styles.filtersOnMap}>
+              <FilterSection
+                locationPlaceholder="병원이름이나 지역을 검색해보세요"
+                onLocationChange={(value) => handleFilterChange('location', value)}
+              >
+                <div className={styles.filterGroup}>
+                  <label className={styles.filterLabel}>진료 종류</label>
+                  <div className={styles.pillButtonContainer}>
+                    {['24시 응급', '내과', '외과', '치과', '심장 전문', 'MRI/CT'].map(type => (
+                      <button key={type} onClick={() => handleToggleFilter('hospitalServices', type)} className={`${styles.hospitalFilterBtn} ${filters.hospitalServices.includes(type) ? styles.active : ''}`}>
+                        {type}
+                      </button>
+                    ))}
+                  </div>
+                </div>
+                <div className={styles.filterGroup}>
+                  <label className={styles.filterLabel}>대상 동물</label>
+                  <div className={styles.pillButtonContainer}>
+                    {['강아지', '고양이', '특수동물'].map(animal => (
+                      <button key={animal} onClick={() => handleToggleFilter('targetAnimals', animal)} className={`${styles.hospitalFilterBtn} ${filters.targetAnimals.includes(animal) ? styles.active : ''}`}>
+                        {animal}
+                      </button>
+                    ))}
+                  </div>
+                </div>
+              </FilterSection>
             </div>
-            <div className="filterGroup">
-              <label className="filterLabel">대상 동물</label>
-              <div className="pillButtonContainer">
-                {['강아지', '고양이', '특수동물'].map(animal => (
-                  <button key={animal} onClick={() => handleToggleFilter('targetAnimals', animal)} className={`hospital-filter-btn ${filters.targetAnimals.includes(animal) ? 'active' : ''}`}>
-                    {animal}
-                  </button>
-                ))}
-              </div>
-            </div>
-          </FilterSection>
-        </div>
-      </div>
+          </div>
 
-      <div className="hospital-grid">
-        <BusinessCardGrid items={currentHospitals.map(h => ({ ...h, type: 'hospital', images: h.imageUrl ? [h.imageUrl] : [] }))} />
-      </div>
+          <div className={styles.hospitalGrid}>
+            <BusinessCardGrid items={currentHospitals.map(h => ({ ...h, type: 'hospital', images: h.imageUrl ? [h.imageUrl] : [] }))} />
+          </div>
 
-      {hospitals.length > 0 && totalPages > 1 && (
-        <Pagination
-          currentPage={currentPage}
-          totalPages={totalPages}
-          onPageChange={goToPage}
-        />
+          {hospitals.length > 0 && totalPages > 1 && (
+            <Pagination
+              currentPage={currentPage}
+              totalPages={totalPages}
+              onPageChange={goToPage}
+            />
+          )}
+        </>
       )}
     </div>
   );

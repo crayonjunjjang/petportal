@@ -3,7 +3,8 @@ import React, { useEffect, useMemo, useState, useCallback } from 'react';
 import HotelMapView from '../components/service/maps/HotelMapView';
 import BusinessCardGrid from '../components/common/BusinessCardGrid';
 import FilterSection from '../components/common/FilterSection';
-import '../styles/hotel.css';
+import styles from './HotelPage.module.css';
+import commonStyles from './commonLayout.module.css';
 import Pagination from '../components/common/Pagination';
 import hotelData from '../data/hotel.json';
 
@@ -90,70 +91,77 @@ const HotelPage = () => {
     currentPage * itemsPerPage
   );
 
-  if (loading) {
-    return <div className="pageContainer">호텔 정보를 불러오는 중...</div>;
-  }
-
   if (error) {
-    return <div className="pageContainer" style={{ color: 'red' }}>오류: {error.message || '데이터를 불러오는 중 오류가 발생했습니다.'}</div>;
+    return <div className={styles.hotelContainer}><div className={styles.statusContainer} style={{ color: 'red' }}>오류: {error.message || '데이터를 불러오는 중 오류가 발생했습니다.'}</div></div>;
   }
 
   return (
-    <div className="hotel-container">
-      <header className="pageHeader">
-        <h1 className="pageTitle">펫 호텔</h1>
-        <p className="pageSubtitle">반려동물과 편안하게 머무를 수 있는 호텔을 찾아보세요</p>
-      </header>
-      <div className="mapWrapper">
-        <HotelMapView 
-          userLocation={userLocation} 
-          markers={markers}
-          filters={{
-            petFriendly: filters.targetAnimals.length > 0,
-            petAmenities: filters.hotelServices,
-            priceRanges: []
-          }}
-          onMarkerClick={(markerData) => {
-            console.log('Hotel marker clicked:', markerData);
-            // Could show detailed popup or navigate to detail page
-          }}
-        />
-        <div className="filtersOnMap">
-          <FilterSection
-            locationPlaceholder="호텔명이나 지역을 검색해보세요"
-            onLocationChange={(value) => handleFilterChange('location', value)}>
-            <div className="filterGroup">
-              <label className="filterLabel">체크인/아웃</label>
-              <div className="filterInputWrapper">
-                <input 
-                  type="date" 
-                  value={filters.startDate} 
-                  onChange={(e) => handleFilterChange('startDate', e.target.value)} 
-                  className="filterInput" 
-                />
-              </div>
-              <div className="filterInputWrapper">
-                <input 
-                  type="date" 
-                  value={filters.endDate} 
-                  onChange={(e) => handleFilterChange('endDate', e.target.value)}
-                  className="filterInput"
-                />
-              </div>
+    <div className={`${styles.hotelContainer} ${commonStyles.mainContent}`}>
+      {loading ? (
+        <div className={styles.statusContainer}>호텔 정보를 불러오는 중...</div>
+      ) : (
+        <>
+          <header className={styles.pageHeader}>
+            <h1 className={styles.pageTitle}>펫 호텔</h1>
+            <p className={styles.pageSubtitle}>반려동물과 편안하게 머무를 수 있는 호텔을 찾아보세요</p>
+          </header>
+          <div className={styles.mapWrapper}>
+            <HotelMapView 
+              userLocation={userLocation} 
+              markers={markers}
+              filters={{
+                petFriendly: filters.targetAnimals.length > 0,
+                petAmenities: filters.hotelServices,
+                priceRanges: []
+              }}
+              onMarkerClick={(markerData) => {
+                console.log('Hotel marker clicked:', markerData);
+                // Could show detailed popup or navigate to detail page
+              }}
+            />
+            <div className={styles.filtersOnMap}>
+              <FilterSection
+                locationPlaceholder="호텔명이나 지역을 검색해보세요"
+                onLocationChange={(value) => handleFilterChange('location', value)}>
+                <div className={styles.filterGroup}>
+                  <label className={styles.filterLabel}>체크인/아웃</label>
+                  <div className={styles.filterInputWrapper}>
+                    <input 
+                      type="date" 
+                      value={filters.startDate} 
+                      onChange={(e) => handleFilterChange('startDate', e.target.value)} 
+                      className={styles.filterInput} 
+                    />
+                  </div>
+                  <div className={styles.filterInputWrapper}>
+                    <input 
+                      type="date" 
+                      value={filters.endDate} 
+                      onChange={(e) => handleFilterChange('endDate', e.target.value)}
+                      className={styles.filterInput}
+                    />
+                  </div>
+                </div>
+              </FilterSection>
             </div>
-          </FilterSection>
-        </div>
-      </div>
-      <div className="hotel-grid">
-        <BusinessCardGrid items={currentHotels.map(h => ({ ...h, type: 'hotel', images: h.imageUrl ? [h.imageUrl] : [] }))} />
-      </div>
+          </div>
+          <div className={styles.hotelGrid}>
+            <BusinessCardGrid items={currentHotels.map(h => {
+              const nameParts = h.name.split(' ');
+              const location = nameParts.pop();
+              const nameOnly = nameParts.join(' ');
+              return { ...h, type: 'hotel', name: nameOnly, location: location, images: h.imageUrl ? [h.imageUrl] : [] };
+            })} />
+          </div>
 
-      {hotels.length > 0 && totalPages > 1 && (
-        <Pagination
-          currentPage={currentPage}
-          totalPages={totalPages}
-          onPageChange={goToPage}
-        />
+          {hotels.length > 0 && totalPages > 1 && (
+            <Pagination
+              currentPage={currentPage}
+              totalPages={totalPages}
+              onPageChange={goToPage}
+            />
+          )}
+        </>
       )}
     </div>
   );

@@ -7,7 +7,7 @@ const Logo = ({ isScrolled }) => {
   const logoClasses = `${styles.logo} ${isScrolled ? styles.scrolled : ''}`;
 
   return (
-    <Link to="/" className={logoClasses}>PetPotal 삐삐</Link>
+    <Link to="/" className={logoClasses}>PetPortal 삐삐</Link>
   );
 };
 

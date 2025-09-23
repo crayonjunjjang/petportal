@@ -2,6 +2,7 @@
 import React, { useState } from 'react';
 import SocialLoginButtons from './SocialLoginButtons';
 import styles from './LoginModal.module.css';
+import { useAuth } from '../../context/AuthContext'; // useAuth 임포트
 
 const LoginModal = ({ isOpen, onClose, onSwitchToSignup }) => {
   const [formData, setFormData] = useState({
@@ -10,6 +11,7 @@ const LoginModal = ({ isOpen, onClose, onSwitchToSignup }) => {
   });
   const [rememberMe, setRememberMe] = useState(false); // New state for rememberMe
   const [loading, setLoading] = useState(false);
+  const { login } = useAuth(); // useAuth 훅에서 login 함수 가져오기
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -24,38 +26,15 @@ const LoginModal = ({ isOpen, onClose, onSwitchToSignup }) => {
     setLoading(true);
 
     try {
-      // 서버 API 호출
-      const response = await fetch('http://localhost:3001/api/auth/login', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          email: formData.email,
-          password: formData.password
-        })
-      });
+      const response = await login(formData.email, formData.password);
 
-      const data = await response.json();
-
-      if (data.success) {
-        // 토큰 저장
-        localStorage.setItem('authToken', data.data.token);
-        
-        // 기존 호환성을 위한 저장
-        localStorage.setItem('isLoggedIn', 'true');
-        localStorage.setItem('userInfo', JSON.stringify({
-          id: data.data.user.id,
-          email: data.data.user.email,
-          name: data.data.user.username,
-          loginType: 'email'
-        }));
-
+      if (response.success) {
         alert('로그인 성공!');
         onClose();
-        window.location.reload(); // AuthContext 업데이트를 위해 새로고침
+        // AuthContext에서 user 상태가 업데이트되므로, 여기서는 새로고침이 필요 없을 수 있습니다.
+        // 필요하다면 window.location.reload(); 를 사용하세요.
       } else {
-        alert(data.message || '로그인에 실패했습니다.');
+        alert(response.error || '로그인에 실패했습니다.');
       }
       
     } catch (error) {

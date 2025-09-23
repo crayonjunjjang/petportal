@@ -1,10 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import { useCommunity } from '../../contexts/CommunityContext';
+import { useProfile } from '../../context/ProfileContext'; // useProfile 훅 가져오기
 import Button from '../ui/Button';
 import styles from './CommentSection.module.css';
 
 const CommentSection = ({ postId, boardKey }) => {
   const { boardData, actions } = useCommunity();
+  const { userProfile, isAuthenticated } = useProfile(); // userProfile과 isAuthenticated 가져오기
   const [comments, setComments] = useState([]);
   const [newComment, setNewComment] = useState('');
   const [editingComment, setEditingComment] = useState(null);
@@ -21,11 +23,16 @@ const CommentSection = ({ postId, boardKey }) => {
   }, [postId, boardKey, boardData]);
 
   const handleSubmitComment = () => {
+    if (!isAuthenticated) {
+      alert('댓글을 작성하려면 로그인이 필요합니다.');
+      return;
+    }
     if (!newComment.trim()) {
       alert('댓글 내용을 입력해주세요.');
       return;
     }
-    actions.addComment(boardKey, postId, newComment);
+    // userProfile.nickname을 author로 전달
+    actions.addComment(boardKey, postId, newComment, userProfile.nickname);
     setNewComment('');
   };
 
@@ -54,77 +61,83 @@ const CommentSection = ({ postId, boardKey }) => {
     return date.toLocaleDateString('ko-KR');
   };
 
-  const renderComment = (comment) => (
-    <div key={comment.id} className={styles.comment}>
-      <div className={styles.commentHeader}>
-        <div className={styles.commentAuthor}>
-          <span className={styles.authorName}>{comment.author}</span>
-          <span className={styles.commentDate}>{formatDate(comment.createdAt)}</span>
-        </div>
-        <div className={styles.commentActions}>
-          <button
-            onClick={() => {
-              setEditingComment(comment.id);
-              setEditContent(comment.content);
-            }}
-            className={styles.actionButton}
-          >
-            수정
-          </button>
-          <button
-            onClick={() => handleDeleteComment(comment.id)}
-            className={styles.actionButton}
-          >
-            삭제
-          </button>
-        </div>
-      </div>
+  const renderComment = (comment) => {
+    const isAuthor = userProfile?.nickname === comment.author;
 
-      <div className={styles.commentContent}>
-        {editingComment === comment.id ? (
-          <div className={styles.editForm}>
-            <textarea
-              value={editContent}
-              onChange={(e) => setEditContent(e.target.value)}
-              className={styles.editTextarea}
-              rows={3}
-            />
-            <div className={styles.editButtons}>
-              <Button
-                variant="secondary"
-                size="small"
+    return (
+      <div key={comment.id} className={styles.comment}>
+        <div className={styles.commentHeader}>
+          <div className={styles.commentAuthor}>
+            <span className={styles.authorName}>{comment.author}</span>
+            <span className={styles.commentDate}>{formatDate(comment.createdAt)}</span>
+          </div>
+          {isAuthor && (
+            <div className={styles.commentActions}>
+              <button
                 onClick={() => {
-                  setEditingComment(null);
-                  setEditContent('');
+                  setEditingComment(comment.id);
+                  setEditContent(comment.content);
                 }}
-              >
-                취소
-              </Button>
-              <Button
-                variant="primary"
-                size="small"
-                onClick={() => handleEditComment(comment.id)}
+                className={styles.actionButton}
               >
                 수정
-              </Button>
-            </div>
-          </div>
-        ) : (
-          <>
-            <p>{comment.content}</p>
-            <div className={styles.commentFooter}>
+              </button>
               <button
-                onClick={() => handleLikeComment(comment.id)}
-                className={styles.likeButton}
+                onClick={() => handleDeleteComment(comment.id)}
+                className={styles.actionButton}
               >
-                👍 {comment.likes}
+                삭제
               </button>
             </div>
-          </>
-        )}
+          )}
+        </div>
+
+        <div className={styles.commentContent}>
+          {editingComment === comment.id ? (
+            <div className={styles.editForm}>
+              <textarea
+                value={editContent}
+                onChange={(e) => setEditContent(e.target.value)}
+                className={styles.editTextarea}
+                rows={3}
+              />
+              <div className={styles.editButtons}>
+                <Button
+                  variant="secondary"
+                  size="small"
+                  onClick={() => {
+                    setEditingComment(null);
+                    setEditContent('');
+                  }}
+                >
+                  취소
+                </Button>
+                <Button
+                  variant="primary"
+                  size="small"
+                  onClick={() => handleEditComment(comment.id)}
+                >
+                  수정
+                </Button>
+              </div>
+            </div>
+          ) : (
+            <>
+              <p>{comment.content}</p>
+              <div className={styles.commentFooter}>
+                <button
+                  onClick={() => handleLikeComment(comment.id)}
+                  className={styles.likeButton}
+                >
+                  👍 {comment.likes}
+                </button>
+              </div>
+            </>
+          )}
+        </div>
       </div>
-    </div>
-  );
+    );
+  };
 
   return (
     <div className={styles.commentSection}>

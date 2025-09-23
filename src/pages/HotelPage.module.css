@@ -12,14 +12,26 @@
 }
 
 /* 기본 배경 */
-.hotel-container {
-  background: linear-gradient(120deg, var(--hotel-bg) 0%, #faf6ff 100%);
+.hotelContainer {
   min-height: 100vh;
   padding: 90px 0 40px 0;
 }
 
+.statusContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 50vh;
+  font-size: 1.2rem;
+  color: #666;
+}
+
+.error {
+  color: red;
+}
+
 /* 카드 스타일 */
-.hotel-card {
+.hotelCard {
   background: var(--hotel-white);
   border-radius: 18px;
   box-shadow: var(--hotel-shadow), 0 2px 8px rgba(128,128,160,.05);
@@ -29,13 +41,13 @@
   position: relative;
   will-change: transform, box-shadow;
 }
-.hotel-card:hover {
+.hotelCard:hover {
   transform: translateY(-8px) scale(1.016);
   box-shadow: 0 14px 46px rgba(142,68,173,0.23), 0 2px 8px rgba(128,128,160,.08);
   z-index: 2;
 }
 
-.hotel-card::after {
+.hotelCard::after {
   content: '';
   display: block;
   position: absolute;
@@ -44,7 +56,7 @@
   opacity: 0.82;
 }
 
-.hotel-image {
+.hotelImage {
   width: 100%;
   height: 220px;
   object-fit: cover;
@@ -53,11 +65,11 @@
 }
 
 /* 카드 내부 내용 */
-.hotel-content {
+.hotelContent {
   padding: 26px 22px 14px 22px;
 }
 
-.hotel-name {
+.hotelName {
   color: var(--hotel-primary);
   font-size: 1.2rem;
   font-weight: 700;
@@ -67,13 +79,13 @@
   gap: 8px;
 }
 
-.hotel-star-rating {
+.hotelStarRating {
   color: var(--hotel-accent);
   font-size: 0.93rem;
   margin-left: 3px;
 }
 
-.hotel-location {
+.hotelLocation {
   color: #444260;
   font-size: 0.96rem;
   margin-bottom: 12px;
@@ -84,12 +96,12 @@
   opacity: 0.90;
 }
 
-.hotel-location::before {
+.hotelLocation::before {
   content: '📍';
   font-size: 1em;
 }
 
-.hotel-description {
+.hotelDescription {
   color: #504e7c;
   font-size: 0.92rem;
   line-height: 1.62;
@@ -97,7 +109,7 @@
   opacity: 0.93;
 }
 
-.hotel-price {
+.hotelPrice {
   color: var(--hotel-secondary);
   font-size: 1.23rem;
   font-weight: 800;
@@ -106,11 +118,11 @@
   gap: 7px;
   margin-bottom: 12px;
 }
-.hotel-price::before {
+.hotelPrice::before {
   content: '🏨';
   font-size: 1.2em;
 }
-.hotel-price-unit {
+.hotelPriceUnit {
   font-size: 0.85rem;
   font-weight: 400;
   color: #5a5793;
@@ -118,7 +130,7 @@
 }
 
 /* 등급 배지 */
-.hotel-grade {
+.hotelGrade {
   position: absolute;
   top: 17px;
   right: 18px;
@@ -134,24 +146,24 @@
   border: 1px solid #f6e6ff;
 }
 
-.hotel-grade.luxury {
+.hotelGrade.luxury {
   background: linear-gradient(92deg,#ffe179,#fff);
   color: #deb301;
 }
-.hotel-grade.premium {
+.hotelGrade.premium {
   background: var(--hotel-primary);
   color: #fff;
 }
 
 /* 편의시설 태그 */
-.hotel-amenities {
+.hotelAmenities {
   display: flex;
   flex-wrap: wrap;
   gap: 7px;
   margin-bottom: 15px;
   margin-top: 3px;
 }
-.hotel-amenity-tag {
+.hotelAmenityTag {
   background: #efe2ff91;
   color: var(--hotel-primary);
   padding: 3px 11px;
@@ -164,38 +176,38 @@
   box-shadow: 0 1px 4px #f4e6ffa0;
   transition: all .18s;
 }
-.hotel-amenity-tag:hover {
+.hotelAmenityTag:hover {
   background: #d6c4f97c;
   color: var(--hotel-secondary);
 }
 
-.hotel-amenity-tag.spa::before { content: '🧖'; }
-.hotel-amenity-tag.pool::before { content: '🏊'; }
-.hotel-amenity-tag.restaurant::before { content: '🍽️'; }
-.hotel-amenity-tag.gym::before { content: '💪'; }
-.hotel-amenity-tag.wifi::before { content: '📶'; }
-.hotel-amenity-tag.valet::before { content: '🚗'; }
-.hotel-amenity-tag.concierge::before { content: '🛎️'; }
+.hotelAmenityTag.spa::before { content: '🧖'; }
+.hotelAmenityTag.pool::before { content: '🏊'; }
+.hotelAmenityTag.restaurant::before { content: '🍽️'; }
+.hotelAmenityTag.gym::before { content: '💪'; }
+.hotelAmenityTag.wifi::before { content: '📶'; }
+.hotelAmenityTag.valet::before { content: '🚗'; }
+.hotelAmenityTag.concierge::before { content: '🛎️'; }
 
 /* 평점 및 리뷰 */
-.hotel-rating {
+.hotelRating {
   display: flex;
   align-items: center;
   gap: 8px;
   margin-bottom: 10px;
 }
 
-.hotel-stars { color: #fecb03; font-size: 1.05em; }
-.hotel-rating-text, .hotel-reviews {
+.hotelStars { color: #fecb03; font-size: 1.05em; }
+.hotelRatingText, .hotelReviews {
   color: #504e7c;
   font-size: 0.82rem;
   font-weight: 500;
   opacity: 0.74;
 }
-.hotel-reviews { margin-left: 8px; }
+.hotelReviews { margin-left: 8px; }
 
 /* 체크인/아웃 */
-.hotel-booking-info {
+.hotelBookingInfo {
   background: #efe2ff61;
   padding: 15px 17px;
   border-radius: 5px;
@@ -203,7 +215,7 @@
   border-left: 3px solid var(--hotel-primary);
   box-shadow: 0 1px 6px #d9ccf031;
 }
-.hotel-checkin, .hotel-checkout {
+.hotelCheckin, .hotelCheckout {
   color: #6e5fa3;
   font-size: 0.83rem;
   font-weight: 500;
@@ -212,11 +224,11 @@
   align-items: center;
   gap: 4px;
 }
-.hotel-checkin::before { content: '🕐'; }
-.hotel-checkout::before { content: '🕚'; }
+.hotelCheckin::before { content: '🕐'; }
+.hotelCheckout::before { content: '🕚'; }
 
 /* 특별 혜택 */
-.hotel-benefits {
+.hotelBenefits {
   background: linear-gradient(100deg, var(--hotel-primary) 80%, var(--hotel-accent));
   color: #fff;
   padding: 13px 13px;
@@ -225,14 +237,14 @@
   text-align: center;
   box-shadow: 0 2px 10px #e5cefa26;
 }
-.hotel-benefits-text {
+.hotelBenefitsText {
   font-size: 0.82rem;
   font-weight: 600;
   letter-spacing: .04px;
 }
 
 /* Button 스타일 */
-.hotel-btn {
+.hotelBtn {
   background: linear-gradient(135deg, var(--hotel-primary), var(--hotel-secondary));
   color: #fff;
   padding: 15px 0;
@@ -247,31 +259,31 @@
   letter-spacing: .3px;
   margin-top: 10px;
 }
-.hotel-btn:hover {
+.hotelBtn:hover {
   transform: scale(1.03);
   box-shadow: 0 8px 24px rgba(142, 68, 173, 0.18);
   background: linear-gradient(135deg, #702aaa 60%, #8e44ad 100%);
 }
 
 /* 프리미엄 버튼 예시 */
-.hotel-btn-premium {
+.hotelBtnPremium {
   background: linear-gradient(135deg, #fecb03, #ffe38a 80%);
   color: #595345;
   font-weight: 800;
 }
-.hotel-btn-premium:hover {
+.hotelBtnPremium:hover {
   filter: brightness(1.04);
 }
 
 /* 필터 */
-.hotel-filters {
+.hotelFilters {
   display: flex;
   justify-content: center;
   gap: 16px;
   margin-bottom: 60px;
   flex-wrap: wrap;
 }
-.hotel-filter-btn {
+.hotelFilterBtn {
   background: #fff;
   color: var(--hotel-primary);
   border: 2px solid #ede3fa;
@@ -283,15 +295,15 @@
   cursor: pointer;
   box-shadow: 0 0px 8px #f3edff30;
 }
-.hotel-filter-btn:hover,
-.hotel-filter-btn.active {
+.hotelFilterBtn:hover,
+.hotelFilterBtn.active {
   background: var(--hotel-primary);
   color: #fff;
   border-color: var(--hotel-primary);
 }
 
 /* 가격 범위 필터 */
-.hotel-price-filter {
+.hotelPriceFilter {
   background: #fff;
   padding: 19px 12px;
   border-radius: 13px;
@@ -300,7 +312,7 @@
   max-width: 400px;
   margin: 0 auto 35px auto;
 }
-.hotel-price-filter h3 {
+.hotelPriceFilter h3 {
   color: var(--hotel-primary);
   margin-bottom: 8px;
   font-size: 1.12rem;
@@ -309,7 +321,7 @@
 }
 
 /* 호텔 카드 그리드 레이아웃 */
-.hotel-grid {
+.hotelGrid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(330px, 1fr));
   gap: 40px;
@@ -320,12 +332,12 @@
 
 /* 반응형 디자인 */
 @media (max-width: 768px) {
-  .hotel-container { padding: 142px 0 40px 0; }
-  .hotel-title { font-size: 2.1rem; }
-  .hotel-grid { grid-template-columns: 1fr; gap: 19px; }
-  .hotel-filters { flex-direction: column; align-items: center; gap: 11px; }
-  .hotel-amenities { justify-content: center; }
-  .hotel-content { padding: 15px 8px 11px 8px;}
+  .hotelContainer { padding: 142px 0 40px 0; }
+  .hotelTitle { font-size: 2.1rem; }
+  .hotelGrid { grid-template-columns: 1fr; gap: 19px; }
+  .hotelFilters { flex-direction: column; align-items: center; gap: 11px; }
+  .hotelAmenities { justify-content: center; }
+  .hotelContent { padding: 15px 8px 11px 8px;}
   .mapWrapper {
     width: 100vw;
     height: 40vh;
@@ -338,29 +350,35 @@
 
 .pageHeader {
   text-align: center;
-  margin-bottom: var(--spacing-xl);
+  margin-bottom: 40px;
+  padding-top: 40px;
 }
+
 .pageTitle {
+  font-size: 2.8rem;
   font-weight: 800;
-  margin-bottom: var(--spacing-xs);
-  color: var(--text-dark);
-  line-height: 1.2;
+  color: #2c3e50;
+  margin-bottom: 12px;
 }
+
 .pageSubtitle {
-  font-size: var(--text-lg);
-  color: var(--text-gray);
+  font-size: 1.2rem;
+  color: #7f8c8d;
   margin: 0;
 }
+
 .mapWrapper {
   position: relative;
-  height: calc((100vh - 220px) * 0.8);
-  width: 95vw;
-  border-radius: var(--radius-xl);
+  width: 900px;
+  max-width: 96vw;
+  margin: 0 auto 40px auto;
+  height: 380px;
+  border-radius: 18px;
   overflow: hidden;
-  box-shadow: var(--shadow-lg);
-  z-index: 1; /* 맵뷰의 z-index 설정 */
-  margin: 0 auto var(--spacing-xl); /* 지도를 중앙 정렬하고 하단에 여백 추가 */
+  box-shadow: 0 8px 24px rgba(212, 165, 116, 0.15);
+  z-index: 1;
 }
+
 .filtersOnMap {
   position: absolute;
   top: var(--container-padding);

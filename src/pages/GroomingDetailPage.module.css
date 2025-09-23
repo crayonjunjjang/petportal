@@ -1,155 +1,206 @@
+/* src/pages/GroomingDetailPage.module.css */
+
+:root {
+  --grooming-primary: #E89A8D;
+  --grooming-bg: #FFFBF7;
+  --grooming-text: #5D5350;
+  --grooming-tag-bg: #FDF0E9;
+  --grooming-tag-text: #B5654E;
+}
+
 .detailPageContainer {
-  padding-bottom: 72px;
-  background-color: #f9f9f9;
+  background-color: var(--grooming-bg);
+  padding-bottom: 80px;
 }
 
-.carouselSection {
+/* --- Hero Section --- */
+.heroSection {
   position: relative;
-  color: #ffffff;
+  height: 450px;
+  background-color: #EAE0D9;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
 }
 
-.carouselSection img {
-  height: 50vh;
+.heroImage {
+  width: 100%;
+  height: 100%;
   object-fit: cover;
+  filter: brightness(0.8) saturate(1.1);
 }
 
 .heroContent {
   position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  padding: 48px 24px;
-  background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
   text-align: center;
+  color: #fff;
+  text-shadow: 0 2px 12px rgba(0, 0, 0, 0.5);
 }
 
 .heroContent h1 {
-  font-size: 2.5rem;
+  font-size: 3.5rem;
   font-weight: 800;
   margin: 0;
-  text-shadow: 2px 2px 8px rgba(0,0,0,0.5);
 }
 
-.shopLocation {
-  font-size: 1.1rem;
-  font-weight: 500;
-  opacity: 0.9;
-  margin-top: 8px;
+.heroContent p {
+  font-size: 1.3rem;
+  opacity: 0.95;
+  margin-top: 12px;
 }
 
+/* --- Main Content Layout --- */
 .mainContent {
-  display: grid;
-  grid-template-columns: 2fr 1fr;
-  gap: 32px;
-  padding: 48px;
-  max-width: 1200px;
-  margin: 0 auto;
+  display: flex;
+  gap: 40px;
+  max-width: 1100px;
+  margin: -100px auto 0;
+  padding: 0 24px;
+  position: relative;
+  z-index: 10;
 }
 
 .infoColumn {
-  display: flex;
-  flex-direction: column;
-  gap: 32px;
+  flex: 1;
+  background: #fff;
+  padding: 40px;
+  border-radius: 16px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+  border: 1px solid #F0EBE8;
 }
 
-.infoBlock {
-  background: white;
-  padding: 24px;
-  border-radius: 12px;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
-}
-
-.infoBlock h3 {
-  color: black;
-  font-size: 1.5rem;
-  font-weight: 700;
-  margin: 0 0 24px 0;
-  border-bottom: 2px solid #f0f0f0;
-  padding-bottom: 16px;
-}
-
-.infoList {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-}
-
-.infoList li {
-  font-size: 1rem;
-  color: #333;
-}
-
-.priceTable {
-  color: #000;
-  width: 100%;
-  border-collapse: collapse;
-}
-
-.priceTable th, .priceTable td {
-  padding: 12px;
-  text-align: left;
-  border-bottom: 1px solid #f0f0f0;
-}
-
-.priceTable th {
-  background-color: #f8f8f8;
-  font-weight: 600;
-}
-
-.reviewColumn {
+.bookingColumn {
+  flex: 0 0 320px;
   position: sticky;
   top: 100px;
   height: fit-content;
 }
 
-.reviewList {
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
-  max-height: 400px;
-  overflow-y: auto;
-  padding-right: 8px;
+/* --- Info Blocks --- */
+.infoBlock {
+  margin-bottom: 40px;
 }
 
-.reviewItem {
-  background-color: #f8f9fa;
-  padding: 16px;
-  border-radius: 8px;
+.infoBlock:last-child {
+  margin-bottom: 0;
 }
 
-.reviewHeader {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 8px;
+.infoBlock h3 {
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: var(--grooming-text);
+  margin-bottom: 20px;
+  padding-bottom: 12px;
+  border-bottom: 2px solid var(--grooming-primary);
+  display: inline-block;
 }
 
-.reviewAuthor {
-  color: #000;
+.description {
+  font-size: 1.05rem;
+  line-height: 1.8;
+  color: #666;
+}
+
+.infoGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 15px;
+}
+
+.infoItem {
+  font-size: 1rem;
+  color: var(--grooming-text);
+}
+
+.infoItem strong {
   font-weight: 600;
+  margin-right: 10px;
 }
 
-.reviewRating {
-  color: #ffd700;
-}
-
-.reviewContent {
-  font-size: 0.9rem;
-  color: #555;
-  line-height: 1.6;
-}
-
-.actionButtons {
-  margin-top: 24px;
+.tags {
   display: flex;
-  flex-direction: column;
+  flex-wrap: wrap;
   gap: 12px;
 }
 
+.tag {
+  background-color: var(--grooming-tag-bg);
+  color: var(--grooming-tag-text);
+  padding: 8px 15px;
+  border-radius: 20px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  transition: all 0.2s ease-in-out;
+}
+
+.tag:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+/* --- Booking Box --- */
+.bookingBox {
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+  overflow: hidden;
+  border: 1px solid #F0EBE8;
+}
+
+.bookingSummary {
+  padding: 24px;
+  text-align: center;
+  border-bottom: 1px solid #F0EBE8;
+}
+
+.price {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--grooming-primary);
+  margin: 0 0 16px;
+}
+
+.bookingActions {
+  padding: 24px;
+}
+
+.bookingButton {
+  width: 100%;
+  padding: 15px;
+  font-size: 1.1rem;
+  background-color: var(--grooming-primary);
+  border-color: var(--grooming-primary);
+}
+
+/* --- Not Found / Error --- */
 .notFound {
   text-align: center;
-  padding: 72px 0;
+  padding: 80px 24px;
+  min-height: 60vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.notFound h2 {
+  font-size: 1.8rem;
+  color: #333;
+  margin-bottom: 16px;
+}
+
+/* --- Responsive --- */
+@media (max-width: 900px) {
+  .mainContent {
+    flex-direction: column;
+    margin-top: -60px;
+  }
+  .bookingColumn {
+    position: static;
+    width: 100%;
+  }
+  .heroContent h1 {
+    font-size: 2.8rem;
+  }
 }

@@ -86,8 +86,8 @@ const TestimonialSection = () => {
   return (
     <section className={styles.section}>
       <div className={styles.container}>
-        <h2 className={styles.title}>신뢰할 수 있는 파트너, 삐삐 PetPotal</h2>
-        <p className={styles.subtitle}>많은 반려인들이 삐삐 PetPotal과 함께하고 있습니다.</p>
+        <h2 className={styles.title}>신뢰할 수 있는 파트너, 삐삐 PetPortal</h2>
+        <p className={styles.subtitle}>많은 반려인들이 삐삐 PetPortal과 함께하고 있습니다.</p>
         <div className={styles.scrollingWrapper}>
           <div className={styles.grid}>
             {[...testimonials, ...testimonials].map((testimonial, index) => (

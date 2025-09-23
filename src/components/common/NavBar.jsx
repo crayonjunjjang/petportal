@@ -8,10 +8,10 @@ const NavBar = ({ isScrolled }) => {
     <nav className={`${styles.nav} ${isScrolled ? styles.scrolled : ''}`}>
       <Link to="/grooming">미용</Link>
       <Link to="/cafe">카페</Link>
-      <Link to="/pet-friendly-lodging">동반숙소</Link>
       <Link to="/hospital">병원</Link>
       <Link to="/hotel">호텔</Link>
-      <Link to="/pet-supplies">반려용품</Link>
+      <Link to="/pet-friendly-lodging">동반숙소</Link>
+      <Link to="/product">반려용품</Link>
       <Link to="/community">커뮤니티</Link>
       <Link to="/support">고객센터</Link>
     </nav>

@@ -42,9 +42,9 @@ export const initialBoardData = {
         posts: [
           { id: 1, title: '저희 집 강아지 미모 좀 보세요!!', author: '멍멍이아빠', createdAt: '2025-09-09', views: 123, likes: 108, content: `정말 귀엽지 않나요?
 팔불출인거 알지만 너무 예뻐서 올립니다.`, comments: [
-          { id: 1, author: '집사일기', content: '와 정말 인형 같아요!', createdAt: '2025-09-09',likes: 1 },
-          { id: 2, author: '산책러', content: '심장이 아프네요... 너무 귀여워서', createdAt: '2025-09-10',likes: 2 },
-        ]},
+          { id: 101, author: '집사일기', content: '와 정말 인형 같아요!', createdAt: '2025-09-09',likes: 1 },
+          { id: 102, author: '산책러', content: '심장이 아프네요... 너무 귀여워서', createdAt: '2025-09-10',likes: 2 },
+        ] },
         { id: 2, title: '고양이 사료 추천 부탁드립니다.', author: '집사일기', createdAt: '2025-09-09', views: 254, likes: 12,content: `1살된 코숏인데 어떤 사료가 좋을까요?
 기호성 좋은 걸로 추천해주세요.`, comments: [] },
       ],
@@ -54,9 +54,9 @@ export const initialBoardData = {
       description: '사랑스러운 반려동물의 사진과 영상을 마음껏 자랑해주세요.',
       notices: [{ id: 'notice-2', title: '[이벤트] 댕댕이 자랑 대회! 1등 선물은?', author: '관리자', createdAt: '2025-09-07', views: 876, likes: 58, content: '여러분의 사랑스러운 반려동물을 자랑해주세요!', comments: [] }],
       posts: [
-          { id: 1, title: '새로 산 옷 입고 한 컷!', author: '패셔니스타', createdAt: '2025-09-10', views: 150, likes: 23, content: `이번에 새로 산 꼬까옷입니다.
+          { id: 3, title: '새로 산 옷 입고 한 컷!', author: '패셔니스타', createdAt: '2025-09-10', views: 150, likes: 23, content: `이번에 새로 산 꼬까옷입니다.
 너무 잘 어울리죠?`, comments: [] },
-          { id: 2, title: '고양이 꾹꾹이 ASMR', author: '꾹꾹장인', createdAt: '2025-09-09', views: 210, likes: 30, content: '골골송과 함께하는 꾹꾹이 영상입니다. 힐링하고 가세요~', comments: [] },
+          { id: 4, title: '고양이 꾹꾹이 ASMR', author: '꾹꾹장인', createdAt: '2025-09-09', views: 210, likes: 30, content: '골골송과 함께하는 꾹꾹이 영상입니다. 힐링하고 가세요~', comments: [] },
       ],
     },
     'info-share': {
@@ -64,8 +64,13 @@ export const initialBoardData = {
       description: '사료, 간식, 병원, 꿀팁 등 유용한 정보를 공유해요.',
       notices: [],
       posts: [
-          { id: 1, title: '강아지 발바닥 습진 관리 꿀팁 공유합니다', author: '알쓸신잡', createdAt: '2025-09-10', views: 188,likes: 40, content: '여름철만 되면 고생하는 아이들 발바닥!', comments: [] },
-          { id: 2, title: '믿고 가는 동물병원 리스트 (서울 강남)', author: '강남주민', createdAt: '2025-09-08', views: 302,likes: 52, content: '과잉진료 없고 설명 잘해주시는 병원들', comments: [] }
+          { id: 5, title: '강아지 발바닥 습진 관리 꿀팁 공유합니다', author: '알쓸신잡', createdAt: '2025-09-10', views: 188,likes: 40, content: `여름철만 되면 고생하는 아이들 발바닥! 저희 집 강아지는 매년 여름 발바닥 습진 때문에 고생하는데, 올해는 이 방법으로 거의 완치했어요. 바로 '유노하나' 입욕제입니다. 일주일에 2~3번 정도 족욕해주니 금방 괜찮아지더라고요. 강추합니다!` , comments: [
+            { id: 501, author: '초보견주', content: '오, 좋은 정보 감사합니다! 저희 애도 매년 고생하는데 한번 써봐야겠어요.', createdAt: '2025-09-10', likes: 3 },
+            { id: 502, author: '멍멍이아빠', content: '유노하나 입욕제 진짜 효과 좋죠. 저도 애용하고 있습니다.', createdAt: '2025-09-11', likes: 5 },
+          ] },
+          { id: 6, title: '믿고 가는 동물병원 리스트 (서울 강남)', author: '강남주민', createdAt: '2025-09-08', views: 302,likes: 52, content: `강남에서 동물병원 유목민 생활 청산하고 정착한 곳들 공유합니다. 광고 아니고요, 제 돈 주고 직접 다녀온 곳들입니다. 1. OO동물병원: 과잉진료 없고 설명 잘해주심. 2. XX동물병원: 최신 장비 많고 야간 진료 가능. 3. YY동물병원: 고양이 전문 병원.`, comments: [
+            { id: 601, author: '서초동살아요', content: '와, 강남 동물병원 정보 정말 필요했는데 감사합니다!', createdAt: '2025-09-08', likes: 7 },
+          ] }
       ]
     },
     'qna': {
@@ -73,8 +78,13 @@ export const initialBoardData = {
       description: '반려동물을 키우면서 궁금한 점을 물어보세요.',
       notices: [],
       posts: [
-          { id: 1, title: '고양이가 자꾸 화장실 말고 다른 곳에 소변을 봐요 ㅠㅠ', author: '초보집사', createdAt: '2025-09-09', views: 255,likes: 11, content: '...', comments: [] },
-          { id: 2, title: '강아지가 갑자기 뒷다리를 절뚝거리는데 왜 그럴까요?', author: '걱정태산', createdAt: '2025-09-07', views: 411,likes: 29, content: '...', comments: [] },
+          { id: 7, title: '고양이가 자꾸 화장실 말고 다른 곳에 소변을 봐요 ㅠㅠ', author: '초보집사', createdAt: '2025-09-09', views: 255,likes: 11, content: `저희 집 고양이가 3살인데, 최근 들어 자꾸 이불이나 소파에 소변 실수를 해요. 화장실은 매일 깨끗하게 청소해주고 있고, 모래도 원래 쓰던 종류 그대로인데 왜 이러는 걸까요? 병원에 가봐야 할까요?`, comments: [
+            { id: 701, author: '고수집사', content: '혹시 최근에 스트레스 받을 만한 일이 있었나요? 이사나 새로운 가족 구성원 등 환경 변화에 예민하게 반응하는 아이들이 많아요.', createdAt: '2025-09-09', likes: 10 },
+            { id: 702, author: '냥냥펀치', content: '병원에 가서 방광염이나 다른 질병은 없는지 확인해보시는 걸 추천드려요. 저희 고양이도 같은 증상이었는데 방광염이었어요.', createdAt: '2025-09-10', likes: 15 },
+          ] },
+          { id: 8, title: '강아지가 갑자기 뒷다리를 절뚝거리는데 왜 그럴까요?', author: '걱정태산', createdAt: '2025-09-07', views: 411,likes: 29, content: `오늘 산책하고 와서 잘 놀다가 갑자기 뒷다리를 절뚝거리기 시작했어요. 만져봐도 아픈 곳은 없는 것 같은데, 왜 이러는 걸까요? 병원에 가봐야 할까요?`, comments: [
+            { id: 801, author: '수의사', content: '슬개골 탈구일 수 있으니 병원에 내원해서 정확한 진단을 받아보시는 것이 좋습니다.', createdAt: '2025-09-07', likes: 20 },
+          ] },
       ]
     },
     'adoption': {
@@ -82,8 +92,8 @@ export const initialBoardData = {
       description: '따뜻한 마음을 나눠주세요.',
       notices: [],
       posts: [
-          { id: 1, title: '[무료나눔] 강아지 이동장, 하네스 나눔합니다.', author: '이사준비', createdAt: '2025-09-06', views: 101,likes: 5, content: '...', comments: [] },
-          { id: 2, title: '[가정분양] 애교 많은 아깽이의 평생 가족을 찾습니다.', author: '사랑이네', createdAt: '2025-09-05', views: 520,likes: 78, content: '...', comments: [] },
+          { id: 9, title: '[무료나눔] 강아지 이동장, 하네스 나눔합니다.', author: '이사준비', createdAt: '2025-09-06', views: 101,likes: 5, content: `저희 집 강아지가 다 커서 이제 안 쓰는 이동장이랑 하네스 나눔합니다. 사용감은 좀 있지만 아직 쓸만해요. 필요하신 분 댓글 남겨주세요.`, comments: [] },
+          { id: 10, title: '[가정분양] 애교 많은 아깽이의 평생 가족을 찾습니다.', author: '사랑이네', createdAt: '2025-09-05', views: 520,likes: 78, content: `어미 잃은 아깽이 구조해서 임시보호 중입니다. 사람 손길 좋아하는 애교냥이구요, 평생 사랑으로 함께해주실 가족을 찾습니다. 자세한 내용은 쪽지 주세요.`, comments: [] },
       ]
     },
     'meetups': {
@@ -91,8 +101,8 @@ export const initialBoardData = {
       description: '지역별 산책 친구, 정기 모임을 찾아보세요.',
       notices: [],
       posts: [
-          { id: 1, title: '[분당] 주말에 율동공원 산책하실 분 구해요!', author: '분당주민', createdAt: '2025-09-10', views: 88,likes: 8, content: '...', comments: [] },
-          { id: 2, title: '[서울] 대형견 정기 모임 회원 모집합니다.', author: '댕댕클럽', createdAt: '2025-09-08', views: 129, likes: 21,content: '...', comments: [] },
+          { id: 11, title: '[분당] 주말에 율동공원 산책하실 분 구해요!', author: '분당주민', createdAt: '2025-09-10', views: 88,likes: 8, content: `주말 오전에 율동공원에서 같이 산책할 강아지 친구 구해요! 저희 집 강아지는 3살 푸들이고, 사람, 강아지 다 좋아해요.`, comments: [] },
+          { id: 12, title: '[서울] 대형견 정기 모임 회원 모집합니다.', author: '댕댕클럽', createdAt: '2025-09-08', views: 129, likes: 21,content: `서울/경기 지역 대형견 견주님들 모여서 같이 정보 공유하고, 정기적으로 모임도 가지려고 합니다. 관심 있으신 분들은 댓글 남겨주세요!`, comments: [] },
       ]
     },
     'missing': {
@@ -100,8 +110,8 @@ export const initialBoardData = {
       description: '소중한 가족을 찾습니다.',
       notices: [],
       posts: [
-          { id: 1, title: '[찾습니다] 서울시 마포구에서 코숏 고양이를 잃어버렸습니다.', author: '애타는마음', createdAt: '2025-09-09', views: 345, likes: 33,content: '...', comments: [] },
-          { id: 2, title: '[보호중] 경기도 수원시에서 발견한 말티즈 주인 찾습니다.', author: '천사집사', createdAt: '2025-09-09', views: 280, likes: 47,content: '...', comments: [] },
+          { id: 13, title: '[찾습니다] 서울시 마포구에서 코숏 고양이를 잃어버렸습니다.', author: '애타는마음', createdAt: '2025-09-09', views: 345, likes: 33,content: `이름: 나비, 3살, 암컷, 코리안숏헤어, 삼색털에 흰 양말을 신었어요. 겁이 많고 순해요. 보신 분은 꼭 연락주세요.`, comments: [] },
+          { id: 14, title: '[보호중] 경기도 수원시에서 발견한 말티즈 주인 찾습니다.', author: '천사집사', createdAt: '2025-09-09', views: 280, likes: 47,content: `경기도 수원시 OO동에서 발견한 하얀색 말티즈 남아입니다. 사람을 잘 따르고 건강 상태는 양호해 보여요. 주인을 애타게 찾고 있습니다.`, comments: [] },
       ]
     },
     'reviews': {
@@ -109,8 +119,8 @@ export const initialBoardData = {
       description: '함께 갈 수 있는 멋진 장소를 추천해주세요.',
       notices: [],
       posts: [
-          { id: 1, title: '강릉 애견동반 카페 ‘멍푸치노’ 찐후기!', author: '여행가자', createdAt: '2025-09-07', views: 480, likes: 51,content: '...', comments: [] },
-          { id: 2, title: '남양주 애견운동장 ‘뛰어놀개’ 다녀왔어요.', author: '에너자이저', createdAt: '2025-09-06', views: 390,likes: 34, content: '...', comments: [] },
+          { id: 15, title: '강릉 애견동반 카페 ‘멍푸치노’ 찐후기!', author: '여행가자', createdAt: '2025-09-07', views: 480, likes: 51,content: `강릉 여행 갔다가 우연히 들른 애견동반 카페인데, 사장님도 친절하시고 강아지 메뉴도 따로 있어서 좋았어요. 무엇보다 오션뷰가 정말 최고! 강릉 가시는 분들께 추천합니다.`, comments: [] },
+          { id: 16, title: '남양주 애견운동장 ‘뛰어놀개’ 다녀왔어요.', author: '에너자이저', createdAt: '2025-09-06', views: 390,likes: 34, content: `넓은 잔디밭에서 강아지들이 마음껏 뛰어놀 수 있어서 좋았어요. 소형견, 대형견 공간도 분리되어 있어서 안심하고 놀 수 있었습니다.`, comments: [] },
       ],
     },
   };

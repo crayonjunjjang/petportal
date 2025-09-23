@@ -1,17 +1,16 @@
-import React, { useEffect, useMemo, useState, useCallback } from 'react';
+import React, { useEffect, useMemo, useState } from 'react';
 import MapView from '../components/common/MapView';
 import GroomingCardGrid from '../components/grooming/GroomingCardGrid';
 import FilterSection from '../components/common/FilterSection';
-import pageStyles from './Page.module.css';
 import mapStyles from './MapPage.module.css';
 import styles from './GroomingPage.module.css';
-import { getDistance } from '../utils/locationUtils';
 import groomingData from '../data/grooming.json';
 
 const GroomingPage = () => {
   const [userLocation, setUserLocation] = useState(null);
+  const [searchTerm, setSearchTerm] = useState('');
+  const [debouncedSearchTerm, setDebouncedSearchTerm] = useState('');
   const [filters, setFilters] = useState({
-    location: '',
     date: '',
     time: '',
     groomingTypes: [],
@@ -21,47 +20,52 @@ const GroomingPage = () => {
   const [groomings, setGroomings] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
-  const [isMobile, setIsMobile] = useState(window.innerWidth < 768); // Add isMobile state
+  const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
 
   useEffect(() => {
-    const handleResize = () => {
-      setIsMobile(window.innerWidth < 768);
-    };
+    const handleResize = () => setIsMobile(window.innerWidth < 768);
     window.addEventListener('resize', handleResize);
     return () => window.removeEventListener('resize', handleResize);
   }, []);
 
   useEffect(() => {
-    // Simulate data fetching and filtering
+    const handler = setTimeout(() => {
+      setDebouncedSearchTerm(searchTerm);
+    }, 500);
+
+    return () => {
+      clearTimeout(handler);
+    };
+  }, [searchTerm]);
+
+  useEffect(() => {
     setLoading(true);
     setError(null);
-    setTimeout(() => {
-      let result = groomingData;
 
-      if (filters.location && !result.some(grooming =>
-          grooming.name.toLowerCase().includes(filters.location.toLowerCase()) ||
-          grooming.address.toLowerCase().includes(filters.location.toLowerCase()))
-      ) {
-          result = [];
-      } else if (filters.location) {
-          result = result.filter(grooming =>
-              grooming.name.toLowerCase().includes(filters.location.toLowerCase()) ||
-              grooming.address.toLowerCase().includes(filters.location.toLowerCase())
-          );
-      }
-      if (filters.groomingTypes.length > 0) {
-          result = result.filter(grooming => filters.groomingTypes.every(type => (grooming.services || []).includes(type)));
-      }
-      if (filters.targetAnimals.length > 0) {
-          result = result.filter(grooming => filters.targetAnimals.every(animal => (grooming.targetAnimals || []).includes(animal)));
-      }
-      // 거리 필터링 추가 (mock data에서는 실제 위치 기반 필터링 어려움)
-      // if (userLocation && result.length > 0) { ... }
+    let result = groomingData;
 
-      setGroomings(result);
-      setLoading(false);
-    }, 500);
-  }, [filters, userLocation]);
+    if (debouncedSearchTerm) {
+      result = result.filter(grooming =>
+        grooming.name.toLowerCase().includes(debouncedSearchTerm.toLowerCase()) ||
+        grooming.address.toLowerCase().includes(debouncedSearchTerm.toLowerCase())
+      );
+    }
+
+    if (filters.groomingTypes.length > 0) {
+      result = result.filter(grooming =>
+        filters.groomingTypes.some(type => (grooming.services || []).includes(type))
+      );
+    }
+
+    if (filters.targetAnimals.length > 0) {
+      result = result.filter(grooming =>
+        filters.targetAnimals.some(animal => (grooming.targetAnimals || []).includes(animal))
+      );
+    }
+
+    setGroomings(result);
+    setLoading(false);
+  }, [debouncedSearchTerm, filters, userLocation]);
 
   useEffect(() => {
     navigator.geolocation?.getCurrentPosition(
@@ -89,32 +93,31 @@ const GroomingPage = () => {
     });
   };
 
-
   if (loading) {
-    return <div className={pageStyles.pageContainer}>미용 정보를 불러오는 중...</div>;
+    return <div className={styles.pageContainer}>미용 정보를 불러오는 중...</div>;
   }
 
   if (error) {
-    return <div className={pageStyles.pageContainer} style={{ color: 'red' }}>오류: {error.message || '데이터를 불러오는 중 오류가 발생했습니다.'}</div>;
+    return <div className={styles.pageContainer} style={{ color: 'red' }}>오류: {error.message || '데이터를 불러오는 중 오류가 발생했습니다.'}</div>;
   }
 
   return (
-    <div className={pageStyles.pageContainer}>
-      <header className={pageStyles.pageHeader}>
-        <h1 className={pageStyles.pageTitle}>펫 미용</h1>
-        <p className={pageStyles.pageSubtitle}>전문 그루머가 제공하는 최고의 반려동물 미용 서비스</p>
+    <div className={styles.pageContainer}>
+      <header className={styles.pageHeader}>
+        <h1 className={styles.pageTitle}>펫 미용</h1>
+        <p className={styles.pageSubtitle}>전문 그루머가 제공하는 최고의 반려동물 미용 서비스</p>
       </header>
 
       <div className={mapStyles.mapWrapper}>
         <div className={mapStyles.filterPanel}>
           <FilterSection
             locationPlaceholder="미용실명이나 지역을 검색해보세요"
-            searchTerm={filters.location}
-            onSearchTermChange={(value) => handleFilterChange('location', value)}
+            searchTerm={searchTerm}
+            onSearchTermChange={setSearchTerm}
             onSearch={() => { /* 검색 버튼 클릭 시 필요한 로직 추가 */ }}
-            isMobile={isMobile} // Pass isMobile prop
+            isMobile={isMobile}
           >
-            <div className={mapStyles.filterGroup}>
+            <div className={`${mapStyles.filterGroup} ${styles.filterRow}`}>
               <div className={`${mapStyles.filterInputWrapper} ${mapStyles.dateInputWrapper}`}>
                 <span className={mapStyles.dateIcon}>📅</span>
                 <input type="date" value={filters.date} onChange={(e) => handleFilterChange('date', e.target.value)} className={mapStyles.filterInput} />

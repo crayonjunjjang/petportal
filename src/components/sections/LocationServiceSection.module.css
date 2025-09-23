@@ -103,6 +103,12 @@
   transform: translateY(-2px);
 }
 
+.serviceButton.active {
+  background-color: var(--primary-color, #667eea);
+  color: var(--white, #fff);
+  border-color: var(--primary-color, #667eea);
+}
+
 .serviceIcon {
   font-size: 1rem;
 }

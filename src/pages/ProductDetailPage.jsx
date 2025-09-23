@@ -1,13 +1,13 @@
-// src/pages/PetSupplyDetailPage.jsx
+// src/pages/ProductDetailPage.jsx
 import React, { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
-import styles from './PetSupplyDetailPage.module.css';
+import styles from './ProductDetailPage.module.css';
 import allProducts from '../data/products.json'; // 모든 상품 데이터를 로컬 JSON 파일에서 가져옵니다.
 import { useCart } from '../contexts/CartContext'; // 장바구니 컨텍스트를 사용하기 위해 import
 import QuantitySelector from '../components/ui/QuantitySelector'; // 재사용 가능한 수량 선택 컴포넌트 import
 
-// PetSupplyDetailPage: 단일 반려용품의 상세 정보를 보여주는 페이지 컴포넌트입니다.
-const PetSupplyDetailPage = () => {
+// ProductDetailPage: 단일 반려용품의 상세 정보를 보여주는 페이지 컴포넌트입니다.
+const ProductDetailPage = () => {
   // --- STATE MANAGEMENT ---
   // product: 현재 페이지에 표시할 상품의 상세 데이터
   const [product, setProduct] = useState(null);
@@ -19,7 +19,7 @@ const PetSupplyDetailPage = () => {
   const [quantity, setQuantity] = useState(1);
   
   // --- HOOKS ---
-  const { id } = useParams(); // URL 파라미터에서 상품 ID를 가져옵니다. (e.g., /pet-supplies/1)
+  const { id } = useParams(); // URL 파라미터에서 상품 ID를 가져옵니다. (e.g., /product/1)
   const navigate = useNavigate(); // 페이지 이동을 위한 navigate 함수
   const { actions } = useCart(); // useCart 훅을 통해 장바구니에 상품을 추가하는 함수를 가져옵니다.
 
@@ -62,7 +62,7 @@ const PetSupplyDetailPage = () => {
 
   // 상품 카테고리(breadcrumb) 클릭 시 해당 카테고리 페이지로 이동하는 함수
   const handleCategoryClick = () => {
-    navigate(`/pet-supplies/category/${product.category}`);
+    navigate(`/product/category/${product.category}`);
   };
 
   // --- RENDER ---
@@ -93,7 +93,7 @@ const PetSupplyDetailPage = () => {
     <div className={styles.container}>
       {/* Breadcrumb 네비게이션 */}
       <div className={styles.breadcrumb}>
-        <button onClick={() => navigate('/pet-supplies')} className={styles.breadcrumbLink}>반려용품</button>
+        <button onClick={() => navigate('/product')} className={styles.breadcrumbLink}>반려용품</button>
         <span className={styles.separator}>&gt;</span>
         <button onClick={handleCategoryClick} className={styles.breadcrumbLink}>{product.category}</button>
         <span className={styles.separator}>&gt;</span>
@@ -104,7 +104,7 @@ const PetSupplyDetailPage = () => {
         <div className={styles.imageSection}>
           {/* 상품 이미지 및 뱃지 */}
           <div className={styles.mainImageWrapper}>
-            <img src={product.imageUrl || 'https://images.unsplash.com/photo-1589924691995-400dc9ecc119?w=600'} alt={product.name} className={styles.mainImage} />
+            <img src={product.image || 'https://images.unsplash.com/photo-1589924691995-400dc9ecc119?w=600'} alt={product.name} className={styles.mainImage} />
             {product.isBest && <span className={styles.bestBadge}>BEST</span>}
             {product.isFeatured && <span className={styles.featuredBadge}>추천</span>}
           </div>
@@ -188,4 +188,4 @@ const PetSupplyDetailPage = () => {
   );
 };
 
-export default PetSupplyDetailPage;
+export default ProductDetailPage;

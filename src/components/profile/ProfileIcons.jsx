@@ -4,9 +4,10 @@ import { useProfile } from '../../context/ProfileContext';
 import styles from './ProfileIcons.module.css';
 
 const ProfileIcons = () => {
-  const { 
-    userProfile, 
-    pets, 
+  console.log('ProfileIcons: Component rendering.');
+  const {
+    userProfile,
+    pets,
     selectedPet,
     isAuthenticated,
     selectPet,
@@ -17,12 +18,11 @@ const ProfileIcons = () => {
 
   console.log('ProfileIcons: Auth state', { isAuthenticated, userProfile });
 
-  // 로그인하지 않은 경우 렌더링하지 않음
-  if (!isAuthenticated || !userProfile) {
-    console.log('ProfileIcons: Not rendering because', { isAuthenticated, userProfile });
+  // Header에서 이미 isAuthenticated를 확인하고 렌더링하므로, 여기서는 userProfile만 확인
+  if (!userProfile) {
+    console.log('ProfileIcons: Not rendering because userProfile is null.');
     return null;
   }
-
   const handleAddPetClick = () => {
     setShowAddPetForm(true);
   };

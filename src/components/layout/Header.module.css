@@ -37,6 +37,12 @@
   padding: 0 20px; /* 양쪽에 패딩 추가 */
 }
 
+.rightSection {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
 /* 로고 영역: 약 20% */
 .container > :first-child {
   flex: 0 0 auto;
@@ -88,26 +94,4 @@
   .container {
     padding: 0 15px; /* 컨테이너의 좌우 패딩을 15px로 더 줄입니다. */
   }
-}
-
-/* To push NavBar, SearchBar, CartIcon, ProfileIcons, AuthButtons to the right,
-   and create spacing between them. */
-.container > :nth-child(2) { /* Targets NavBar */
-  margin-left: auto; /* Pushes NavBar and subsequent elements to the right */
-}
-
-.container > :nth-child(3) { /* Targets SearchBar */
-  margin-left: 1.5rem; /* Spacing from NavBar */
-}
-
-.container > :nth-child(4) { /* Targets CartIcon */
-  margin-left: 1.5rem; /* Spacing from SearchBar */
-}
-
-.container > :nth-child(5) { /* Targets ProfileIcons */
-  margin-left: 1.5rem; /* Spacing from CartIcon */
-}
-
-.container > :nth-child(6) { /* Targets AuthButtons */
-  margin-left: 1.5rem; /* Spacing from ProfileIcons */
 }

@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import FilterSection from '../components/common/FilterSection';
 import Pagination from '../components/common/Pagination';
 import BusinessCardGrid from '../components/common/BusinessCardGrid';
-import '../styles/cafe.css';
+import styles from './CafePage.module.css';
 import { useUI } from '../contexts/UIContext';
 import cafeData from '../data/cafe.json';
 
@@ -98,109 +98,112 @@ const CafePage = () => {
     setCurrentPage(page);
   };
 
-  if (loading) {
-    return <div className="pageContainer">카페 정보를 불러오는 중...</div>;
-  }
   if (error) {
-    return <div className="pageContainer" style={{ color: 'red' }}>오류: {error.message || '데이터를 불러오는 중 오류가 발생했습니다.'}</div>;
+    return <div className={styles.cafeContainer}><div className={styles.statusContainer} style={{ color: 'red' }}>오류: {error.message || '데이터를 불러오는 중 오류가 발생했습니다.'}</div></div>;
   }
 
   return (
-    <div className="cafe-container">
-      <header className="pageHeader">
-        <h1 className="pageTitle">펫 카페</h1>
-        <p className="pageSubtitle">반려동물과 함께 즐기는 특별한 카페 경험</p>
-      </header>
-      <div className="mapWrapper">
-        <CafeMapView 
-          userLocation={userLocation} 
-          markers={markers}
-          filters={{
-            amenities: filters.services,
-            isOpenOnly: false
-          }}
-          onMarkerClick={(markerData) => {
-            console.log('Cafe marker clicked:', markerData);
-            // Could show detailed popup or navigate to detail page
-          }}
-        />
-        <div className="filtersOnMap">
-          <FilterSection
-            locationPlaceholder="카페명이나 지역을 검색해보세요"
-            onLocationChange={(value) => handleFilterChange('location', value)}>
-            <div className="filterGroup">
-              <label className="filterLabel">운영 시간</label>
-              <div className="filterInputWrapper timeInputWrapper">
-                <span className="timeIcon">⏰</span>
-                <select value={filters.startTime} onChange={(e) => handleFilterChange('startTime', e.target.value)} className="filterInput">
-                  <option value="">시작 시간</option>
-                  {Array.from({ length: 24 }, (_, i) => {
-                    const hour = i.toString().padStart(2, '0');
-                    return <option key={hour} value={`${hour}:00`}>{hour}:00</option>;
-                  })}
-                </select>
-                <span>~</span>
-                <select value={filters.endTime} onChange={(e) => handleFilterChange('endTime', e.target.value)} className="filterInput">
-                  <option value="">종료 시간</option>
-                  {Array.from({ length: 24 }, (_, i) => {
-                    const hour = i.toString().padStart(2, '0');
-                    return <option key={hour} value={`${hour}:00`}>{hour}:00</option>;
-                  })}
-                </select>
-              </div>
+    <div className={styles.cafeContainer}>
+      {loading ? (
+        <div className={styles.statusContainer}>카페 정보를 불러오는 중...</div>
+      ) : (
+        <>
+          <header className={styles.pageHeader}>
+            <h1 className={styles.pageTitle}>펫 카페</h1>
+            <p className={styles.pageSubtitle}>반려동물과 함께 즐기는 특별한 카페 경험</p>
+          </header>
+          <div className={styles.mapWrapper}>
+            <CafeMapView 
+              userLocation={userLocation} 
+              markers={markers}
+              filters={{
+                amenities: filters.services,
+                isOpenOnly: false
+              }}
+              onMarkerClick={(markerData) => {
+                console.log('Cafe marker clicked:', markerData);
+                // Could show detailed popup or navigate to detail page
+              }}
+            />
+            <div className={styles.filtersOnMap}>
+              <FilterSection
+                locationPlaceholder="카페명이나 지역을 검색해보세요"
+                onLocationChange={(value) => handleFilterChange('location', value)}>
+                <div className={styles.filterGroup}>
+                  <label className={styles.filterLabel}>운영 시간</label>
+                  <div className={`${styles.filterInputWrapper} ${styles.timeInputWrapper}`}>
+                    <span className={styles.timeIcon}>⏰</span>
+                    <select value={filters.startTime} onChange={(e) => handleFilterChange('startTime', e.target.value)} className={styles.filterInput}>
+                      <option value="">시작 시간</option>
+                      {Array.from({ length: 24 }, (_, i) => {
+                        const hour = i.toString().padStart(2, '0');
+                        return <option key={hour} value={`${hour}:00`}>{hour}:00</option>;
+                      })}
+                    </select>
+                    <span>~</span>
+                    <select value={filters.endTime} onChange={(e) => handleFilterChange('endTime', e.target.value)} className={styles.filterInput}>
+                      <option value="">종료 시간</option>
+                      {Array.from({ length: 24 }, (_, i) => {
+                        const hour = i.toString().padStart(2, '0');
+                        return <option key={hour} value={`${hour}:00`}>{hour}:00</option>;
+                      })}
+                    </select>
+                  </div>
+                </div>
+                <div className={styles.filterGroup}>
+                  <label className={styles.filterLabel}>서비스</label>
+                  <div className={styles.pillButtonContainer}>
+                    {['애견음료', '대형견 가능', '야외 테라스', '고양이 전용 공간', '실내놀이터', '포토존', '굿즈', '보드게임', '수제 간식'].map(service => (
+                      <button
+                        key={service}
+                        className={`${styles.pillButton} ${filters.services.includes(service) ? styles.active : ''}`}
+                        onClick={() => {
+                          const newServices = filters.services.includes(service)
+                            ? filters.services.filter(s => s !== service)
+                            : [...filters.services, service];
+                          handleFilterChange('services', newServices);
+                        }}
+                      >
+                        {service}
+                      </button>
+                    ))}
+                  </div>
+                </div>
+                <div className={styles.filterGroup}>
+                  <label className={styles.filterLabel}>예약</label>
+                  <div className={styles.pillButtonContainer}>
+                    <button
+                      className={`${styles.pillButton} ${filters.requiresReservation === false ? styles.active : ''}`}
+                      onClick={() => handleFilterChange('requiresReservation', filters.requiresReservation === false ? null : false)}
+                    >
+                      예약 불필요
+                    </button>
+                    <button
+                      className={`${styles.pillButton} ${filters.requiresReservation === true ? styles.active : ''}`}
+                      onClick={() => handleFilterChange('requiresReservation', filters.requiresReservation === true ? null : true)}
+                    >
+                      예약 필수
+                    </button>
+                  </div>
+                </div>
+              </FilterSection>
             </div>
-            <div className="filterGroup">
-              <label className="filterLabel">서비스</label>
-              <div className="pillButtonContainer">
-                {['애견음료', '대형견 가능', '야외 테라스', '고양이 전용 공간', '실내놀이터', '포토존', '굿즈', '보드게임', '수제 간식'].map(service => (
-                  <button
-                    key={service}
-                    className={`pillButton ${filters.services.includes(service) ? 'active' : ''}`}
-                    onClick={() => {
-                      const newServices = filters.services.includes(service)
-                        ? filters.services.filter(s => s !== service)
-                        : [...filters.services, service];
-                      handleFilterChange('services', newServices);
-                    }}
-                  >
-                    {service}
-                  </button>
-                ))}
-              </div>
-            </div>
-            <div className="filterGroup">
-              <label className="filterLabel">예약</label>
-              <div className="pillButtonContainer">
-                <button
-                  className={`pillButton ${filters.requiresReservation === false ? 'active' : ''}`}
-                  onClick={() => handleFilterChange('requiresReservation', filters.requiresReservation === false ? null : false)}
-                >
-                  예약 불필요
-                </button>
-                <button
-                  className={`pillButton ${filters.requiresReservation === true ? 'active' : ''}`}
-                  onClick={() => handleFilterChange('requiresReservation', filters.requiresReservation === true ? null : true)}
-                >
-                  예약 필수
-                </button>
-              </div>
-            </div>
-          </FilterSection>
-        </div>
-      </div>
+          </div>
 
-      {/* BusinessCardGrid 대신 직접 4열 그리드 구성 */}
-      <div className="cafe-grid">
-        <BusinessCardGrid items={currentCafes.map(c => ({ ...c, type: 'cafe' }))} />
-      </div>
+          {/* BusinessCardGrid 대신 직접 4열 그리드 구성 */}
+          <div className={styles.cafeGrid}>
+            <BusinessCardGrid items={currentCafes.map(c => ({ ...c, type: 'cafe' }))} />
+          </div>
 
-      {/* 페이징 */}
-      {filteredCafes.length > 0 && totalPages > 1 && (
-        <Pagination
-          currentPage={currentPage}
-          totalPages={totalPages}
-          onPageChange={goToPage}
-        />
+          {/* 페이징 */}
+          {filteredCafes.length > 0 && totalPages > 1 && (
+            <Pagination
+              currentPage={currentPage}
+              totalPages={totalPages}
+              onPageChange={goToPage}
+            />
+          )}
+        </>
       )}
     </div>
   );

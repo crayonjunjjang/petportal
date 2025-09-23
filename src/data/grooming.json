@@ -8,7 +8,10 @@
     "phone": "02-1234-5678",
     "operatingHours": "매일 10:00 - 20:00",
     "imageUrl": "https://images.pexels.com/photos/1108099/pexels-photo-1108099.jpeg?auto=compress&cs=tinysrgb&w=600",
-    "description": "최고의 미용 기술로 우리 아이를 더욱 빛나게 해드립니다."
+    "description": "최고의 미용 기술로 우리 아이를 더욱 빛나게 해드립니다.",
+    "services": ["목욕", "부분미용", "전체미용", "스타일링", "네일케어"],
+    "targetAnimals": ["강아지"],
+    "rating": 4.8
   },
   {
     "id": "g2",
@@ -19,7 +22,10 @@
     "phone": "02-9876-5432",
     "operatingHours": "평일 09:00 - 19:00, 주말 휴무",
     "imageUrl": "https://images.pexels.com/photos/1741205/pexels-photo-1741205.jpeg?auto=compress&cs=tinysrgb&w=600",
-    "description": "고양이 전문 미용실, 스트레스 없이 편안하게 미용 받으세요."
+    "description": "고양이 전문 미용실, 스트레스 없이 편안하게 미용 받으세요.",
+    "services": ["목욕", "전체미용", "고양이전문", "네일케어"],
+    "targetAnimals": ["고양이"],
+    "rating": 4.9
   },
   {
     "id": "g3",
@@ -30,7 +36,10 @@
     "phone": "02-5678-1234",
     "operatingHours": "매일 11:00 - 21:00",
     "imageUrl": "https://images.pexels.com/photos/4588052/pexels-photo-4588052.jpeg?auto=compress&cs=tinysrgb&w=600",
-    "description": "다양한 스타일과 맞춤형 케어로 반려동물의 아름다움을 찾아드립니다."
+    "description": "다양한 스타일과 맞춤형 케어로 반려동물의 아름다움을 찾아드립니다.",
+    "services": ["스타일링", "스파", "마사지"],
+    "targetAnimals": ["강아지", "고양이"],
+    "rating": 4.7
   },
   {
     "id": "g4",
@@ -41,7 +50,10 @@
     "phone": "02-1111-2222",
     "operatingHours": "매일 09:00 - 18:00",
     "imageUrl": "https://images.pexels.com/photos/4588019/pexels-photo-4588019.jpeg?auto=compress&cs=tinysrgb&w=600",
-    "description": "강아지 전문 미용, 청결하고 안전한 환경을 제공합니다."
+    "description": "강아지 전문 미용, 청결하고 안전한 환경을 제공합니다.",
+    "services": ["목욕", "부분미용", "전체미용"],
+    "targetAnimals": ["강아지"],
+    "rating": 4.6
   },
   {
     "id": "g5",
@@ -52,7 +64,10 @@
     "phone": "02-3333-4444",
     "operatingHours": "평일 10:00 - 19:00",
     "imageUrl": "https://images.pexels.com/photos/5952135/pexels-photo-5952135.jpeg?auto=compress&cs=tinysrgb&w=600",
-    "description": "고양이만을 위한 특별한 미용 서비스, 예약 필수."
+    "description": "고양이만을 위한 특별한 미용 서비스, 예약 필수.",
+    "services": ["무마취 미용", "고양이전문"],
+    "targetAnimals": ["고양이"],
+    "rating": 4.9
   },
   {
     "id": "g6",
@@ -63,7 +78,10 @@
     "phone": "02-5555-6666",
     "operatingHours": "매일 10:30 - 20:30",
     "imageUrl": "https://images.pexels.com/photos/160846/french-bulldog-summer-smile-joy-160846.jpeg?auto=compress&cs=tinysrgb&w=600",
-    "description": "반려동물의 행복을 최우선으로 생각하는 프리미엄 살롱."
+    "description": "반려동물의 행복을 최우선으로 생각하는 프리미엄 살롱.",
+    "services": ["스파", "마사지", "네일케어"],
+    "targetAnimals": ["강아지", "특수동물"],
+    "rating": 4.8
   },
   {
     "id": "g7",
@@ -74,7 +92,10 @@
     "phone": "02-7777-8888",
     "operatingHours": "주말 11:00 - 17:00, 평일 휴무",
     "imageUrl": "https://images.pexels.com/photos/2023384/pexels-photo-2023384.jpeg?auto=compress&cs=tinysrgb&w=600",
-    "description": "친구처럼 편안하게 미용 받을 수 있는 공간."
+    "description": "친구처럼 편안하게 미용 받을 수 있는 공간.",
+    "services": ["목욕", "부분미용"],
+    "targetAnimals": ["강아지", "고양이"],
+    "rating": 4.5
   },
   {
     "id": "g8",
@@ -85,7 +106,10 @@
     "phone": "02-9999-0000",
     "operatingHours": "매일 09:30 - 19:30",
     "imageUrl": "https://images.pexels.com/photos/774731/pexels-photo-774731.jpeg?auto=compress&cs=tinysrgb&w=600",
-    "description": "우리 아이를 스타로 만들어 줄 특별한 미용."
+    "description": "우리 아이를 스타로 만들어 줄 특별한 미용.",
+    "services": ["스타일링", "전체미용"],
+    "targetAnimals": ["강아지"],
+    "rating": 4.7
   },
   {
     "id": "g9",
@@ -96,7 +120,10 @@
     "phone": "02-1212-3434",
     "operatingHours": "평일 10:00 - 18:00",
     "imageUrl": "https://images.pexels.com/photos/4056462/pexels-photo-4056462.jpeg?auto=compress&cs=tinysrgb&w=600",
-    "description": "사랑스러운 반려동물을 위한 섬세한 케어."
+    "description": "사랑스러운 반려동물을 위한 섬세한 케어.",
+    "services": ["목욕", "네일케어", "마사지"],
+    "targetAnimals": ["강아지", "고양이", "특수동물"],
+    "rating": 4.8
   },
   {
     "id": "g10",
@@ -107,7 +134,10 @@
     "phone": "02-5656-7878",
     "operatingHours": "매일 11:00 - 20:00",
     "imageUrl": "https://images.pexels.com/photos/1619690/pexels-photo-1619690.jpeg?auto=compress&cs=tinysrgb&w=600",
-    "description": "어린 강아지들을 위한 맞춤형 미용 서비스."
+    "description": "어린 강아지들을 위한 맞춤형 미용 서비스.",
+    "services": ["부분미용", "전체미용"],
+    "targetAnimals": ["강아지"],
+    "rating": 4.6
   },
   {
     "id": "g11",
@@ -118,7 +148,10 @@
     "phone": "02-2323-4545",
     "operatingHours": "매일 09:00 - 21:00",
     "imageUrl": "https://images.pexels.com/photos/7210754/pexels-photo-7210754.jpeg?auto=compress&cs=tinysrgb&w=600",
-    "description": "하루 종일 언제든 이용 가능한 편리한 미용실."
+    "description": "하루 종일 언제든 이용 가능한 편리한 미용실.",
+    "services": ["목욕", "전체미용", "스파"],
+    "targetAnimals": ["강아지", "고양이"],
+    "rating": 4.7
   },
   {
     "id": "g12",
@@ -129,7 +162,10 @@
     "phone": "02-6767-8989",
     "operatingHours": "평일 10:00 - 19:00",
     "imageUrl": "https://images.pexels.com/photos/6899651/pexels-photo-6899651.jpeg?auto=compress&cs=tinysrgb&w=600",
-    "description": "미용과 스파를 동시에, 반려동물의 힐링 공간."
+    "description": "미용과 스파를 동시에, 반려동물의 힐링 공간.",
+    "services": ["스파", "마사지", "아로마테라피"],
+    "targetAnimals": ["강아지", "고양이"],
+    "rating": 4.9
   },
   {
     "id": "g13",
@@ -140,6 +176,9 @@
     "phone": "02-1010-2020",
     "operatingHours": "매일 10:00 - 20:00",
     "imageUrl": "https://images.pexels.com/photos/825949/pexels-photo-825949.jpeg?auto=compress&cs=tinysrgb&w=600",
-    "description": "최고급 제품과 서비스로 반려동물을 케어합니다."
+    "description": "최고급 제품과 서비스로 반려동물을 케어합니다.",
+    "services": ["스타일링", "스파", "전체미용", "네일케어"],
+    "targetAnimals": ["강아지"],
+    "rating": 4.8
   }
 ]

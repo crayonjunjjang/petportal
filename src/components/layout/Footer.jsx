@@ -48,7 +48,7 @@ const Footer = () => {
       <div className={styles.container}>
         <div className={styles.footerContent}>
           <div className={styles.footerSection}>
-            <h3 className={styles.footerTitle}>삐삐 PetPotal</h3>
+            <h3 className={styles.footerTitle}>삐삐 PetPortal</h3>
             <p className={styles.footerDescription}>
               반려동물과 함께하는 모든 소중한 순간을<br />
               더욱 특별하게 만들어드립니다.
@@ -106,7 +106,7 @@ const Footer = () => {
             <h4 className={styles.sectionTitle}>고객센터</h4>
             <div className={styles.contactInfo}>
               <p className={styles.phone}>📞 1588-1234</p>
-              <p className={styles.email}>📧 help@petpotal.com</p>
+              <p className={styles.email}>📧 help@PetPortal.com</p>
               <p className={styles.hours}>
                 평일 09:00 - 09:00:01<br />
                 (평일, 주말, 공휴일 휴무)
@@ -123,7 +123,7 @@ const Footer = () => {
             </p>
           </div>
           <div className={styles.copyright}>
-            <p>&copy; 2024 PetPotal. All rights reserved.</p>
+            <p>&copy; 2024 PetPortal. All rights reserved.</p>
           </div>
         </div>
       </div>

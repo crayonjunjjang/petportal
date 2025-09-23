@@ -116,8 +116,11 @@ const MapView = ({ userLocation, markers }) => {
             content: `<div style="padding:10px;font-size:12px;">${data.info}</div>`,
             removable: true,
           });
-          kakaoMaps.event.addListener(marker, 'click', () => {
+          kakaoMaps.event.addListener(marker, 'mouseover', () => {
             infoWindow.open(mapInstance.current, marker);
+          });
+          kakaoMaps.event.addListener(marker, 'mouseout', () => {
+            infoWindow.close();
           });
         }
 

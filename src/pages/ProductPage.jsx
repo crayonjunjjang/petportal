@@ -1,11 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import styles from './PetSuppliesPage.module.css';
-import '../styles/commonPage.css';
+import styles from './ProductPage.module.css';
 import allProducts from '../data/products.json'; // 모든 상품 데이터를 로컬 JSON 파일에서 가져옵니다.
 
-// PetSuppliesPage: 반려용품 목록을 표시하고, 카테고리 필터링, 검색, 페이지네이션 기능을 제공하는 페이지 컴포넌트입니다.
-const PetSuppliesPage = () => {
+// ProductPage: 반려용품 목록을 표시하고, 카테고리 필터링, 검색, 페이지네이션 기능을 제공하는 페이지 컴포넌트입니다.
+const ProductPage = () => {
   // --- STATE MANAGEMENT ---
   const [products, setProducts] = useState([]);
   const [categories, setCategories] = useState([]);
@@ -90,10 +89,10 @@ const PetSuppliesPage = () => {
 
   // --- RENDER ---
   return (
-    <div className="common-page-container">
-      <header className="common-header">
-        <h1 className="common-title">반려용품</h1>
-        <p className="common-subtitle">우리 아이를 위한 특별한 용품들을 만나보세요</p>
+    <div className={styles.commonPageContainer}>
+      <header className={styles.commonHeader}>
+        <h1 className={styles.commonTitle}>반려용품</h1>
+        <p className={styles.commonSubtitle}>우리 아이를 위한 특별한 용품들을 만나보세요</p>
       </header>
 
       <div className={styles.controlsContainer}>
@@ -148,12 +147,12 @@ const PetSuppliesPage = () => {
               products.map((product) => (
                 <Link
                   key={product.id}
-                  to={`/pet-supplies/${product.id}`}
+                  to={`/product/${product.id}`}
                   className={styles.productCard}
                 >
                   <div className={styles.imageWrapper}>
                     <img
-                      src={product.imageUrl || 'https://images.unsplash.com/photo-1589924691995-400dc9ecc119?w=400'}
+                      src={product.image || 'https://images.unsplash.com/photo-1589924691995-400dc9ecc119?w=400'}
                       alt={product.name}
                       className={styles.productImage}
                     />
@@ -205,4 +204,4 @@ const PetSuppliesPage = () => {
   );
 };
 
-export default PetSuppliesPage;
+export default ProductPage;

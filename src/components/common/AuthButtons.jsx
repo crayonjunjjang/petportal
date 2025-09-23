@@ -1,6 +1,6 @@
 // src/components/common/AuthButtons.jsx
 import React, { useState } from 'react';
-import { useAuth } from '../../providers/AuthProvider';
+import { useAuth } from '../../context/AuthContext';
 import LoginModal from '../modal/LoginModal';
 import SignupModal from '../modal/SignupModal';
 import styles from './AuthButtons.module.css';
@@ -40,17 +40,7 @@ const AuthButtons = ({ isScrolled }) => {
   };
 
   if (isAuthenticated && user) {
-    return (
-      <div className={`${styles.authContainer} ${isScrolled ? styles.scrolled : ''}`}>
-        <button 
-          onClick={handleLogout}
-          className={`${styles.logoutButton} ${isScrolled ? styles.scrolled : ''}`}
-          title="로그아웃"
-        >
-          ⏻
-        </button>
-      </div>
-    );
+    return null; // 인증된 경우 AuthButtons는 아무것도 렌더링하지 않습니다.
   }
 
   return (

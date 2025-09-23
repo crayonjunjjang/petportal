@@ -2,6 +2,7 @@
 import React, { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { useCommunity } from '../contexts/CommunityContext';
+import { useProfile } from '../context/ProfileContext'; // useProfile 훅 가져오기
 import CommentSection from '../components/community/CommentSection';
 import Button from '../components/ui/Button';
 import styles from './PostDetail.module.css';
@@ -12,6 +13,7 @@ const PostDetail = () => {
   const { postId } = useParams(); // URL에서 게시글 ID를 가져옵니다.
   const navigate = useNavigate();
   const { boardData, actions } = useCommunity(); // CommunityContext에서 데이터와 액션 함수들을 가져옵니다.
+  const { userProfile } = useProfile(); // 현재 로그인된 사용자 정보 가져오기
 
   // --- STATE MANAGEMENT ---
   const [post, setPost] = useState(null); // 현재 게시글 데이터
@@ -40,6 +42,9 @@ const PostDetail = () => {
     setBoardKey(foundBoardKey);
     setIsLoading(false);
   }, [postId, boardData]);
+
+  // --- AUTHORSHIP CHECK ---
+  const isAuthor = userProfile?.nickname === post?.author;
 
   // --- HANDLER FUNCTIONS ---
   const handleLike = () => {
@@ -119,14 +124,16 @@ const PostDetail = () => {
               </div>
             </div>
 
-            <div className={styles.postActions}>
-              <Button variant="secondary" size="small" onClick={handleEdit}>
-                수정
-              </Button>
-              <Button variant="danger" size="small" onClick={handleDelete}>
-                삭제
-              </Button>
-            </div>
+            {isAuthor && (
+              <div className={styles.postActions}>
+                <Button variant="secondary" size="small" onClick={handleEdit}>
+                  수정
+                </Button>
+                <Button variant="danger" size="small" onClick={handleDelete}>
+                  삭제
+                </Button>
+              </div>
+            )}
           </div>
         </header>
 

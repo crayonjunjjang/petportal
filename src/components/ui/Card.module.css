@@ -27,12 +27,29 @@
   flex-direction: column;
 }
 
+.titleContainer {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 8px;
+}
+
 .cardTitle {
   font-size: 1.125rem;
   font-weight: 700;
   margin: 0 0 8px 0;
   color: #333333;
   line-height: 1.4;
+}
+
+.locationTag {
+  background-color: #f1f3f5;
+  color: #495057;
+  padding: 4px 8px;
+  border-radius: 8px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  flex-shrink: 0;
 }
 
 .cardSubtitle,
@@ -149,4 +166,42 @@
 
 .clickable:hover .clickHint {
   transform: translateY(0);
+}
+
+.cafe {
+  border: 2px solid #d4a574;
+}
+
+.specialtiesContainer, .targetAnimalsContainer, .amenitiesContainer {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-top: 12px;
+}
+
+.specialtyTag {
+    background: #e3f2fd;
+    color: #0078d4;
+    padding: 4px 8px;
+    border-radius: 12px;
+    font-size: 0.75rem;
+    font-weight: 500;
+}
+
+.targetAnimalTag {
+    background: #e2e8f0;
+    color: #2d3748;
+    padding: 4px 8px;
+    border-radius: 12px;
+    font-size: 0.75rem;
+    font-weight: 500;
+}
+
+.amenityTag {
+    background: #efe2ff;
+    color: #8e44ad;
+    padding: 4px 8px;
+    border-radius: 12px;
+    font-size: 0.75rem;
+    font-weight: 500;
 }

@@ -1,8 +1,9 @@
-/* src/pages/PetSupplyDetailPage.module.css */
+/* src/pages/ProductDetailPage.module.css */
 .container {
   max-width: 1200px;
   margin: 0 auto;
   padding: 20px;
+  margin-top: 5rem;
 }
 
 .loading, .error {

@@ -1,0 +1,187 @@
+/* src/pages/HotelDetailPage.module.css */
+.container {
+  max-width: 1200px;
+  margin: 5rem auto 0;
+  padding: 20px;
+}
+
+.loading, .errorContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 60vh;
+  font-size: 1.2rem;
+}
+
+.error {
+  text-align: center;
+}
+
+.error h2 {
+  color: #dc3545;
+  margin-bottom: 10px;
+}
+
+.error p {
+  color: #666;
+  margin-bottom: 20px;
+}
+
+.breadcrumb {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 30px;
+  font-size: 0.9rem;
+}
+
+.breadcrumbLink {
+  color: #007bff;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.breadcrumbLink:hover {
+  text-decoration: underline;
+}
+
+.separator {
+  color: #666;
+}
+
+.currentPage {
+  color: #333;
+  font-weight: 500;
+}
+
+.detailLayout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 50px;
+}
+
+.imageSection {
+  position: sticky;
+  top: 20px;
+  height: fit-content;
+}
+
+.mainImage {
+  width: 100%;
+  height: auto;
+  border-radius: 12px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+}
+
+.infoSection {
+  display: flex;
+  flex-direction: column;
+}
+
+.hotelName {
+  font-size: 2.5rem;
+  font-weight: 800;
+  margin-bottom: 10px;
+}
+
+.rating {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 20px;
+  font-size: 1.1rem;
+}
+
+.stars {
+  color: #ffc107;
+}
+
+.ratingText {
+  font-weight: bold;
+}
+
+.reviewCount {
+  color: #666;
+}
+
+.infoGrid {
+  display: grid;
+  gap: 15px;
+  margin-bottom: 30px;
+  border-top: 1px solid #eee;
+  border-bottom: 1px solid #eee;
+  padding: 20px 0;
+}
+
+.infoItem {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.infoLabel {
+  font-weight: 600;
+  width: 80px;
+  color: #555;
+}
+
+.infoValue {
+  color: #333;
+}
+
+.amenities {
+  margin-bottom: 30px;
+}
+
+.amenities h3 {
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin-bottom: 15px;
+}
+
+.amenityList {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.amenityTag {
+  background-color: #f1f3f5;
+  color: #495057;
+  padding: 8px 12px;
+  border-radius: 20px;
+  font-size: 0.9rem;
+}
+
+.description {
+  margin-bottom: 30px;
+}
+
+.description h3 {
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+.description p {
+  line-height: 1.7;
+  color: #666;
+}
+
+.actions {
+  margin-top: auto; /* Pushes buttons to the bottom */
+}
+
+@media (max-width: 768px) {
+  .detailLayout {
+    grid-template-columns: 1fr;
+  }
+
+  .imageSection {
+    position: static;
+  }
+
+  .hotelName {
+    font-size: 2rem;
+  }
+}

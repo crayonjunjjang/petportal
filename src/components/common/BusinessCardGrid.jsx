@@ -12,7 +12,7 @@ const BusinessCardGrid = ({ items }) => {
     <>
       {items.map((item) => (
         <Link to={`/${item.type || 'item'}/${item.id}`} key={item.id} style={{ textDecoration: 'none' }}>
-          <Card item={item} type="business" />
+          <Card item={item} type={item.type || 'business'} />
         </Link>
       ))}
     </>

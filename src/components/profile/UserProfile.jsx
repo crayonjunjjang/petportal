@@ -1,6 +1,7 @@
 // src/components/profile/UserProfile.jsx
 import React, { useState, useEffect } from 'react';
 import { useProfile } from '../../context/ProfileContext';
+import { useAuth } from '../../context/AuthContext'; // useAuth 임포트
 import styles from './UserProfile.module.css';
 
 const UserProfile = () => {
@@ -11,6 +12,7 @@ const UserProfile = () => {
     showUserProfile, 
     setShowUserProfile 
   } = useProfile();
+  const { logout } = useAuth(); // logout 함수 가져오기
 
   const [formData, setFormData] = useState({
     nickname: userProfile?.nickname || '',
@@ -108,6 +110,11 @@ const UserProfile = () => {
         alert('이미지 업로드에 실패했습니다.');
       }
     }
+  };
+
+  const handleLogout = () => {
+    logout();
+    setShowUserProfile(false); // 로그아웃 후 프로필 모달 닫기
   };
 
   if (!showUserProfile || !userProfile) return null;
@@ -212,13 +219,22 @@ const UserProfile = () => {
                   </button>
                 </>
               ) : (
-                <button 
-                  type="button" 
-                  onClick={() => setIsEditing(true)}
-                  className={styles.editButton}
-                >
-                  수정
-                </button>
+                <>
+                  <button 
+                    type="button" 
+                    onClick={() => setIsEditing(true)}
+                    className={styles.editButton}
+                  >
+                    수정
+                  </button>
+                  <button 
+                    type="button" 
+                    onClick={handleLogout}
+                    className={styles.logoutButton} // 새로운 로그아웃 버튼 스타일
+                  >
+                    로그아웃
+                  </button>
+                </>
               )}
             </div>
           </form>

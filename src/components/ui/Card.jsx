@@ -1,17 +1,17 @@
 import React from 'react';
-import { useNavigate } from 'react-router-dom';
 import styles from './Card.module.css';
 import Button from './Button';
 
 const Card = ({ item, type = 'default' }) => {
-  const navigate = useNavigate();
   const { 
     id, 
     image, 
     images, 
     title, 
     name, 
+    location,
     specialty, 
+    specialties,
     author, 
     rating, 
     reviews,
@@ -21,30 +21,28 @@ const Card = ({ item, type = 'default' }) => {
     distanceKm,
     services,
     operatingHours,
-    requiresReservation
+    requiresReservation,
+    targetAnimals,
+    amenities // for hotels
   } = item;
-
-  const handleCardClick = () => {
-    if (type === 'business') {
-      navigate(`/cafe/${id}`);
-    }
-  };
 
   const cardImage = images ? images[0] : image;
 
   return (
     <div 
-      className={`${styles.card} ${styles[type]} ${type === 'business' ? styles.clickable : ''}`}
-      onClick={type === 'business' ? handleCardClick : undefined}
+      className={`${styles.card} ${styles[type]}`}
     >
       <img src={cardImage} alt={title || name} className={styles.cardImage} />
       <div className={styles.cardContent}>
-        <h3 className={styles.cardTitle}>{title || name}</h3>
+        <div className={styles.titleContainer}>
+          <h3 className={styles.cardTitle}>{title || name}</h3>
+          {location && <span className={styles.locationTag}>{location}</span>}
+        </div>
         {specialty && <p className={styles.cardSubtitle}>{specialty}</p>}
         {author && <p className={styles.cardAuthor}>by {author}</p>}
         
         {/* 비즈니스 카드 전용 정보 */}
-        {type === 'business' && (
+        {(type === 'business' || type === 'hospital' || type === 'grooming' || type === 'cafe' || type === 'hotel') && (
           <>
             <div className={styles.businessInfo}>
               {rating && (
@@ -58,7 +56,7 @@ const Card = ({ item, type = 'default' }) => {
               {distanceKm && <p className={styles.distance}>{distanceKm}km</p>}
               {operatingHours && (
                 <p className={styles.hours}>
-                  {operatingHours.start} - {operatingHours.end}
+                  {typeof operatingHours === 'string' ? operatingHours : `${operatingHours.start} - ${operatingHours.end}`}
                 </p>
               )}
               {requiresReservation !== undefined && (
@@ -67,7 +65,15 @@ const Card = ({ item, type = 'default' }) => {
                 </p>
               )}
             </div>
-            
+
+            {specialties && specialties.length > 0 && (
+              <div className={styles.specialtiesContainer}>
+                {specialties.map(spec => (
+                  <span key={spec} className={styles.specialtyTag}>{spec}</span>
+                ))}
+              </div>
+            )}
+
             {services && services.length > 0 && (
               <div className={styles.services}>
                 {services.slice(0, 3).map(service => (
@@ -76,12 +82,28 @@ const Card = ({ item, type = 'default' }) => {
                 {services.length > 3 && <span className={styles.moreServices}>+{services.length - 3}</span>}
               </div>
             )}
+
+            {targetAnimals && targetAnimals.length > 0 && (
+              <div className={styles.targetAnimalsContainer}>
+                {targetAnimals.map(animal => (
+                  <span key={animal} className={styles.targetAnimalTag}>{animal}</span>
+                ))}
+              </div>
+            )}
+
+            {amenities && amenities.length > 0 && (
+              <div className={styles.amenitiesContainer}>
+                {amenities.slice(0, 3).map(amenity => (
+                  <span key={amenity} className={styles.amenityTag}>{amenity}</span>
+                ))}
+                 {amenities.length > 3 && <span className={styles.moreServices}>+{amenities.length - 3}</span>}
+              </div>
+            )}
           </>
         )}
         
         {/* 기본 정보 */}
-        {rating && type !== 'business' && <span className={styles.cardRating}>⭐ {rating}</span>}
-        {description && <p className={styles.cardDescription}>{description}</p>}
+        {rating && !['business', 'hospital', 'grooming', 'cafe', 'hotel'].includes(type) && <span className={styles.cardRating}>⭐ {rating}</span>}
         
         {type === 'sitter' && (
           <Button variant="primary" size="small" className={styles.viewProfileButton}>
@@ -89,11 +111,6 @@ const Card = ({ item, type = 'default' }) => {
           </Button>
         )}
       </div>
-      {type === 'business' && (
-        <div className={styles.clickHint}>
-          클릭하여 상세정보 보기
-        </div>
-      )}
     </div>
   );
 };

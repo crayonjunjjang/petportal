@@ -44,11 +44,11 @@ const BestProductsSection = () => {
   };
 
   const handleProductClick = (productId) => {
-    navigate(`/pet-supplies/${productId}`);
+    navigate(`/product/${productId}`);
   };
 
   const handleViewAllClick = () => {
-    navigate('/pet-supplies');
+    navigate('/product');
   };
 
   if (loading) {

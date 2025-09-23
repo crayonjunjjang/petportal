@@ -34,10 +34,10 @@ const MobileMenu = ({ isOpen, onClose, isScrolled }) => {
         <nav className={styles.menuNav}>
           <Link to="/grooming" onClick={handleLinkClick}>미용</Link>
           <Link to="/cafe" onClick={handleLinkClick}>카페</Link>
-          <Link to="/pet-supplies" onClick={handleLinkClick}>반려용품</Link>
           <Link to="/hospital" onClick={handleLinkClick}>병원</Link>
           <Link to="/hotel" onClick={handleLinkClick}>호텔</Link>
           <Link to="/pet-friendly-lodging" onClick={handleLinkClick}>반려동반 숙소</Link>
+          <Link to="/product" onClick={handleLinkClick}>반려용품</Link>
           <Link to="/community" onClick={handleLinkClick}>커뮤니티</Link>
           <Link to="/cart" onClick={handleLinkClick}>🛒 장바구니</Link>
         </nav>

@@ -2,7 +2,7 @@
 import React, { useState } from 'react';
 import SocialLoginButtons from './SocialLoginButtons';
 import styles from './SignupModal.module.css';
-
+import { useAuth } from '../../context/AuthContext'; // useAuth 임포트
 import { TERMS_CONTENT, PRIVACY_CONTENT } from '../../utils/constants';
 
 const SignupModal = ({ isOpen, onClose, onSwitchToLogin }) => {
@@ -20,6 +20,8 @@ const SignupModal = ({ isOpen, onClose, onSwitchToLogin }) => {
   const [errors, setErrors] = useState({});
   const [showTermsModal, setShowTermsModal] = useState(false); // New state for terms modal
   const [showPrivacyModal, setShowPrivacyModal] = useState(false); // New state for privacy modal
+
+  const { signup } = useAuth(); // useAuth 훅에서 signup 함수 가져오기
 
   const handleInputChange = (e) => {
     const { name, value, type, checked } = e.target;
@@ -39,6 +41,8 @@ const SignupModal = ({ isOpen, onClose, onSwitchToLogin }) => {
 
     if (!formData.name.trim()) {
       newErrors.name = '이름을 입력해주세요.';
+    } else if (formData.name.length < 2) {
+      newErrors.name = '이름은 2자 이상이어야 합니다.';
     }
 
     if (!formData.email.trim()) {
@@ -59,6 +63,8 @@ const SignupModal = ({ isOpen, onClose, onSwitchToLogin }) => {
 
     if (!formData.phone.trim()) {
       newErrors.phone = '전화번호를 입력해주세요.';
+    } else if (!/^\d{10,11}$/.test(formData.phone)) {
+      newErrors.phone = '올바른 전화번호 형식을 입력해주세요. (10-11자리 숫자)';
     }
 
     if (!formData.agreeTerms) {
@@ -84,26 +90,17 @@ const SignupModal = ({ isOpen, onClose, onSwitchToLogin }) => {
     setLoading(true);
 
     try {
-      // 서버 API 호출
-      const response = await fetch('http://localhost:3001/api/auth/signup', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          nickname: formData.name,
-          email: formData.email,
-          password: formData.password
-        })
+      const response = await signup({
+        email: formData.email,
+        password: formData.password,
+        nickname: formData.name // 이름 필드를 닉네임으로 사용
       });
 
-      const data = await response.json();
-
-      if (data.success) {
+      if (response.success) {
         alert('회원가입이 완료되었습니다! 로그인해주세요.');
         onSwitchToLogin();
       } else {
-        alert(data.message || '회원가입에 실패했습니다.');
+        alert(response.error || '회원가입에 실패했습니다.');
       }
       
     } catch (error) {

@@ -8,9 +8,9 @@ const Logo = ({ isScrolled }) => {
   return (
     <Link to="/" className={`${styles.logoContainer} ${isScrolled ? styles.scrolled : ''}`}>
       <div className={styles.logoImage}>
-        <img src={logoImage} alt="삐삐 PetPotal Logo" className={styles.logoImg} />
+        <img src={logoImage} alt="삐삐 PetPortal Logo" className={styles.logoImg} />
       </div>
-      <span className={styles.logoText}>삐삐 PetPotal</span>
+      <span className={styles.logoText}>삐삐 PetPortal</span>
     </Link>
   );
 };

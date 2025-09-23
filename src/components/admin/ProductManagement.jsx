@@ -1,12 +1,12 @@
-// src/components/admin/PetSuppliesManagement.jsx
+// src/components/admin/ProductManagement.jsx
 // 관리자 페이지의 반려용품 관리 컴포넌트
 import React, { useState, useEffect } from 'react';
 // import { useAdminAuth } from '../../context/AdminAuthContext'; // 관리자 인증 컨텍스트 (주석 처리)
 import adminStyles from './Admin.module.css'; // 관리자 스타일 모듈 임포트
 import { mockDataService } from '../../utils/mockDataService'; // 목 데이터 서비스 임포트
-import petSuppliesData from '../../data/petSupplies.json'; // 반려용품 데이터 임포트
+import ProductData from "../../data/products.json";
 
-const initialPetSuppliesData = [
+const initialProductData = [
   {
     id: 1,
     name: '퓨리나 프로플랜 퍼포먼스 강아지 사료',
@@ -79,7 +79,7 @@ const initialPetSuppliesData = [
   },
 ];
 
-const PetSuppliesManagement = () => {
+const ProductManagement = () => {
   // const { isAdminAuthenticated } = useAdminAuth(); // 관리자 인증 상태 (주석 처리)
   const isAdminAuthenticated = true; // 프론트엔드 전용으로 항상 인증된 상태로 설정
   const [products, setProducts] = useState([]); // 상품 목록 상태
@@ -112,7 +112,7 @@ const PetSuppliesManagement = () => {
   // 컴포넌트 마운트 시 및 의존성 변경 시 실행
   useEffect(() => {
     // 목 데이터 서비스에 초기 데이터 설정 (JSON 파일 데이터 사용)
-    mockDataService.initialize('petSupplies', petSuppliesData);
+    mockDataService.initialize('Product', ProductData);
     if (isAdminAuthenticated) {
       fetchProducts(); // 상품 목록 가져오기
     }
@@ -124,7 +124,7 @@ const PetSuppliesManagement = () => {
     setError(null); // 오류 상태 초기화
     try {
       // 목 데이터 서비스에서 모든 상품 가져오기
-      const response = await mockDataService.getAll('petSupplies');
+      const response = await mockDataService.getAll('Product');
       if (response.success) {
         let allProducts = response.data; // 모든 상품 데이터
 
@@ -188,7 +188,7 @@ const PetSuppliesManagement = () => {
         createdAt: new Date().toISOString() // 생성 날짜 추가
       };
       // 목 데이터 서비스를 통해 상품 생성
-      const response = await mockDataService.create('petSupplies', productToAdd);
+      const response = await mockDataService.create('Product', productToAdd);
 
       if (response.success) {
         // 성공 시 폼 데이터 초기화
@@ -228,7 +228,7 @@ const PetSuppliesManagement = () => {
         rating: parseFloat(editingProduct.rating) || 4.0,
         reviewCount: parseInt(editingProduct.reviewCount) || 0,
       };
-      const response = await mockDataService.update('petSupplies', editingProduct.id, productToUpdate);
+      const response = await mockDataService.update('Product', editingProduct.id, productToUpdate);
 
       if (response.success) {
         setEditingProduct(null);
@@ -249,7 +249,7 @@ const PetSuppliesManagement = () => {
     }
 
     try {
-      const response = await mockDataService.remove('petSupplies', productId);
+      const response = await mockDataService.remove('Product', productId);
 
       if (response.success) {
         alert('상품이 삭제되었습니다.');
@@ -265,10 +265,10 @@ const PetSuppliesManagement = () => {
 
   const toggleBestProduct = async (productId) => {
     try {
-      const product = (await mockDataService.getById('petSupplies', productId)).data;
+      const product = (await mockDataService.getById('products', productId)).data;
       if (product) {
         const updatedProduct = { ...product, isBest: !product.isBest };
-        const response = await mockDataService.update('petSupplies', productId, updatedProduct);
+        const response = await mockDataService.update('Product', productId, updatedProduct);
         if (response.success) {
           fetchProducts();
           alert(`상품이 ${updatedProduct.isBest ? '베스트 상품으로 설정' : '베스트 상품에서 해제'}되었습니다.`);
@@ -284,10 +284,10 @@ const PetSuppliesManagement = () => {
 
   const toggleFeaturedProduct = async (productId) => {
     try {
-      const product = (await mockDataService.getById('petSupplies', productId)).data;
+      const product = (await mockDataService.getById('Product', productId)).data;
       if (product) {
         const updatedProduct = { ...product, isFeatured: !product.isFeatured };
-        const response = await mockDataService.update('petSupplies', productId, updatedProduct);
+        const response = await mockDataService.update('Product', productId, updatedProduct);
         if (response.success) {
           fetchProducts();
           alert(`상품이 ${updatedProduct.isFeatured ? '추천 상품으로 설정' : '추천 상품에서 해제'}되었습니다.`);
@@ -594,4 +594,4 @@ const PetSuppliesManagement = () => {
   );
 };
 
-export default PetSuppliesManagement;
+export default ProductManagement;

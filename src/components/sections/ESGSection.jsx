@@ -8,9 +8,9 @@ const ESGSection = () => {
       <div className={styles.container}>
         <div className={styles.sectionHeader}>
           <h2 className={styles.sectionTitle}>MISSION</h2>
-          <h3 className={styles.sectionSubtitle}>반려동물과 보호자에게 행복을 전하는 PetPotal</h3>
+          <h3 className={styles.sectionSubtitle}>반려동물과 보호자에게 행복을 전하는 PetPortal</h3>
           <p className={styles.sectionDescription}>
-            PetPotal은 지속가능한 반려동물 문화를 만들어가며<br />
+            PetPortal은 지속가능한 반려동물 문화를 만들어가며<br />
             모든 생명이 존중받는 사회를 위해 노력하고 있습니다.
           </p>
         </div>
@@ -19,7 +19,7 @@ const ESGSection = () => {
           <div className={styles.missionCard}>
             <h4 className={styles.missionTitle}> 생명 존중 경영 선포</h4>
             <p className={styles.missionDescription}>
-              PetPotal은 모든 생명을 존중하는 경영을 실천하고 있습니다.
+              PetPortal은 모든 생명을 존중하는 경영을 실천하고 있습니다.
             </p>
           </div>
           

@@ -1,0 +1,160 @@
+/* src/pages/HospitalDetailPage.module.css */
+
+.detailPageContainer {
+  background: #f8f9fa;
+  padding-bottom: 80px;
+}
+
+.heroSection {
+  position: relative;
+  height: 400px;
+  background-color: #495057;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  text-align: center;
+}
+
+.heroImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: brightness(0.5);
+  position: absolute;
+}
+
+.heroContent {
+  position: relative;
+  z-index: 2;
+  text-shadow: 0 2px 8px rgba(0,0,0,0.5);
+}
+
+.heroContent h1 {
+  font-size: 3rem;
+  font-weight: 700;
+  margin: 0;
+}
+
+.heroContent p {
+  font-size: 1.1rem;
+  margin-top: 10px;
+  opacity: 0.9;
+}
+
+.mainContent {
+  display: flex;
+  gap: 32px;
+  max-width: 1200px;
+  margin: -60px auto 0;
+  padding: 0 24px;
+  position: relative;
+  z-index: 10;
+}
+
+.infoColumn {
+  flex: 2;
+  background: #fff;
+  padding: 30px 40px;
+  border-radius: 8px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+}
+
+.actionColumn {
+  flex: 1;
+  position: sticky;
+  top: 100px;
+  height: fit-content;
+}
+
+.infoBlock {
+  margin-bottom: 40px;
+}
+
+.infoBlock:last-child {
+  margin-bottom: 0;
+}
+
+.infoBlock h3 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #212529;
+  margin-bottom: 20px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #dee2e6;
+}
+
+.description {
+  font-size: 1rem;
+  line-height: 1.8;
+  color: #495057;
+}
+
+.infoGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 15px;
+}
+
+.infoItem {
+  display: flex;
+  align-items: center;
+  font-size: 1rem;
+  color: #343a40;
+}
+
+.infoItem strong {
+  margin-right: 10px;
+  color: #000;
+  font-weight: 600;
+}
+
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.tag {
+  background-color: #e7f5ff;
+  color: #1c7ed6;
+  padding: 5px 12px;
+  border-radius: 15px;
+  font-size: 0.85rem;
+  font-weight: 500;
+}
+
+.actionBox {
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+  padding: 24px;
+  text-align: center;
+}
+
+.actionBox h3 {
+  font-size: 1.2rem;
+  margin-bottom: 20px;
+}
+
+.actionButton {
+  width: 100%;
+  padding: 12px;
+  font-size: 1rem;
+}
+
+.notFound {
+  text-align: center;
+  padding: 100px 24px;
+}
+
+@media (max-width: 900px) {
+  .mainContent {
+    flex-direction: column;
+    margin-top: 24px;
+  }
+  .actionColumn {
+    position: static;
+    width: 100%;
+  }
+}

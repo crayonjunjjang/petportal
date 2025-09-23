@@ -47,21 +47,21 @@ export const PRIVACY_CONTENT = `
 `;
 
 export const COMPANY_INTRO_CONTENT = `
-삐삐 PetPotal은 반려동물과 함께하는 모든 순간을 더욱 특별하고 행복하게 만들어드리는 종합 반려동물 서비스 플랫폼입니다.
+삐삐 PetPortal은 반려동물과 함께하는 모든 순간을 더욱 특별하고 행복하게 만들어드리는 종합 반려동물 서비스 플랫폼입니다.
 
 저희는 반려동물의 건강과 행복을 최우선으로 생각하며, 보호자님들이 안심하고 편리하게 이용할 수 있는 다양한 서비스를 제공합니다. 펫 미용, 펫 카페, 펫 용품, 동물병원 예약, 펫 호텔 등 반려동물에게 필요한 모든 것을 한 곳에서 만나보세요.
 
-또한, 활발한 커뮤니티를 통해 보호자님들 간의 정보 공유와 소통을 지원하며, 반려동물과 함께하는 삶의 질을 높이는 데 기여하고자 합니다. 삐삐 PetPotal과 함께라면 반려동물과의 일상이 더욱 풍요로워질 것입니다.
+또한, 활발한 커뮤니티를 통해 보호자님들 간의 정보 공유와 소통을 지원하며, 반려동물과 함께하는 삶의 질을 높이는 데 기여하고자 합니다. 삐삐 PetPortal과 함께라면 반려동물과의 일상이 더욱 풍요로워질 것입니다.
 `;
 
 export const ANNOUNCEMENT_CONTENT = [
   {
     id: 1,
-    title: "삐삐 PetPotal 서비스 점검 안내",
+    title: "삐삐 PetPortal 서비스 점검 안내",
     date: "2024.09.10",
     author: "운영팀",
     views: 245,
-    content: `안녕하세요, 삐삐 PetPotal입니다.
+    content: `안녕하세요, 삐삐 PetPortal입니다.
 
 보다 안정적인 서비스 제공을 위해 시스템 정기 점검이 진행될 예정입니다.
 
@@ -84,7 +84,7 @@ export const ANNOUNCEMENT_CONTENT = [
 - 운영 제한 기간: 2024년 9월 16일(월) ~ 9월 18일(수)
 - 전화 상담: 휴무
 - 1:1 문의: 정상 운영 (답변은 연휴 이후 순차적으로 처리)
-- 응급상황: help@petpotal.com으로 문의 바랍니다.
+- 응급상황: help@PetPortal.com으로 문의 바랍니다.
 
 즐거운 추석 연휴 보내세요!`
   },
@@ -153,7 +153,7 @@ export const FAQ_CONTENT = [
 export const SUPPORT_CONTENT = `
 [고객지원 안내]
 
-삐삐 PetPotal 고객지원팀은 고객님의 문의에 성심성의껏 답변해 드립니다.
+삐삐 PetPortal 고객지원팀은 고객님의 문의에 성심성의껏 답변해 드립니다.
 
 📞 전화 문의
 - 번호: 1588-1234
@@ -161,7 +161,7 @@ export const SUPPORT_CONTENT = `
 - 주말/공휴일: 휴무
 
 📧 이메일 문의
-- 주소: help@petpotal.com
+- 주소: help@PetPortal.com
 - 답변시간: 24시간 이내 (주말 제외)
 
 💬 1:1 문의
@@ -170,7 +170,7 @@ export const SUPPORT_CONTENT = `
 - 답변시간: 평일 기준 2-3시간 이내
 
 🚨 응급상황
-- 24시간 응급 이메일: emergency@petpotal.com
+- 24시간 응급 이메일: emergency@PetPortal.com
 - 반려동물 응급상황 시 즉시 연락 바랍니다.
 
 고객님의 소중한 의견에 귀 기울이며, 더 나은 서비스를 제공하기 위해 노력하겠습니다.
@@ -179,7 +179,7 @@ export const SUPPORT_CONTENT = `
 export const YOUTH_POLICY_CONTENT = `
 [청소년 보호 정책]
 
-삐삐 PetPotal은 청소년이 유해 정보에 접근하는 것을 방지하고, 안전하게 서비스를 이용할 수 있도록 청소년 보호 정책을 수립하여 시행하고 있습니다.
+삐삐 PetPortal은 청소년이 유해 정보에 접근하는 것을 방지하고, 안전하게 서비스를 이용할 수 있도록 청소년 보호 정책을 수립하여 시행하고 있습니다.
 
 1. 유해 정보로부터 청소년 보호
 2. 청소년 유해 매체물 표시 의무 준수
@@ -191,7 +191,7 @@ export const YOUTH_POLICY_CONTENT = `
 export const OPERATION_POLICY_CONTENT = `
 [운영 정책]
 
-삐삐 PetPotal은 서비스의 건전하고 안정적인 운영을 위해 다음과 같은 운영 정책을 시행하고 있습니다.
+삐삐 PetPortal은 서비스의 건전하고 안정적인 운영을 위해 다음과 같은 운영 정책을 시행하고 있습니다.
 
 1. 서비스 이용 원칙
 2. 게시물 관리 정책
