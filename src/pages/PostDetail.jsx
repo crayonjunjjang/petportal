@@ -10,38 +10,30 @@ import styles from './PostDetail.module.css';
 // PostDetail: 단일 게시글의 상세 내용과 댓글을 보여주는 페이지 컴포넌트입니다.
 const PostDetail = () => {
   // --- HOOKS & CONTEXT ---
-  const { postId } = useParams(); // URL에서 게시글 ID를 가져옵니다.
+  const { boardKey, postId } = useParams(); // URL에서 게시판 키와 게시글 ID를 가져옵니다.
   const navigate = useNavigate();
   const { boardData, actions } = useCommunity(); // CommunityContext에서 데이터와 액션 함수들을 가져옵니다.
   const { userProfile } = useProfile(); // 현재 로그인된 사용자 정보 가져오기
 
   // --- STATE MANAGEMENT ---
   const [post, setPost] = useState(null); // 현재 게시글 데이터
-  const [boardKey, setBoardKey] = useState(null); // 이 게시글이 속한 게시판의 키
   const [isLoading, setIsLoading] = useState(true); // 로딩 상태
 
   // --- EFFECTS ---
-  // postId나 boardData가 변경될 때, 전체 데이터에서 해당 게시글을 찾습니다.
+  // postId, boardKey, boardData가 변경될 때, 해당 게시판에서 게시글을 찾습니다.
   useEffect(() => {
+    setIsLoading(true);
     let foundPost = null;
-    let foundBoardKey = null;
 
-    // 모든 게시판을 순회하며 postId와 일치하는 게시글을 찾습니다.
-    for (const key in boardData) {
-      const currentBoard = boardData[key];
+    if (boardKey && boardData[boardKey]) {
+      const currentBoard = boardData[boardKey];
       // 공지사항과 일반 게시글을 모두 포함하여 검색합니다.
-      const postInBoard = [...currentBoard.notices, ...currentBoard.posts].find(p => p.id.toString() === postId);
-      if (postInBoard) {
-        foundPost = postInBoard;
-        foundBoardKey = key;
-        break; // 찾았으면 루프 종료
-      }
+      foundPost = [...currentBoard.notices, ...currentBoard.posts].find(p => p.id.toString() === postId);
     }
 
     setPost(foundPost);
-    setBoardKey(foundBoardKey);
     setIsLoading(false);
-  }, [postId, boardData]);
+  }, [postId, boardKey, boardData]);
 
   // --- AUTHORSHIP CHECK ---
   const isAuthor = userProfile?.nickname === post?.author;

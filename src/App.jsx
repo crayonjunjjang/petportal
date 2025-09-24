@@ -148,7 +148,7 @@ function AppContent() {
             <Route path="/community" element={<CommunityPage />} />
             <Route path="/community/:boardKey/new" element={<PostEditor />} /> {/* 새 게시글 작성 */}
             <Route path="/community/edit/:postId" element={<PostEditor />} /> {/* 게시글 수정 */}
-            <Route path="/community/posts/:postId" element={<PostDetail />} /> {/* 게시글 상세 보기 */}
+            <Route path="/community/:boardKey/posts/:postId" element={<PostDetail />} /> {/* 게시글 상세 보기 */}
             <Route path="/community/:boardKey" element={<CommunityPage />} /> {/* 특정 게시판 목록 */}
 
             {/* 고객지원 페이지 (SupportPage로 라우팅) */}

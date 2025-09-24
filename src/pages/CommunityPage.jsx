@@ -106,6 +106,9 @@ const CommunityPage = () => {
             notices={activeBoardData.notices || []}
             posts={paginatedPosts}
             boardKey={activeBoardKey}
+            totalPosts={filteredPosts.length}
+            currentPage={currentPage}
+            postsPerPage={POSTS_PER_PAGE}
           />
           
           {/* 페이지네이션 */}

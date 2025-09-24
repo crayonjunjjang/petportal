@@ -133,7 +133,7 @@ const PostEditor = () => {
     const postData = {
       title: title.trim(),
       content: content.trim(),
-      author: userProfile?.nickname || '익명', // 로그인된 사용자 닉네임 또는 '익명' 사용
+      author: userProfile?.nickname || '비회원', // 로그인된 사용자 닉네임 또는 '익명' 사용
     };
 
     try {

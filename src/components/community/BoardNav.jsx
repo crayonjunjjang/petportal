@@ -18,12 +18,6 @@ const BoardNav = ({ boards, activeBoard }) => {
             </Link>
           </li>
         ))}
-        {/* 지도 테스트 페이지로 가는 임시 링크 */}
-        <li style={{ marginTop: '20px', borderTop: '1px solid #ddd', paddingTop: '20px' }}>
-          <Link to="/map-test" className={activeBoard === 'map-test' ? styles.active : ''}>
-            🗺️ 지도 테스트
-          </Link>
-        </li>
       </ul>
     </aside>
   );
