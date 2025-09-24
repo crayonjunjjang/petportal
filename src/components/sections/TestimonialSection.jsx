@@ -1,6 +1,14 @@
 // src/components/sections/TestimonialSection.jsx
+
+// --- 파일 역할: 메인 페이지 등에서 사용되는 '고객 후기' 섹션 컴포넌트 ---
+// 이 컴포넌트는 PetPortal 서비스를 이용한 고객들의 후기를 보여주는 역할을 합니다.
+// 후기 데이터는 `testimonials` 배열에 하드코딩되어 있으며,
+// CSS 애니메이션을 통해 자동으로 수평 스크롤되는 효과를 구현하여 동적인 느낌을 줍니다.
+
 import React from 'react';
 import styles from './TestimonialSection.module.css';
+
+// 고객 후기 데이터 배열
 const testimonials = [
   {
     name: '김○○',
@@ -74,7 +82,9 @@ const testimonials = [
   },
 ];
 
+// --- TestimonialSection Component ---
 const TestimonialSection = () => {
+  // 별점 개수만큼 별(★) 문자를 생성하는 함수
   const renderStars = (count) => {
     let stars = '';
     for (let i = 0; i < count; i++) {
@@ -88,7 +98,13 @@ const TestimonialSection = () => {
       <div className={styles.container}>
         <h2 className={styles.title}>신뢰할 수 있는 파트너, 삐삐 PetPortal</h2>
         <p className={styles.subtitle}>많은 반려인들이 삐삐 PetPortal과 함께하고 있습니다.</p>
+        
+        {/* 수평 스크롤을 위한 래퍼 */}
         <div className={styles.scrollingWrapper}>
+          {/* 
+            후기 카드 그리드.
+            배열을 두 번 렌더링하여 스크롤이 끊기지 않고 자연스럽게 이어지는 것처럼 보이게 합니다.
+          */}
           <div className={styles.grid}>
             {[...testimonials, ...testimonials].map((testimonial, index) => (
               <div key={index} className={styles.card}>

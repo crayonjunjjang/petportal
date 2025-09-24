@@ -1,3 +1,7 @@
+// src/components/admin/AccommodationManagement.jsx
+// 이 파일은 관리자가 숙박 시설 정보를 관리(추가, 수정, 삭제)할 수 있는 컴포넌트입니다.
+// 숙박 시설 목록을 표시하고, 새로운 숙박 시설을 추가하거나 기존 숙박 시설의 정보를 수정 및 삭제하는 기능을 제공합니다.
+
 import React, { useState, useEffect } from 'react';
 import { useAdminAuth } from '../../context/AdminAuthContext';
 import adminStyles from './Admin.module.css';
@@ -52,13 +56,13 @@ const initialAccommodationData = [
   },
 ];
 
-const AccommodationManagement = () => {
-  const { isAdminAuthenticated } = useAdminAuth();
-  const [accommodations, setAccommodations] = useState([]);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
-  const [editingAccommodation, setEditingAccommodation] = useState(null);
-  const [newAccommodation, setNewAccommodation] = useState({
+const AccommodationManagement = () => { // 숙박 시설 관리 컴포넌트 정의
+  const { isAdminAuthenticated } = useAdminAuth(); // 관리자 인증 상태를 가져옵니다.
+  const [accommodations, setAccommodations] = useState([]); // 숙박 시설 목록을 저장하는 상태
+  const [loading, setLoading] = useState(true); // 데이터 로딩 상태
+  const [error, setError] = useState(null); // 에러 메시지 상태
+  const [editingAccommodation, setEditingAccommodation] = useState(null); // 현재 수정 중인 숙박 시설 정보
+  const [newAccommodation, setNewAccommodation] = useState({ // 새로 추가할 숙박 시설 정보
     name: '',
     type: '펜션',
     location: '',
@@ -73,95 +77,95 @@ const AccommodationManagement = () => {
     description: '',
   });
 
-  useEffect(() => {
+  useEffect(() => { // 컴포넌트 마운트 시 초기 데이터를 설정하고 숙박 시설 목록을 불러옵니다.
     mockDataService.initialize('accommodations', initialAccommodationData);
-    if (isAdminAuthenticated) {
+    if (isAdminAuthenticated) { // 관리자 인증 상태일 때만 데이터를 가져옵니다.
       fetchAccommodations();
     }
-  }, [isAdminAuthenticated]);
+  }, [isAdminAuthenticated]); // isAdminAuthenticated가 변경될 때마다 실행됩니다.
 
-  const fetchAccommodations = async () => {
-    setLoading(true);
-    setError(null);
+  const fetchAccommodations = async () => { // 숙박 시설 목록을 비동기적으로 가져오는 함수
+    setLoading(true); // 로딩 상태 시작
+    setError(null); // 에러 상태 초기화
     try {
-      const response = await mockDataService.getAll('accommodations');
+      const response = await mockDataService.getAll('accommodations'); // mockDataService를 통해 숙박 시설 데이터 요청
       if (response.success) {
-        setAccommodations(response.data);
+        setAccommodations(response.data); // 성공 시 숙박 시설 상태 업데이트
       } else {
-        setError(response.message || '숙박 시설 정보를 불러오는데 실패했습니다.');
+        setError(response.message || '숙박 시설 정보를 불러오는데 실패했습니다.'); // 실패 시 에러 메시지 설정
       }
     } catch (err) {
       console.error('Failed to fetch accommodations:', err);
-      setError('숙박 시설 정보를 불러오는데 실패했습니다.');
+      setError('숙박 시설 정보를 불러오는데 실패했습니다.'); // 예외 발생 시 에러 메시지 설정
     } finally {
-      setLoading(false);
+      setLoading(false); // 로딩 상태 종료
     }
   };
 
-  const handleInputChange = (e) => {
+  const handleInputChange = (e) => { // 입력 필드 값 변경을 처리하는 함수
     const { name, value, type, checked } = e.target;
     const actualValue = type === 'checkbox' ? checked : 
                        type === 'number' ? parseFloat(value) || 0 : value;
     
-    if (editingAccommodation) {
+    if (editingAccommodation) { // 수정 중인 숙박 시설이 있을 경우 해당 상태 업데이트
       setEditingAccommodation({ ...editingAccommodation, [name]: actualValue });
-    } else {
+    } else { // 새로운 숙박 시설을 추가 중일 경우 해당 상태 업데이트
       setNewAccommodation({ ...newAccommodation, [name]: actualValue });
     }
   };
 
-  const handleArrayInputChange = (e, index, arrayName) => {
+  const handleArrayInputChange = (e, index, arrayName) => { // 배열 형태의 입력 필드 값 변경을 처리하는 함수 (예: 이미지 URL, 태그)
     const { value } = e.target;
     const currentData = editingAccommodation || newAccommodation;
     const newArray = [...currentData[arrayName]];
     newArray[index] = value;
     
-    if (editingAccommodation) {
+    if (editingAccommodation) { // 수정 중인 숙박 시설의 배열 상태 업데이트
       setEditingAccommodation({ ...editingAccommodation, [arrayName]: newArray });
-    } else {
+    } else { // 새로운 숙박 시설의 배열 상태 업데이트
       setNewAccommodation({ ...newAccommodation, [arrayName]: newArray });
     }
   };
 
-  const addArrayItem = (arrayName) => {
+  const addArrayItem = (arrayName) => { // 배열에 새 항목을 추가하는 함수
     const currentData = editingAccommodation || newAccommodation;
-    const newArray = [...currentData[arrayName], ''];
+    const newArray = [...currentData[arrayName], '']; // 빈 문자열을 추가
     
-    if (editingAccommodation) {
+    if (editingAccommodation) { // 수정 중인 숙박 시설의 배열에 항목 추가
       setEditingAccommodation({ ...editingAccommodation, [arrayName]: newArray });
-    } else {
+    } else { // 새로운 숙박 시설의 배열에 항목 추가
       setNewAccommodation({ ...newAccommodation, [arrayName]: newArray });
     }
   };
 
-  const removeArrayItem = (index, arrayName) => {
+  const removeArrayItem = (index, arrayName) => { // 배열에서 특정 항목을 제거하는 함수
     const currentData = editingAccommodation || newAccommodation;
     const newArray = currentData[arrayName].filter((_, i) => i !== index);
     
-    if (editingAccommodation) {
+    if (editingAccommodation) { // 수정 중인 숙박 시설의 배열에서 항목 제거
       setEditingAccommodation({ ...editingAccommodation, [arrayName]: newArray });
-    } else {
+    } else { // 새로운 숙박 시설의 배열에서 항목 제거
       setNewAccommodation({ ...newAccommodation, [arrayName]: newArray });
     }
   };
 
-  const handleAddAccommodation = async (e) => {
-    e.preventDefault();
-    setError(null);
+  const handleAddAccommodation = async (e) => { // 새 숙박 시설 추가를 처리하는 함수
+    e.preventDefault(); // 폼 제출의 기본 동작 방지
+    setError(null); // 에러 상태 초기화
     try {
       const accommodationToSend = { 
         ...newAccommodation,
         price: parseFloat(newAccommodation.price) || 0,
         rating: parseFloat(newAccommodation.rating) || 4.5,
         maxGuests: parseInt(newAccommodation.maxGuests) || 2,
-        images: newAccommodation.images.filter(img => img.trim() !== ''),
-        tags: newAccommodation.tags.filter(tag => tag.trim() !== '')
+        images: newAccommodation.images.filter(img => img.trim() !== ''), // 빈 이미지 URL 제거
+        tags: newAccommodation.tags.filter(tag => tag.trim() !== '') // 빈 태그 제거
       };
 
-      const response = await mockDataService.create('accommodations', accommodationToSend);
+      const response = await mockDataService.create('accommodations', accommodationToSend); // mockDataService를 통해 숙박 시설 추가 요청
       
       if (response.success) {
-        setNewAccommodation({
+        setNewAccommodation({ // 새 숙박 시설 폼 초기화
           name: '',
           type: '펜션',
           location: '',
@@ -175,71 +179,72 @@ const AccommodationManagement = () => {
           checkOutTime: '11:00',
           description: '',
         });
-        fetchAccommodations();
+        fetchAccommodations(); // 숙박 시설 목록 새로고침
       } else {
-        setError(response.message || '숙박 시설 추가에 실패했습니다.');
+        setError(response.message || '숙박 시설 추가에 실패했습니다.'); // 실패 시 에러 메시지 설정
       }
     } catch (err) {
       console.error('Failed to add accommodation:', err);
-      setError('숙박 시설 추가에 실패했습니다.');
+      setError('숙박 시설 추가에 실패했습니다.'); // 예외 발생 시 에러 메시지 설정
     }
   };
 
-  const handleEditAccommodation = async (e) => {
-    e.preventDefault();
-    setError(null);
-    if (!editingAccommodation) return;
+  const handleEditAccommodation = async (e) => { // 숙박 시설 수정을 처리하는 함수
+    e.preventDefault(); // 폼 제출의 기본 동작 방지
+    setError(null); // 에러 상태 초기화
+    if (!editingAccommodation) return; // 수정 중인 숙박 시설이 없으면 함수 종료
     try {
       const accommodationToSend = { 
         ...editingAccommodation,
         price: parseFloat(editingAccommodation.price) || 0,
         rating: parseFloat(editingAccommodation.rating) || 4.5,
         maxGuests: parseInt(editingAccommodation.maxGuests) || 2,
-        images: editingAccommodation.images.filter(img => img.trim() !== ''),
-        tags: editingAccommodation.tags.filter(tag => tag.trim() !== '')
+        images: editingAccommodation.images.filter(img => img.trim() !== ''), // 빈 이미지 URL 제거
+        tags: editingAccommodation.tags.filter(tag => tag.trim() !== '') // 빈 태그 제거
       };
 
-      const response = await mockDataService.update('accommodations', editingAccommodation.id, accommodationToSend);
+      const response = await mockDataService.update('accommodations', editingAccommodation.id, accommodationToSend); // mockDataService를 통해 숙박 시설 업데이트 요청
       if (response.success) {
-        setEditingAccommodation(null);
-        fetchAccommodations();
+        setEditingAccommodation(null); // 수정 상태 종료
+        fetchAccommodations(); // 숙박 시설 목록 새로고침
       } else {
-        setError(response.message || '숙박 시설 수정에 실패했습니다.');
+        setError(response.message || '숙박 시설 수정에 실패했습니다.'); // 실패 시 에러 메시지 설정
       }
     } catch (err) {
       console.error('Failed to edit accommodation:', err);
-      setError('숙박 시설 수정에 실패했습니다.');
+      setError('숙박 시설 수정에 실패했습니다.'); // 예외 발생 시 에러 메시지 설정
     }
   };
 
-  const handleDeleteAccommodation = async (accommodationId) => {
-    if (!window.confirm('정말로 이 숙박 시설을 삭제하시겠습니까?')) return;
-    setError(null);
+  const handleDeleteAccommodation = async (accommodationId) => { // 숙박 시설 삭제를 처리하는 함수
+    if (!window.confirm('정말로 이 숙박 시설을 삭제하시겠습니까?')) return; // 삭제 확인
+    setError(null); // 에러 상태 초기화
     try {
-      const response = await mockDataService.remove('accommodations', accommodationId);
+      const response = await mockDataService.remove('accommodations', accommodationId); // mockDataService를 통해 숙박 시설 삭제 요청
       if (response.success) {
-        fetchAccommodations();
+        fetchAccommodations(); // 숙박 시설 목록 새로고침
       } else {
-        setError(response.message || '숙박 시설 삭제에 실패했습니다.');
+        setError(response.message || '숙박 시설 삭제에 실패했습니다.'); // 실패 시 에러 메시지 설정
       }
     } catch (err) {
       console.error('Failed to delete accommodation:', err);
-      setError('숙박 시설 삭제에 실패했습니다.');
+      setError('숙박 시설 삭제에 실패했습니다.'); // 예외 발생 시 에러 메시지 설정
     }
   };
 
-  if (loading) {
+  if (loading) { // 로딩 중일 때 표시할 UI
     return <div className={adminStyles.userManagementContainer}>숙박 시설 정보를 불러오는 중...</div>;
   }
 
-  if (error) {
+  if (error) { // 에러 발생 시 표시할 UI
     return <div className={adminStyles.userManagementContainer} style={{ color: 'red' }}>오류: {error}</div>;
   }
 
-  return (
+  return ( // 숙박 시설 관리 페이지의 메인 UI
     <div className={adminStyles.userManagementContainer}>
       <h3>숙박 시설 관리</h3>
 
+      {/* 새 숙박 시설 추가 폼 */}
       <h4>새 숙박 시설 추가</h4>
       <form onSubmit={handleAddAccommodation} className={adminStyles.userForm}>
         <input type="text" name="name" placeholder="시설명" value={newAccommodation.name} onChange={handleInputChange} required />
@@ -303,6 +308,7 @@ const AccommodationManagement = () => {
         <button type="submit" className={adminStyles.userFormButton} style={{ gridColumn: 'span 2' }}>추가</button>
       </form>
 
+      {/* 기존 숙박 시설 목록 */}
       <h4>기존 숙박 시설</h4>
       <table className={adminStyles.userTable}>
         <thead>

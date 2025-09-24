@@ -180,9 +180,9 @@ function AppContent() {
       <Footer /> {/* 애플리케이션 하단 푸터 */}
       
       {/* 프로필 관련 모달들 (전역적으로 렌더링되어 필요 시 표시) */}
-      <UserProfile />
-      <PetProfile />
       <AddPetForm />
+      <PetProfile />
+      <UserProfile />
     </div>
   );
 }

@@ -1,42 +1,56 @@
-import React, { useEffect, useMemo, useState, useCallback } from 'react';
-import CafeMapView from '../components/service/maps/CafeMapView';
-import { Link } from 'react-router-dom';
-import FilterSection from '../components/common/FilterSection';
-import Pagination from '../components/common/Pagination';
-import BusinessCardGrid from '../components/common/BusinessCardGrid';
-import styles from './CafePage.module.css';
-import { useUI } from '../contexts/UIContext';
-import cafeData from '../data/cafe.json';
+// src/pages/CafePage.jsx
 
+// --- 파일 역할: '펫 카페' 목록을 보여주는 페이지 ---
+// 이 컴포넌트는 사용자가 펫 카페를 검색하고 필터링할 수 있는 기능을 제공합니다.
+// 지도 위에 카페 위치를 표시하고, 필터링된 결과를 카드 형태로 보여줍니다.
+// 주요 기능으로는 위치 기반 검색, 운영 시간, 제공 서비스, 예약 필요 여부에 따른 필터링 및 페이지네이션이 있습니다.
+
+import React, { useEffect, useMemo, useState } from 'react';
+import CafeMapView from '../components/service/maps/CafeMapView'; // 카페 지도 뷰 컴포넌트
+import { Link } from 'react-router-dom';
+import FilterSection from '../components/common/FilterSection'; // 필터 섹션 컴포넌트
+import Pagination from '../components/common/Pagination'; // 페이지네이션 컴포넌트
+import BusinessCardGrid from '../components/common/BusinessCardGrid'; // 업체 카드 그리드 컴포넌트
+import styles from './CafePage.module.css'; // 카페 페이지 전용 스타일
+import { useUI } from '../contexts/UIContext'; // 전역 UI 상태 컨텍스트
+import cafeData from '../data/cafe.json'; // 카페 목 데이터
+
+// --- CafePage Component ---
 const CafePage = () => {
-  const { setIsLoading } = useUI();
-  const [userLocation, setUserLocation] = useState(null);
-  const [filters, setFilters] = useState({
-    location: '',
-    startTime: '',
-    endTime: '',
-    services: [],
-    requiresReservation: null
+  // --- STATE & HOOKS (상태 및 훅) ---
+  const { setIsLoading } = useUI(); // 전역 로딩 상태 설정 함수
+  const [userLocation, setUserLocation] = useState(null); // 사용자의 현재 위치
+  const [filters, setFilters] = useState({ // 필터링 조건 상태
+    location: '', // 검색어 (카페명 또는 지역)
+    startTime: '', // 운영 시작 시간
+    endTime: '', // 운영 종료 시간
+    services: [], // 선택된 서비스
+    requiresReservation: null // 예약 필요 여부 (true, false, null)
   });
 
-  const [filteredCafes, setFilteredCafes] = useState([]);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
-  const [currentPage, setCurrentPage] = useState(1);
-  const itemsPerPage = 6;
+  const [filteredCafes, setFilteredCafes] = useState([]); // 필터링된 전체 카페 목록
+  const [loading, setLoading] = useState(true); // 데이터 로딩 상태
+  const [error, setError] = useState(null); // 오류 메시지 상태
+  const [currentPage, setCurrentPage] = useState(1); // 현재 페이지 번호
+  const itemsPerPage = 6; // 페이지 당 보여줄 카페 수
 
+  // --- EFFECTS (데이터 로딩 및 필터링) ---
+
+  // 필터 상태가 변경될 때마다 카페 데이터를 다시 필터링합니다.
   useEffect(() => {
-    // Simulate data fetching and filtering
     setLoading(true);
     setIsLoading(true);
+    // 실제 API 호출을 시뮬레이션하기 위해 setTimeout 사용
     setTimeout(() => {
       let result = cafeData;
 
+      // 위치(검색어) 필터링
       if (filters.location) {
         result = result.filter(cafe =>
           cafe.name.toLowerCase().includes(filters.location.toLowerCase()) ||
           cafe.address.toLowerCase().includes(filters.location.toLowerCase()));
       }
+      // 운영 시간 필터링
       if (filters.startTime && filters.endTime) {
         result = result.filter(cafe => {
           const cafeStart = parseInt((cafe.operatingHours?.start || '0').split(':')[0]);
@@ -46,19 +60,22 @@ const CafePage = () => {
           return cafeStart <= filterStart && cafeEnd >= filterEnd;
         });
       }
+      // 서비스 필터링 (선택된 모든 서비스를 포함해야 함)
       if (filters.services.length > 0) {
         result = result.filter(cafe => filters.services.every(service => (cafe.services || []).includes(service)));
       }
+      // 예약 필요 여부 필터링
       if (filters.requiresReservation !== null) {
         result = result.filter(cafe => cafe.requiresReservation === filters.requiresReservation);
       }
 
-      setFilteredCafes(result);
+      setFilteredCafes(result); // 필터링된 결과로 카페 목록 업데이트
       setLoading(false);
       setIsLoading(false);
-    }, 500);
+    }, 500); // 0.5초 지연
   }, [filters, setIsLoading]);
 
+  // 컴포넌트 마운트 시 사용자의 현재 위치를 가져옵니다.
   useEffect(() => {
     navigator.geolocation?.getCurrentPosition(
       (pos) => setUserLocation({ lat: pos.coords.latitude, lng: pos.coords.longitude }),
@@ -69,12 +86,14 @@ const CafePage = () => {
     );
   }, []);
 
+  // --- PAGINATION & MEMOIZED VALUES (페이지네이션 및 메모이제이션) ---
   const totalPages = Math.ceil(filteredCafes.length / itemsPerPage);
   const currentCafes = filteredCafes.slice(
     (currentPage - 1) * itemsPerPage,
     currentPage * itemsPerPage
   );
 
+  // 필터링된 카페 목록이 변경될 때만 지도 마커를 다시 계산합니다. (성능 최적화)
   const markers = useMemo(() => filteredCafes.map(cafe => ({
     id: cafe.id,
     lat: cafe.lat,
@@ -89,15 +108,17 @@ const CafePage = () => {
     address: cafe.address || '',
   })), [filteredCafes]);
 
+  // --- EVENT HANDLERS (이벤트 처리 함수) ---
   const handleFilterChange = (filterType, value) => {
     setFilters(prev => ({ ...prev, [filterType]: value }));
-    setCurrentPage(1); // Reset to first page on filter change
+    setCurrentPage(1); // 필터 변경 시 1페이지로 리셋
   };
 
   const goToPage = (page) => {
     setCurrentPage(page);
   };
 
+  // --- RENDER (렌더링) ---
   if (error) {
     return <div className={styles.cafeContainer}><div className={styles.statusContainer} style={{ color: 'red' }}>오류: {error.message || '데이터를 불러오는 중 오류가 발생했습니다.'}</div></div>;
   }

@@ -1,3 +1,7 @@
+// src/components/admin/HospitalManagement.jsx
+// 이 파일은 관리자가 동물병원 정보를 관리(추가, 수정, 삭제)할 수 있는 컴포넌트입니다.
+// 동물병원 목록을 표시하고, 새로운 동물병원을 추가하거나 기존 동물병원의 정보를 수정 및 삭제하는 기능을 제공합니다.
+
 import React, { useState, useEffect } from 'react';
 import { useAdminAuth } from '../../context/AdminAuthContext';
 import adminStyles from './Admin.module.css';
@@ -30,13 +34,13 @@ const initialHospitalData = [
   },
 ];
 
-const HospitalManagement = () => {
-  const { isAdminAuthenticated } = useAdminAuth();
-  const [hospitals, setHospitals] = useState([]);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
-  const [editingHospital, setEditingHospital] = useState(null);
-  const [newHospital, setNewHospital] = useState({
+const HospitalManagement = () => { // 동물병원 관리 컴포넌트 정의
+  const { isAdminAuthenticated } = useAdminAuth(); // 관리자 인증 상태를 가져옵니다.
+  const [hospitals, setHospitals] = useState([]); // 동물병원 목록을 저장하는 상태
+  const [loading, setLoading] = useState(true); // 데이터 로딩 상태
+  const [error, setError] = useState(null); // 에러 메시지 상태
+  const [editingHospital, setEditingHospital] = useState(null); // 현재 수정 중인 동물병원 정보
+  const [newHospital, setNewHospital] = useState({ // 새로 추가할 동물병원 정보
     name: '',
     address: '',
     phone: '',
@@ -44,109 +48,110 @@ const HospitalManagement = () => {
     specialties: '',
   });
 
-  useEffect(() => {
+  useEffect(() => { // 컴포넌트 마운트 시 초기 데이터를 설정하고 동물병원 목록을 불러옵니다.
     mockDataService.initialize('hospitals', initialHospitalData);
-    if (isAdminAuthenticated) {
+    if (isAdminAuthenticated) { // 관리자 인증 상태일 때만 데이터를 가져옵니다.
       fetchHospitals();
     }
-  }, [isAdminAuthenticated]);
+  }, [isAdminAuthenticated]); // isAdminAuthenticated가 변경될 때마다 실행됩니다.
 
-  const fetchHospitals = async () => {
-    setLoading(true);
-    setError(null);
+  const fetchHospitals = async () => { // 동물병원 목록을 비동기적으로 가져오는 함수
+    setLoading(true); // 로딩 상태 시작
+    setError(null); // 에러 상태 초기화
     try {
-      const response = await mockDataService.getAll('hospitals');
+      const response = await mockDataService.getAll('hospitals'); // mockDataService를 통해 동물병원 데이터 요청
       if (response.success) {
-        setHospitals(response.data);
+        setHospitals(response.data); // 성공 시 동물병원 상태 업데이트
       } else {
-        setError(response.message || '병원 정보를 불러오는데 실패했습니다.');
+        setError(response.message || '병원 정보를 불러오는데 실패했습니다.'); // 실패 시 에러 메시지 설정
       }
     } catch (err) {
       console.error('Failed to fetch hospitals:', err);
-      setError('병원 정보를 불러오는데 실패했습니다.');
+      setError('병원 정보를 불러오는데 실패했습니다.'); // 예외 발생 시 에러 메시지 설정
     } finally {
-      setLoading(false);
+      setLoading(false); // 로딩 상태 종료
     }
   };
 
-  const handleInputChange = (e) => {
+  const handleInputChange = (e) => { // 입력 필드 값 변경을 처리하는 함수
     const { name, value } = e.target;
-    if (editingHospital) {
+    if (editingHospital) { // 수정 중인 병원이 있을 경우 해당 상태 업데이트
       setEditingHospital({ ...editingHospital, [name]: value });
-    } else {
+    } else { // 새로운 병원을 추가 중일 경우 해당 상태 업데이트
       setNewHospital({ ...newHospital, [name]: value });
     }
   };
 
-  const handleAddHospital = async (e) => {
-    e.preventDefault();
-    setError(null);
+  const handleAddHospital = async (e) => { // 새 동물병원 추가를 처리하는 함수
+    e.preventDefault(); // 폼 제출의 기본 동작 방지
+    setError(null); // 에러 상태 초기화
     try {
-      const response = await mockDataService.create('hospitals', newHospital);
+      const response = await mockDataService.create('hospitals', newHospital); // mockDataService를 통해 동물병원 추가 요청
       if (response.success) {
-        setNewHospital({
+        setNewHospital({ // 새 동물병원 폼 초기화
           name: '',
           address: '',
           phone: '',
           description: '',
           specialties: '',
         });
-        fetchHospitals();
+        fetchHospitals(); // 동물병원 목록 새로고침
       } else {
-        setError(response.message || '병원 추가에 실패했습니다.');
+        setError(response.message || '병원 추가에 실패했습니다.'); // 실패 시 에러 메시지 설정
       }
     } catch (err) {
       console.error('Failed to add hospital:', err);
-      setError('병원 추가에 실패했습니다.');
+      setError('병원 추가에 실패했습니다.'); // 예외 발생 시 에러 메시지 설정
     }
   };
 
-  const handleEditHospital = async (e) => {
-    e.preventDefault();
-    setError(null);
-    if (!editingHospital) return;
+  const handleEditHospital = async (e) => { // 동물병원 수정을 처리하는 함수
+    e.preventDefault(); // 폼 제출의 기본 동작 방지
+    setError(null); // 에러 상태 초기화
+    if (!editingHospital) return; // 수정 중인 병원이 없으면 함수 종료
     try {
-      const response = await mockDataService.update('hospitals', editingHospital.id, editingHospital);
+      const response = await mockDataService.update('hospitals', editingHospital.id, editingHospital); // mockDataService를 통해 동물병원 업데이트 요청
       if (response.success) {
-        setEditingHospital(null);
-        fetchHospitals();
+        setEditingHospital(null); // 수정 상태 종료
+        fetchHospitals(); // 동물병원 목록 새로고침
       } else {
-        setError(response.message || '병원 수정에 실패했습니다.');
+        setError(response.message || '병원 수정에 실패했습니다.'); // 실패 시 에러 메시지 설정
       }
     } catch (err) {
       console.error('Failed to edit hospital:', err);
-      setError('병원 수정에 실패했습니다.');
+      setError('병원 수정에 실패했습니다.'); // 예외 발생 시 에러 메시지 설정
     }
   };
 
-  const handleDeleteHospital = async (hospitalId) => {
-    if (!window.confirm('정말로 이 병원을 삭제하시겠습니까?')) return;
-    setError(null);
+  const handleDeleteHospital = async (hospitalId) => { // 동물병원 삭제를 처리하는 함수
+    if (!window.confirm('정말로 이 병원을 삭제하시겠습니까?')) return; // 삭제 확인
+    setError(null); // 에러 상태 초기화
     try {
-      const response = await mockDataService.remove('hospitals', hospitalId);
+      const response = await mockDataService.remove('hospitals', hospitalId); // mockDataService를 통해 동물병원 삭제 요청
       if (response.success) {
-        fetchHospitals();
+        fetchHospitals(); // 동물병원 목록 새로고침
       } else {
-        setError(response.message || '병원 삭제에 실패했습니다.');
+        setError(response.message || '병원 삭제에 실패했습니다.'); // 실패 시 에러 메시지 설정
       }
     } catch (err) {
       console.error('Failed to delete hospital:', err);
-      setError('병원 삭제에 실패했습니다.');
+      setError('병원 삭제에 실패했습니다.'); // 예외 발생 시 에러 메시지 설정
     }
   };
 
-  if (loading) {
+  if (loading) { // 로딩 중일 때 표시할 UI
     return <div className={adminStyles.userManagementContainer}>병원 정보를 불러오는 중...</div>;
   }
 
-  if (error) {
+  if (error) { // 에러 발생 시 표시할 UI
     return <div className={adminStyles.userManagementContainer} style={{ color: 'red' }}>오류: {error}</div>;
   }
 
-  return (
+  return ( // 동물병원 관리 페이지의 메인 UI
     <div className={adminStyles.userManagementContainer}>
       <h3>병원 관리</h3>
 
+      {/* 새 병원 추가 폼 */}
       <h4>새 병원 추가</h4>
       <form onSubmit={handleAddHospital} className={adminStyles.userForm}>
         <input type="text" name="name" placeholder="병원명" value={newHospital.name} onChange={handleInputChange} required />
@@ -157,6 +162,7 @@ const HospitalManagement = () => {
         <button type="submit" className={adminStyles.userFormButton}>추가</button>
       </form>
 
+      {/* 기존 병원 목록 */}
       <h4>기존 병원</h4>
       <table className={adminStyles.userTable}>
         <thead>

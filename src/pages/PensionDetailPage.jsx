@@ -156,7 +156,7 @@ const PensionDetailPage = () => {
           <div className={styles.bookingBox}>
             <div className={styles.bookingSummary}>
               <div className={styles.price}>
-                <strong>₩{formatPrice(pension.price)}</strong> / 박
+                <strong>₩{formatPrice(pension.price)}</strong> / 1박
               </div>
               <div className={styles.rating}>
                 ⭐ {pension.rating.toFixed(1)}

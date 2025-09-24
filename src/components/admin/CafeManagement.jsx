@@ -1,3 +1,7 @@
+// src/components/admin/CafeManagement.jsx
+// 이 파일은 관리자가 카페 정보를 관리(추가, 수정, 삭제)할 수 있는 컴포넌트입니다.
+// 카페 목록을 표시하고, 새로운 카페를 추가하거나 기존 카페의 정보를 수정 및 삭제하는 기능을 제공합니다.
+
 import React, { useState, useEffect } from 'react';
 import { useAdminAuth } from '../../context/AdminAuthContext';
 import adminStyles from './Admin.module.css';
@@ -167,13 +171,13 @@ const initialCafeData = [
   },
 ];
 
-const CafeManagement = () => {
-  const { isAdminAuthenticated } = useAdminAuth();
-  const [cafes, setCafes] = useState([]);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
-  const [editingCafe, setEditingCafe] = useState(null);
-  const [newCafe, setNewCafe] = useState({
+const CafeManagement = () => { // 카페 관리 컴포넌트 정의
+  const { isAdminAuthenticated } = useAdminAuth(); // 관리자 인증 상태를 가져옵니다.
+  const [cafes, setCafes] = useState([]); // 카페 목록을 저장하는 상태
+  const [loading, setLoading] = useState(true); // 데이터 로딩 상태
+  const [error, setError] = useState(null); // 에러 메시지 상태
+  const [editingCafe, setEditingCafe] = useState(null); // 현재 수정 중인 카페 정보
+  const [newCafe, setNewCafe] = useState({ // 새로 추가할 카페 정보
     name: '',
     address: '',
     phone: '',
@@ -181,109 +185,110 @@ const CafeManagement = () => {
     image: '',
   });
 
-  useEffect(() => {
+  useEffect(() => { // 컴포넌트 마운트 시 초기 데이터를 설정하고 카페 목록을 불러옵니다.
     mockDataService.initialize('cafes', initialCafeData);
-    if (isAdminAuthenticated) {
+    if (isAdminAuthenticated) { // 관리자 인증 상태일 때만 데이터를 가져옵니다.
       fetchCafes();
     }
-  }, [isAdminAuthenticated]);
+  }, [isAdminAuthenticated]); // isAdminAuthenticated가 변경될 때마다 실행됩니다.
 
-  const fetchCafes = async () => {
-    setLoading(true);
-    setError(null);
+  const fetchCafes = async () => { // 카페 목록을 비동기적으로 가져오는 함수
+    setLoading(true); // 로딩 상태 시작
+    setError(null); // 에러 상태 초기화
     try {
-      const response = await mockDataService.getAll('cafes');
+      const response = await mockDataService.getAll('cafes'); // mockDataService를 통해 카페 데이터 요청
       if (response.success) {
-        setCafes(response.data);
+        setCafes(response.data); // 성공 시 카페 상태 업데이트
       } else {
-        setError(response.message || '카페 정보를 불러오는데 실패했습니다.');
+        setError(response.message || '카페 정보를 불러오는데 실패했습니다.'); // 실패 시 에러 메시지 설정
       }
     } catch (err) {
       console.error('Failed to fetch cafes:', err);
-      setError('카페 정보를 불러오는데 실패했습니다.');
+      setError('카페 정보를 불러오는데 실패했습니다.'); // 예외 발생 시 에러 메시지 설정
     } finally {
-      setLoading(false);
+      setLoading(false); // 로딩 상태 종료
     }
   };
 
-  const handleInputChange = (e) => {
+  const handleInputChange = (e) => { // 입력 필드 값 변경을 처리하는 함수
     const { name, value } = e.target;
-    if (editingCafe) {
+    if (editingCafe) { // 수정 중인 카페가 있을 경우 해당 상태 업데이트
       setEditingCafe({ ...editingCafe, [name]: value });
-    } else {
+    } else { // 새로운 카페를 추가 중일 경우 해당 상태 업데이트
       setNewCafe({ ...newCafe, [name]: value });
     }
   };
 
-  const handleAddCafe = async (e) => {
-    e.preventDefault();
-    setError(null);
+  const handleAddCafe = async (e) => { // 새 카페 추가를 처리하는 함수
+    e.preventDefault(); // 폼 제출의 기본 동작 방지
+    setError(null); // 에러 상태 초기화
     try {
-      const response = await mockDataService.create('cafes', newCafe);
+      const response = await mockDataService.create('cafes', newCafe); // mockDataService를 통해 카페 추가 요청
       if (response.success) {
-        setNewCafe({
+        setNewCafe({ // 새 카페 폼 초기화
           name: '',
           address: '',
           phone: '',
           description: '',
           image: '',
         });
-        fetchCafes();
+        fetchCafes(); // 카페 목록 새로고침
       } else {
-        setError(response.message || '카페 추가에 실패했습니다.');
+        setError(response.message || '카페 추가에 실패했습니다.'); // 실패 시 에러 메시지 설정
       }
     } catch (err) {
       console.error('Failed to add cafe:', err);
-      setError('카페 추가에 실패했습니다.');
+      setError('카페 추가에 실패했습니다.'); // 예외 발생 시 에러 메시지 설정
     }
   };
 
-  const handleEditCafe = async (e) => {
-    e.preventDefault();
-    setError(null);
-    if (!editingCafe) return;
+  const handleEditCafe = async (e) => { // 카페 수정을 처리하는 함수
+    e.preventDefault(); // 폼 제출의 기본 동작 방지
+    setError(null); // 에러 상태 초기화
+    if (!editingCafe) return; // 수정 중인 카페가 없으면 함수 종료
     try {
-      const response = await mockDataService.update('cafes', editingCafe.id, editingCafe);
+      const response = await mockDataService.update('cafes', editingCafe.id, editingCafe); // mockDataService를 통해 카페 업데이트 요청
       if (response.success) {
-        setEditingCafe(null);
-        fetchCafes();
+        setEditingCafe(null); // 수정 상태 종료
+        fetchCafes(); // 카페 목록 새로고침
       } else {
-        setError(response.message || '카페 수정에 실패했습니다.');
+        setError(response.message || '카페 수정에 실패했습니다.'); // 실패 시 에러 메시지 설정
       }
     } catch (err) {
       console.error('Failed to edit cafe:', err);
-      setError('카페 수정에 실패했습니다.');
+      setError('카페 수정에 실패했습니다.'); // 예외 발생 시 에러 메시지 설정
     }
   };
 
-  const handleDeleteCafe = async (cafeId) => {
-    if (!window.confirm('정말로 이 카페를 삭제하시겠습니까?')) return;
-    setError(null);
+  const handleDeleteCafe = async (cafeId) => { // 카페 삭제를 처리하는 함수
+    if (!window.confirm('정말로 이 카페를 삭제하시겠습니까?')) return; // 삭제 확인
+    setError(null); // 에러 상태 초기화
     try {
-      const response = await mockDataService.remove('cafes', cafeId);
+      const response = await mockDataService.remove('cafes', cafeId); // mockDataService를 통해 카페 삭제 요청
       if (response.success) {
-        fetchCafes();
+        fetchCafes(); // 카페 목록 새로고침
       } else {
-        setError(response.message || '카페 삭제에 실패했습니다.');
+        setError(response.message || '카페 삭제에 실패했습니다.'); // 실패 시 에러 메시지 설정
       }
     } catch (err) {
       console.error('Failed to delete cafe:', err);
-      setError('카페 삭제에 실패했습니다.');
+      setError('카페 삭제에 실패했습니다.'); // 예외 발생 시 에러 메시지 설정
     }
   };
 
-  if (loading) {
+  if (loading) { // 로딩 중일 때 표시할 UI
     return <div className={adminStyles.userManagementContainer}>카페 정보를 불러오는 중...</div>;
   }
 
-  if (error) {
+  if (error) { // 에러 발생 시 표시할 UI
     return <div className={adminStyles.userManagementContainer} style={{ color: 'red' }}>오류: {error}</div>;
   }
 
-  return (
+  return ( // 카페 관리 페이지의 메인 UI
     <div className={adminStyles.userManagementContainer}>
       <h3>카페 관리</h3>
 
+      {/* 새 카페 추가 폼 */}
       <h4>새 카페 추가</h4>
       <form onSubmit={handleAddCafe} className={adminStyles.userForm}>
         <input type="text" name="name" placeholder="카페명" value={newCafe.name} onChange={handleInputChange} required />
@@ -294,6 +299,7 @@ const CafeManagement = () => {
         <button type="submit" className={adminStyles.userFormButton}>추가</button>
       </form>
 
+      {/* 기존 카페 목록 */}
       <h4>기존 카페</h4>
       <table className={adminStyles.userTable}>
         <thead>
